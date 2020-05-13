@@ -3677,3 +3677,727 @@ Processing by BooksController#index as HTML
 Completed 200 OK in 27ms (Views: 9.3ms | ActiveRecord: 0.3ms | Allocations: 7943)
 
 
+Started GET "/" for ::1 at 2020-05-13 18:18:43 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 287)
+[Webpacker] Compiling...
+Started GET "/books" for ::1 at 2020-05-13 18:18:46 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  Rendered books/index.html.erb within layouts/application (Duration: 22.5ms | Allocations: 12782)
+[Webpacker] Compiling...
+Started GET "/" for ::1 at 2020-05-13 18:18:48 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: 4506d65db72f5d642abf
+Version: webpack 4.43.0
+Time: 12035ms
+Built at: 13/05/2020 18:19:00
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+    js/hello_react-157c3c6f5be717116161.js   1.05 MiB  hello_react  [emitted] [immutable]  hello_react
+js/hello_react-157c3c6f5be717116161.js.map   1.21 MiB  hello_react  [emitted] [dev]        hello_react
+                             manifest.json  703 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint hello_react = js/hello_react-157c3c6f5be717116161.js js/hello_react-157c3c6f5be717116161.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/hello_react.jsx] 1.08 KiB {hello_react} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 18 hidden modules
+
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: 4506d65db72f5d642abf
+Version: webpack 4.43.0
+Time: 11867ms
+Built at: 13/05/2020 18:19:00
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+    js/hello_react-157c3c6f5be717116161.js   1.05 MiB  hello_react  [emitted] [immutable]  hello_react
+js/hello_react-157c3c6f5be717116161.js.map   1.21 MiB  hello_react  [emitted] [dev]        hello_react
+                             manifest.json  703 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint hello_react = js/hello_react-157c3c6f5be717116161.js js/hello_react-157c3c6f5be717116161.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/hello_react.jsx] 1.08 KiB {hello_react} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 18 hidden modules
+
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: 4506d65db72f5d642abf
+Version: webpack 4.43.0
+Time: 10067ms
+Built at: 13/05/2020 18:19:00
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+    js/hello_react-157c3c6f5be717116161.js   1.05 MiB  hello_react  [emitted] [immutable]  hello_react
+js/hello_react-157c3c6f5be717116161.js.map   1.21 MiB  hello_react  [emitted] [dev]        hello_react
+                             manifest.json  703 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint hello_react = js/hello_react-157c3c6f5be717116161.js js/hello_react-157c3c6f5be717116161.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/hello_react.jsx] 1.08 KiB {hello_react} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 18 hidden modules
+
+Completed 200 OK in 12080ms (Views: 12076.5ms | ActiveRecord: 0.2ms | Allocations: 8359)
+
+
+Completed 200 OK in 16659ms (Views: 16635.5ms | ActiveRecord: 1.3ms | Allocations: 51200)
+
+
+Completed 200 OK in 14210ms (Views: 14199.7ms | ActiveRecord: 1.6ms | Allocations: 33710)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:19:16 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 0.2ms | Allocations: 5132)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:20:46 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: eeb807348f3c91900201
+Version: webpack 4.43.0
+Time: 1555ms
+Built at: 13/05/2020 18:20:48
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+    js/hello_react-2fa1f547e2a6125c9ee9.js   1.05 MiB  hello_react  [emitted] [immutable]  hello_react
+js/hello_react-2fa1f547e2a6125c9ee9.js.map   1.21 MiB  hello_react  [emitted] [dev]        hello_react
+                             manifest.json  703 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint hello_react = js/hello_react-2fa1f547e2a6125c9ee9.js js/hello_react-2fa1f547e2a6125c9ee9.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/hello_react.jsx] 1.05 KiB {hello_react} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 18 hidden modules
+
+Completed 200 OK in 2903ms (Views: 2898.3ms | ActiveRecord: 0.2ms | Allocations: 6361)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:21:43 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 82)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: adbc0491559fdadccd30
+Version: webpack 4.43.0
+Time: 1604ms
+Built at: 13/05/2020 18:21:46
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-c8d6b3b735c62185b148.js   1.05 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-c8d6b3b735c62185b148.js.map   1.21 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-c8d6b3b735c62185b148.js js/sharedlib-c8d6b3b735c62185b148.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 1.05 KiB {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 18 hidden modules
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3021ms (Views: 3017.0ms | ActiveRecord: 0.1ms | Allocations: 8974)
+
+
+Started GET "/books" for ::1 at 2020-05-13 18:22:32 -0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  Rendered books/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1820)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 13.8ms | ActiveRecord: 0.4ms | Allocations: 9484)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:26:05 -0300
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 77)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: f9141c9a64c006a50d92
+Version: webpack 4.43.0
+Time: 1565ms
+Built at: 13/05/2020 18:26:07
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-75b31a50996b9ecf6f53.js   1.02 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-75b31a50996b9ecf6f53.js.map   1.18 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-75b31a50996b9ecf6f53.js js/sharedlib-75b31a50996b9ecf6f53.js.map
+[./app/javascript/app.js] 556 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 713 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 14 hidden modules
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2950ms (Views: 2946.7ms | ActiveRecord: 0.1ms | Allocations: 9002)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:40:33 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+Started GET "/" for ::1 at 2020-05-13 18:40:37 -0300
+[Webpacker] Compilation failed:
+Hash: ebacf7e14f81efa05b5c
+Version: webpack 4.43.0
+Time: 2972ms
+Built at: 13/05/2020 18:40:38
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-f24f8343b58f9582a376.js   1.16 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-f24f8343b58f9582a376.js.map   1.32 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-f24f8343b58f9582a376.js js/sharedlib-f24f8343b58f9582a376.js.map
+[./app/javascript/app.js] 792 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 713 bytes {sharedlib} [built]
+[./app/javascript/routes.js] 946 bytes {sharedlib} [built]
+[./app/javascript/screens/HomeScreen.js] 592 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 32 hidden modules
+
+ERROR in ./app/javascript/app.js 23:38-44
+"export 'default' (imported as 'Routes') was not found in './routes'
+ @ ./app/javascript/packs/sharedlib.jsx
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 4447ms (Views: 4446.2ms | ActiveRecord: 0.0ms | Allocations: 7323)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 5490)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:41:20 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 5278)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:42:23 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 5444)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:54:08 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 200)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 17acec194a08a5fb456a
+Version: webpack 4.43.0
+Time: 1779ms
+Built at: 13/05/2020 18:54:11
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-f31c14721698ded246a9.js   1.16 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-f31c14721698ded246a9.js.map   1.32 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-f31c14721698ded246a9.js js/sharedlib-f31c14721698ded246a9.js.map
+[./app/javascript/app.js] 964 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 713 bytes {sharedlib} [built]
+[./app/javascript/routes.js] 946 bytes {sharedlib} [built]
+[./app/javascript/screens/HomeScreen.js] 592 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 32 hidden modules
+
+ERROR in ./app/javascript/app.js 30:48-54
+"export 'default' (imported as 'Routes') was not found in './routes'
+ @ ./app/javascript/packs/sharedlib.jsx
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3128ms (Views: 3123.1ms | ActiveRecord: 0.0ms | Allocations: 12273)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:54:21 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 5)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 39ad91a99d22fcadd2c8
+Version: webpack 4.43.0
+Time: 1806ms
+Built at: 13/05/2020 18:54:24
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-4286871c3e61ae7ca9ae.js   1.16 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-4286871c3e61ae7ca9ae.js.map   1.32 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-4286871c3e61ae7ca9ae.js js/sharedlib-4286871c3e61ae7ca9ae.js.map
+[./app/javascript/app.js] 964 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 713 bytes {sharedlib} [built]
+[./app/javascript/routes.js] 946 bytes {sharedlib} [built]
+[./app/javascript/screens/HomeScreen.js] 592 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 32 hidden modules
+
+ERROR in ./app/javascript/app.js 30:38-44
+"export 'default' (imported as 'Routes') was not found in './routes'
+ @ ./app/javascript/packs/sharedlib.jsx
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3148ms (Views: 3147.3ms | ActiveRecord: 0.0ms | Allocations: 6487)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:54:43 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 63faca7544ff8586eab2
+Version: webpack 4.43.0
+Time: 1802ms
+Built at: 13/05/2020 18:54:46
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-eec8251aafeb777c89bf.js   1.16 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-eec8251aafeb777c89bf.js.map   1.32 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-eec8251aafeb777c89bf.js js/sharedlib-eec8251aafeb777c89bf.js.map
+[./app/javascript/app.js] 964 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 735 bytes {sharedlib} [built]
+[./app/javascript/routes.js] 946 bytes {sharedlib} [built]
+[./app/javascript/screens/HomeScreen.js] 592 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 32 hidden modules
+
+ERROR in ./app/javascript/app.js 30:38-44
+"export 'default' (imported as 'Routes') was not found in './routes'
+ @ ./app/javascript/packs/sharedlib.jsx
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3164ms (Views: 3162.7ms | ActiveRecord: 0.0ms | Allocations: 6486)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:55:33 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: 490574fa4d269f9a5ed4
+Version: webpack 4.43.0
+Time: 1786ms
+Built at: 13/05/2020 18:55:36
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-80d998cd27abbafcfd37.js   1.16 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-80d998cd27abbafcfd37.js.map   1.32 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-80d998cd27abbafcfd37.js js/sharedlib-80d998cd27abbafcfd37.js.map
+[./app/javascript/app.js] 792 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 735 bytes {sharedlib} [built]
+[./app/javascript/routes.js] 970 bytes {sharedlib} [built]
+[./app/javascript/screens/HomeScreen.js] 592 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 32 hidden modules
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3143ms (Views: 3141.8ms | ActiveRecord: 0.0ms | Allocations: 6560)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:56:10 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: 300dc83315a7aca2945b
+Version: webpack 4.43.0
+Time: 1862ms
+Built at: 13/05/2020 18:56:14
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-3f47dc8dae17ba048a51.js   1.16 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-3f47dc8dae17ba048a51.js.map   1.32 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-3f47dc8dae17ba048a51.js js/sharedlib-3f47dc8dae17ba048a51.js.map
+[./app/javascript/app.js] 792 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 714 bytes {sharedlib} [built]
+[./app/javascript/routes.js] 970 bytes {sharedlib} [built]
+[./app/javascript/screens/HomeScreen.js] 592 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 32 hidden modules
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3269ms (Views: 3268.3ms | ActiveRecord: 0.0ms | Allocations: 6565)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:57:16 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: 5e3493ab2ffce7928d87
+Version: webpack 4.43.0
+Time: 1712ms
+Built at: 13/05/2020 18:57:19
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-b32ee4a3ec034530ed69.js   1.16 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-b32ee4a3ec034530ed69.js.map   1.32 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-b32ee4a3ec034530ed69.js js/sharedlib-b32ee4a3ec034530ed69.js.map
+[./app/javascript/app.js] 792 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 713 bytes {sharedlib} [built]
+[./app/javascript/routes.js] 970 bytes {sharedlib} [built]
+[./app/javascript/screens/HomeScreen.js] 592 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 32 hidden modules
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3038ms (Views: 3037.6ms | ActiveRecord: 0.0ms | Allocations: 6566)
+
+
+Started GET "/teste" for ::1 at 2020-05-13 18:57:54 -0300
+Processing by HomeController#index as HTML
+  Parameters: {"path"=>"teste"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 9.6ms | ActiveRecord: 0.8ms | Allocations: 17001)
+
+
+Started GET "/books" for ::1 at 2020-05-13 18:57:59 -0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  Rendered books/index.html.erb within layouts/application (Duration: 28.7ms | Allocations: 12613)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 52ms (Views: 39.6ms | ActiveRecord: 2.1ms | Allocations: 22694)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:59:27 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: b9094992e308573960af
+Version: webpack 4.43.0
+Time: 1826ms
+Built at: 13/05/2020 18:59:30
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-b56447beb6ef91777324.js   1.16 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-b56447beb6ef91777324.js.map   1.32 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-b56447beb6ef91777324.js js/sharedlib-b56447beb6ef91777324.js.map
+[./app/javascript/app.js] 621 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 713 bytes {sharedlib} [built]
+[./app/javascript/routes.js] 970 bytes {sharedlib} [built]
+[./app/javascript/screens/HomeScreen.js] 592 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 32 hidden modules
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3182ms (Views: 3180.5ms | ActiveRecord: 0.0ms | Allocations: 6567)
+
+
+Started GET "/" for ::1 at 2020-05-13 18:59:48 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: 5e3493ab2ffce7928d87
+Version: webpack 4.43.0
+Time: 1777ms
+Built at: 13/05/2020 18:59:51
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-b32ee4a3ec034530ed69.js   1.16 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-b32ee4a3ec034530ed69.js.map   1.32 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-b32ee4a3ec034530ed69.js js/sharedlib-b32ee4a3ec034530ed69.js.map
+[./app/javascript/app.js] 792 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 713 bytes {sharedlib} [built]
+[./app/javascript/routes.js] 970 bytes {sharedlib} [built]
+[./app/javascript/screens/HomeScreen.js] 592 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 32 hidden modules
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3228ms (Views: 3227.3ms | ActiveRecord: 0.0ms | Allocations: 6551)
+
+
+Started GET "/" for ::1 at 2020-05-13 19:01:38 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: 9adf45c6d418fe64c666
+Version: webpack 4.43.0
+Time: 4970ms
+Built at: 13/05/2020 19:01:45
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-3eb249cd93c7667c5627.js   1.62 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-3eb249cd93c7667c5627.js.map   1.86 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-3eb249cd93c7667c5627.js js/sharedlib-3eb249cd93c7667c5627.js.map
+[./app/javascript/app.js] 792 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 713 bytes {sharedlib} [built]
+[./app/javascript/routes.js] 970 bytes {sharedlib} [built]
+[./app/javascript/screens/HomeScreen.js] 813 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {sharedlib} [built]
+    + 33 hidden modules
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6326ms (Views: 6324.9ms | ActiveRecord: 0.0ms | Allocations: 6570)
+
+
+Started GET "/" for ::1 at 2020-05-13 19:02:55 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: 5fc9bd16361be4b27d8f
+Version: webpack 4.43.0
+Time: 4518ms
+Built at: 13/05/2020 19:03:01
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-423b9eec8c919b4dd888.js   2.08 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-423b9eec8c919b4dd888.js.map   2.31 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-423b9eec8c919b4dd888.js js/sharedlib-423b9eec8c919b4dd888.js.map
+[./app/javascript/app.js] 862 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 713 bytes {sharedlib} [built]
+[./app/javascript/routes.js] 970 bytes {sharedlib} [built]
+[./app/javascript/screens/HomeScreen.js] 813 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {sharedlib} [built]
+    + 37 hidden modules
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 5908ms (Views: 5906.6ms | ActiveRecord: 0.0ms | Allocations: 6572)
+
+
+Started GET "/" for ::1 at 2020-05-13 19:03:11 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: 677ec241e26a4ca59ac5
+Version: webpack 4.43.0
+Time: 2024ms
+Built at: 13/05/2020 19:03:14
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-15f9406655b1d666beee.js   1.62 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-15f9406655b1d666beee.js.map   1.86 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-15f9406655b1d666beee.js js/sharedlib-15f9406655b1d666beee.js.map
+[./app/javascript/app.js] 865 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 713 bytes {sharedlib} [built]
+[./app/javascript/routes.js] 970 bytes {sharedlib} [built]
+[./app/javascript/screens/HomeScreen.js] 813 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {sharedlib} [built]
+    + 33 hidden modules
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 3376ms (Views: 3374.6ms | ActiveRecord: 0.0ms | Allocations: 6562)
+
+
+Started GET "/" for ::1 at 2020-05-13 19:03:21 -0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/guerrero/Documentos/TecProg II/SharedLib/public/packs
+[Webpacker] Hash: 5fc9bd16361be4b27d8f
+Version: webpack 4.43.0
+Time: 3193ms
+Built at: 13/05/2020 19:03:25
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+      js/sharedlib-423b9eec8c919b4dd888.js   2.08 MiB    sharedlib  [emitted] [immutable]  sharedlib
+  js/sharedlib-423b9eec8c919b4dd888.js.map   2.31 MiB    sharedlib  [emitted] [dev]        sharedlib
+                             manifest.json  689 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+Entrypoint sharedlib = js/sharedlib-423b9eec8c919b4dd888.js js/sharedlib-423b9eec8c919b4dd888.js.map
+[./app/javascript/app.js] 862 bytes {sharedlib} [built]
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./app/javascript/packs/sharedlib.jsx] 713 bytes {sharedlib} [built]
+[./app/javascript/routes.js] 970 bytes {sharedlib} [built]
+[./app/javascript/screens/HomeScreen.js] 813 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {sharedlib} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} {sharedlib} [built]
+    + 37 hidden modules
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 4560ms (Views: 4558.9ms | ActiveRecord: 0.0ms | Allocations: 6567)
+
+
+Started GET "/books" for ::1 at 2020-05-13 19:07:42 -0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  Rendered books/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1514)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 0.4ms | Allocations: 8225)
+
+

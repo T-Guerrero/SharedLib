@@ -9,6 +9,16 @@
       "js.map": [
         "/packs/js/application-9afcbb5693aa87623e69.js.map"
       ]
+    },
+    "sharedlib": {
+      "js": [
+        "/packs/js/sharedlib-423b9eec8c919b4dd888.js"
+      ],
+      "js.map": [
+        "/packs/js/sharedlib-423b9eec8c919b4dd888.js.map"
+      ]
     }
-  }
+  },
+  "sharedlib.js": "/packs/js/sharedlib-423b9eec8c919b4dd888.js",
+  "sharedlib.js.map": "/packs/js/sharedlib-423b9eec8c919b4dd888.js.map"
 }

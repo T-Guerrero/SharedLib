@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :categories
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "home#index"
+
+  get "*path", to: "home#index", :constraints => lambda{|req| req.path !~ /\.(png|jpg|js|css|json)$/ }
 end
