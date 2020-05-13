@@ -1,6 +1,9 @@
 # SharedLib
-
+- [Sobre](#Sobre)
 - [Desenvolvimento](#Desenvolvimento)
+- [Contribuições](#Contribuições)
+## Sobre
+`In progress...`
 
 ## Desenvolvimento
 
@@ -15,3 +18,6 @@ Para executar o `Rails Server` use:
 #Terminal
 $> rails server
 ```
+
+## Contribuições
+`In progress...`
