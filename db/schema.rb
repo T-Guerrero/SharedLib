@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_05_12_200454) do
 
   create_table "books", force: :cascade do |t|
     t.string "name"
-    t.string "autor"
+    t.string "author"
     t.boolean "borrowed"
     t.integer "category_id", null: false
     t.integer "user_id", null: false
@@ -25,11 +25,12 @@ ActiveRecord::Schema.define(version: 2020_05_12_200454) do
   end
 
   create_table "borrowings", force: :cascade do |t|
-    t.date "time"
-    t.string "book"
+    t.datetime "time"
+    t.integer "book_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_borrowings_on_book_id"
     t.index ["user_id"], name: "index_borrowings_on_user_id"
   end
 
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_05_12_200454) do
 
   add_foreign_key "books", "categories"
   add_foreign_key "books", "users"
+  add_foreign_key "borrowings", "books"
   add_foreign_key "borrowings", "users"
   add_foreign_key "interests", "books"
   add_foreign_key "interests", "users"
