@@ -19,5 +19,11 @@ Para executar o `Rails Server` use:
 $> rails server
 ```
 
+Para executar o `Rails Console` use:
+```bash
+#Terminal
+$> rails c
+```
+
 ## Contribuições
 `In progress...`
