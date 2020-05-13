@@ -10,5 +10,20 @@
   <%= @book.author %>
 </p>
 
+<p>
+  <strong>Borrowed:</strong>
+  <%= @book.borrowed %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @book.category.name %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @book.user.email %>
+</p>
+
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  autor: MyString
+  author: MyString
   borrowed: false
   category: one
   user: one
 
 two:
   name: MyString
-  autor: MyString
+  author: MyString
   borrowed: false
   category: two
   user: two

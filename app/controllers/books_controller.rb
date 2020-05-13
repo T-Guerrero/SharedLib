@@ -16,8 +16,8 @@ class BooksController < ApplicationController
     end
 
     def create
-        @category = Category.first
         @book = Book.new(book_params)
+        @category = Category.first
         @book.category = @category
         @book.user = current_user
         @book.borrowed = false
@@ -35,6 +35,7 @@ class BooksController < ApplicationController
     def destroy
         @book = Book.find(params[:id])
         @book.destroy
+        redirect_to books_path
     end
 end
 

@@ -7,7 +7,6 @@ class Book < ApplicationRecord
   has_one_attached :image
 
   validates :name, presence: true
-  validates :autor, presence: true
-  validates :borrowed, presence: true
+  validates :author, presence: true
 
 end
