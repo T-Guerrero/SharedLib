@@ -17,8 +17,6 @@ class BooksController < ApplicationController
 
     def create
         @book = Book.new(book_params)
-        @category = Category.first
-        @book.category = @category
         @book.user = current_user
         @book.borrowed = false
         if @book.save
@@ -30,6 +28,11 @@ class BooksController < ApplicationController
 
     def update
         @book = Book.find(params[:id])
+        if (@book.update(book_params))
+            redirect_to @book
+        else
+            render 'edit'
+        end
     end
 
     def destroy
@@ -42,5 +45,5 @@ end
 private
 
     def book_params
-        params.require(:book).permit(:name, :author)
+        params.require(:book).permit(:name, :author, :category_id)
     end

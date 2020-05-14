@@ -22,9 +22,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
+    <%= form.label :category_id %>
+    <%= collection_select(:book, :category_id, Category.all, :id, :name, {}, { :multiple => false}) %>
   </div>
+
+  <div>
 
   <div class="actions">
     <%= form.submit %>
