@@ -1,11 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<% unless @book.image.blank?%>
 <p>
   <strong>Image:</strong>
   <div style="width:100%">
     <%= image_tag(@book.image) %>
   </div>
 </p>
+<%end%>
 
 <p>
   <strong>Name:</strong>
@@ -32,5 +34,26 @@
   <%= @book.user.email %>
 </p>
 
+<%= link_to 'Interest', book_interests_path(@book), method: :post%><br>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Book Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book.interests.each do |interest| %>
+      <tr>
+        <td><%= interest.user.email %></td>
+        <td><%= interest.book.name %></td>
+        <td><%= link_to 'Destroy', "/books/#{@book.id}/interests/#{interest.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

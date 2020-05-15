@@ -3,7 +3,7 @@ class Book < ApplicationRecord
   belongs_to :user
 
   has_one :borrowing
-  has_many :interest
+  has_many :interests, dependent: :destroy
   has_one_attached :image
 
   validates :name, presence: true
