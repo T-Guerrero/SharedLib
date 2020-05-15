@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Image:</strong>
+  <div style="width:100%">
+    <%= image_tag(@book.image) %>
+  </div>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @book.name %>
 </p>
