@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
     def index
         load_my_books
+        load_my_interests
     end
 
     private
@@ -9,15 +10,16 @@ class DashboardController < ApplicationController
         @my_books = current_user.books
     end
 
-    def my_borrowings
+    def load_my_borrowings
 
 
     end
 
-    def my_interests
-        # current_user.Interests
+    def load_my_interests
+        @my_interests = current_user.interests
     end
 
-    def others_interests
+    def load_others_interests
+
     end
 end

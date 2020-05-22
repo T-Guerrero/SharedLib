@@ -25,14 +25,14 @@ quimica = Category.create(name: 'Química')
 ############################## LIVROS ##############################
 
 # Pena
-pena_guidorizziV1 = Book.create(
+pena_guidorizzi1 = Book.create(
     name: 'Um Curso De Cálculo Vol. 1',
     author: 'Guidorizzi, Hamilton Luiz',
     edition: '5ª Ed. 2011',
     category: matematica,
     user: pena
 )
-pena_guidorizziV1.image.attach(io: File.open("#{tmp_dir}/seed_files/guidorizziV1.jpg"), filename: "guidorizziV1.jpg")
+pena_guidorizzi1.image.attach(io: File.open("#{tmp_dir}/seed_files/guidorizziV1.jpg"), filename: "guidorizziV1.jpg")
 
 pena_franca = Book.create(
     name: 'Mecânica Geral',
@@ -54,17 +54,28 @@ guerrero_algorithms = Book.create(
 guerrero_algorithms.image.attach(io: File.open("#{tmp_dir}/seed_files/sedgewick.jpg"), filename: "sedgewick.jpg")
 
 # Guerrero
-carol_apostolV2 = Book.create(
+carol_apostol2 = Book.create(
     name: 'Calculo Vol. 2',
     author: 'Apostol, Tom M.',
     edition: '2ª Ed. 2018',
     category: matematica,
     user: carol
 )
-carol_apostolV2.image.attach(io: File.open("#{tmp_dir}/seed_files/apostolV2.jpg"), filename: "apostolV2.jpg")
-
-############################## EMPRÉSTIMOS ##############################
-
-
+carol_apostol2.image.attach(io: File.open("#{tmp_dir}/seed_files/apostolV2.jpg"), filename: "apostolV2.jpg")
 
 ############################## INTERESSES ##############################
+
+# Pena
+pena.interests << Interest.new(book: guerrero_algorithms)
+pena.interests << Interest.new(book: carol_apostol2)
+
+# Guerrero
+guerrero.interests << Interest.new(book: pena_guidorizzi1)
+guerrero.interests << Interest.new(book: carol_apostol2)
+
+# Guerrero
+carol.interests << Interest.new(book: pena_franca)
+carol.interests << Interest.new(book: guerrero_algorithms)
+
+
+############################## EMPRÉSTIMOS ##############################
