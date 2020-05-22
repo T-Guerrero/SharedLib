@@ -19169,3 +19169,524 @@ Processing by CategoriesController#index as HTML
 Completed 200 OK in 70ms (Views: 58.8ms | ActiveRecord: 0.4ms | Allocations: 11634)
 
 
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+Started GET "/categories" for 127.0.0.1 at 2020-05-21 22:45:23 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:14
+  Rendered categories/index.html.erb within layouts/application (Duration: 22.9ms | Allocations: 4365)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1508ms (Views: 1236.3ms | ActiveRecord: 0.5ms | Allocations: 43961)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-05-21 22:45:43 -0300
+Processing by DashboardController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dashboard/index.json.jbuilder
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/dashboard/index.json.jbuilder:1
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Book"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/dashboard/index.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/dashboard/index.json.jbuilder:5
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Book"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/dashboard/index.json.jbuilder:5
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/dashboard/index.json.jbuilder:5
+  Rendered dashboard/index.json.jbuilder (Duration: 184.8ms | Allocations: 25058)
+Completed 200 OK in 237ms (Views: 198.0ms | ActiveRecord: 1.7ms | Allocations: 30988)
+
+
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/dashboard" for 127.0.0.1 at 2020-05-21 22:48:08 -0300
+Processing by DashboardController#index as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dashboard/index.json.jbuilder
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/dashboard/index.json.jbuilder:1
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/dashboard/index.json.jbuilder:6
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Book"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/dashboard/index.json.jbuilder:7
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/dashboard/index.json.jbuilder:7
+  [1m[36mCategory Load (6.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/dashboard/index.json.jbuilder:6
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Book"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/dashboard/index.json.jbuilder:7
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/dashboard/index.json.jbuilder:7
+  Rendered dashboard/index.json.jbuilder (Duration: 33.1ms | Allocations: 7567)
+Completed 200 OK in 46ms (Views: 30.7ms | ActiveRecord: 7.8ms | Allocations: 10938)
+
+
+Started GET "/categories/8" for 127.0.0.1 at 2020-05-21 22:49:20 -0300
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (Duration: 62.8ms | Allocations: 242)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 111ms (Views: 97.0ms | ActiveRecord: 0.3ms | Allocations: 10656)
+
+
+Started GET "/categories" for 127.0.0.1 at 2020-05-21 22:49:22 -0300
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:14
+  Rendered categories/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1919)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 45.6ms | ActiveRecord: 0.3ms | Allocations: 10810)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2020-05-21 22:49:24 -0300
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 30.5ms | ActiveRecord: 0.3ms | Allocations: 9367)
+
+
+Started GET "/categories" for 127.0.0.1 at 2020-05-21 22:49:26 -0300
+Processing by CategoriesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:14
+  Rendered categories/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1652)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 74ms (Views: 63.4ms | ActiveRecord: 0.3ms | Allocations: 10406)
+
+
+Started GET "/books" for 127.0.0.1 at 2020-05-21 22:50:06 -0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  Rendered books/index.html.erb within layouts/application (Duration: 31.0ms | Allocations: 4565)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 61ms (Views: 51.3ms | ActiveRecord: 0.9ms | Allocations: 14330)
+
+
+Started GET "/books/1" for 127.0.0.1 at 2020-05-21 22:50:10 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:7:in `show'
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Book"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:7
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:34
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/books/show.html.erb:51
+  Rendered books/show.html.erb within layouts/application (Duration: 86.9ms | Allocations: 6629)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 127ms (Views: 113.1ms | ActiveRecord: 1.5ms | Allocations: 16081)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7907b56d6bdd221afde852050f93ce161d2d5df5/guidorizziV1.jpg" for 127.0.0.1 at 2020-05-21 22:50:10 -0300
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7907b56d6bdd221afde852050f93ce161d2d5df5", "filename"=>"guidorizziV1"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (1.2ms) [0m[34mGenerated URL for file at key: wo2ykn2qak6fg4ovra6pd91igzh2 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhkMjh5ZVd0dU1uRmhhelptWnpSdmRuSmhObkJrT1RGcFozcG9NZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm5kV2xrYjNKcGVucHBWakV1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZG5kV2xrYjNKcGVucHBWakV1YW5CbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmQyVmljQVk3QmxRPSIsImV4cCI6IjIwMjAtMDUtMjJUMDE6NTU6MTAuNjcwWiIsInB1ciI6ImJsb2Jfa2V5In19--78ebcbec451e6141870be8b81ab057060763bfd1/guidorizziV1.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22guidorizziV1.jpg%22%3B+filename%2A%3DUTF-8%27%27guidorizziV1.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhkMjh5ZVd0dU1uRmhhelptWnpSdmRuSmhObkJrT1RGcFozcG9NZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm5kV2xrYjNKcGVucHBWakV1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZG5kV2xrYjNKcGVucHBWakV1YW5CbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmQyVmljQVk3QmxRPSIsImV4cCI6IjIwMjAtMDUtMjJUMDE6NTU6MTAuNjcwWiIsInB1ciI6ImJsb2Jfa2V5In19--78ebcbec451e6141870be8b81ab057060763bfd1/guidorizziV1.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22guidorizziV1.jpg%22%3B+filename%2A%3DUTF-8%27%27guidorizziV1.jpg
+Completed 302 Found in 14ms (ActiveRecord: 0.1ms | Allocations: 2165)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhkMjh5ZVd0dU1uRmhhelptWnpSdmRuSmhObkJrT1RGcFozcG9NZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm5kV2xrYjNKcGVucHBWakV1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZG5kV2xrYjNKcGVucHBWakV1YW5CbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmQyVmljQVk3QmxRPSIsImV4cCI6IjIwMjAtMDUtMjJUMDE6NTU6MTAuNjcwWiIsInB1ciI6ImJsb2Jfa2V5In19--78ebcbec451e6141870be8b81ab057060763bfd1/guidorizziV1.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22guidorizziV1.jpg%22%3B+filename%2A%3DUTF-8%27%27guidorizziV1.jpg" for 127.0.0.1 at 2020-05-21 22:50:10 -0300
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/webp", "disposition"=>"attachment; filename=\"guidorizziV1.jpg\"; filename*=UTF-8''guidorizziV1.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhkMjh5ZVd0dU1uRmhhelptWnpSdmRuSmhObkJrT1RGcFozcG9NZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm5kV2xrYjNKcGVucHBWakV1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZG5kV2xrYjNKcGVucHBWakV1YW5CbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmQyVmljQVk3QmxRPSIsImV4cCI6IjIwMjAtMDUtMjJUMDE6NTU6MTAuNjcwWiIsInB1ciI6ImJsb2Jfa2V5In19--78ebcbec451e6141870be8b81ab057060763bfd1", "filename"=>"guidorizziV1"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 382)
+
+
+Started POST "/books/1/interests" for 127.0.0.1 at 2020-05-21 22:50:14 -0300
+Processing by InterestsController#create as HTML
+  Parameters: {"authenticity_token"=>"in4Ymm30hUaYDqjMYkZGGqGU5w7WOBprlTv33YuJIVgEh7kUFdOhM5E0tlsQYn43Q+MoRhL4QaWllmsDERPLCQ==", "book_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/interests_controller.rb:6:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/interests_controller.rb:7:in `create'
+  [1m[36mInterest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "interests" WHERE "interests"."user_id" IS NULL AND "interests"."book_id" = ? LIMIT ?[0m  [["book_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/interests_controller.rb:7:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/interests_controller.rb:7:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/interests_controller.rb:9:in `create'
+  [1m[36mInterest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "interests" WHERE "interests"."user_id" = ? AND "interests"."book_id" = ? LIMIT ?[0m  [["user_id", 1], ["book_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/interests_controller.rb:9:in `create'
+  [1m[36mInterest Create (50.9ms)[0m  [1m[32mINSERT INTO "interests" ("book_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["book_id", 1], ["user_id", 1], ["created_at", "2020-05-22 01:50:14.235049"], ["updated_at", "2020-05-22 01:50:14.235049"]]
+  ↳ app/controllers/interests_controller.rb:9:in `create'
+  [1m[35m (8.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/interests_controller.rb:9:in `create'
+Redirected to http://localhost:3000/books/1
+Completed 302 Found in 135ms (ActiveRecord: 60.5ms | Allocations: 15457)
+
+
+Started GET "/books/1" for 127.0.0.1 at 2020-05-21 22:50:14 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:7:in `show'
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Book"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:7
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:34
+  [1m[36mInterest Load (0.4ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/views/books/show.html.erb:51
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:53
+  Rendered books/show.html.erb within layouts/application (Duration: 44.4ms | Allocations: 5279)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 60.1ms | ActiveRecord: 1.4ms | Allocations: 14710)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhkMjh5ZVd0dU1uRmhhelptWnpSdmRuSmhObkJrT1RGcFozcG9NZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm5kV2xrYjNKcGVucHBWakV1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZG5kV2xrYjNKcGVucHBWakV1YW5CbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmQyVmljQVk3QmxRPSIsImV4cCI6IjIwMjAtMDUtMjJUMDE6NTU6MTAuNjcwWiIsInB1ciI6ImJsb2Jfa2V5In19--78ebcbec451e6141870be8b81ab057060763bfd1/guidorizziV1.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22guidorizziV1.jpg%22%3B+filename%2A%3DUTF-8%27%27guidorizziV1.jpg" for 127.0.0.1 at 2020-05-21 22:50:14 -0300
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/webp", "disposition"=>"attachment; filename=\"guidorizziV1.jpg\"; filename*=UTF-8''guidorizziV1.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhkMjh5ZVd0dU1uRmhhelptWnpSdmRuSmhObkJrT1RGcFozcG9NZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVDJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm5kV2xrYjNKcGVucHBWakV1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZG5kV2xrYjNKcGVucHBWakV1YW5CbkJqc0dWRG9SWTI5dWRHVnVkRjkwZVhCbFNTSVBhVzFoWjJVdmQyVmljQVk3QmxRPSIsImV4cCI6IjIwMjAtMDUtMjJUMDE6NTU6MTAuNjcwWiIsInB1ciI6ImJsb2Jfa2V5In19--78ebcbec451e6141870be8b81ab057060763bfd1", "filename"=>"guidorizziV1"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 337)
+
+
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/books" for 127.0.0.1 at 2020-05-21 22:51:18 -0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  Rendered books/index.html.erb within layouts/application (Duration: 26.7ms | Allocations: 4110)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 61.4ms | ActiveRecord: 3.5ms | Allocations: 12863)
+
+
+Started GET "/books/3" for 127.0.0.1 at 2020-05-21 22:51:21 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:7:in `show'
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Book"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:7
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:29
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:34
+  [1m[36mInterest Load (0.1ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/books/show.html.erb:51
+  Rendered books/show.html.erb within layouts/application (Duration: 38.5ms | Allocations: 4362)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 56.6ms | ActiveRecord: 1.2ms | Allocations: 13643)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cb92b2df4c53c2be219abd505283e84047933ed3/sedgewick.jpg" for 127.0.0.1 at 2020-05-21 22:51:21 -0300
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--cb92b2df4c53c2be219abd505283e84047933ed3", "filename"=>"sedgewick"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: wmfmchzxufk1hp7908p0msjeb2l3 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhkMjFtYldOb2VuaDFabXN4YUhBM09UQTRjREJ0YzJwbFlqSnNNd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSnpaV1JuWlhkcFkyc3VhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkelpXUm5aWGRwWTJzdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZkMlZpY0FZN0JsUT0iLCJleHAiOiIyMDIwLTA1LTIyVDAxOjU2OjIxLjkyNloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--0605cecfdaa93749a6ad8aaa338faa44a7efca8c/sedgewick.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22sedgewick.jpg%22%3B+filename%2A%3DUTF-8%27%27sedgewick.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhkMjFtYldOb2VuaDFabXN4YUhBM09UQTRjREJ0YzJwbFlqSnNNd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSnpaV1JuWlhkcFkyc3VhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkelpXUm5aWGRwWTJzdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZkMlZpY0FZN0JsUT0iLCJleHAiOiIyMDIwLTA1LTIyVDAxOjU2OjIxLjkyNloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--0605cecfdaa93749a6ad8aaa338faa44a7efca8c/sedgewick.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22sedgewick.jpg%22%3B+filename%2A%3DUTF-8%27%27sedgewick.jpg
+Completed 302 Found in 16ms (ActiveRecord: 0.1ms | Allocations: 1793)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhkMjFtYldOb2VuaDFabXN4YUhBM09UQTRjREJ0YzJwbFlqSnNNd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSnpaV1JuWlhkcFkyc3VhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkelpXUm5aWGRwWTJzdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZkMlZpY0FZN0JsUT0iLCJleHAiOiIyMDIwLTA1LTIyVDAxOjU2OjIxLjkyNloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--0605cecfdaa93749a6ad8aaa338faa44a7efca8c/sedgewick.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22sedgewick.jpg%22%3B+filename%2A%3DUTF-8%27%27sedgewick.jpg" for 127.0.0.1 at 2020-05-21 22:51:21 -0300
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/webp", "disposition"=>"attachment; filename=\"sedgewick.jpg\"; filename*=UTF-8''sedgewick.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhkMjFtYldOb2VuaDFabXN4YUhBM09UQTRjREJ0YzJwbFlqSnNNd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSnpaV1JuWlhkcFkyc3VhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkelpXUm5aWGRwWTJzdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZkMlZpY0FZN0JsUT0iLCJleHAiOiIyMDIwLTA1LTIyVDAxOjU2OjIxLjkyNloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--0605cecfdaa93749a6ad8aaa338faa44a7efca8c", "filename"=>"sedgewick"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 347)
+
+
+Started POST "/books/3/interests" for 127.0.0.1 at 2020-05-21 22:51:24 -0300
+Processing by InterestsController#create as HTML
+  Parameters: {"authenticity_token"=>"yh6QXc/Xw7lkndIAW7NT8tZyyAG7ou1nYib+bYLWa2xE5zHTt/DnzG2nzJcpl2vfNAUHSX9itqlSi2KzGEyBPQ==", "book_id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/interests_controller.rb:6:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/interests_controller.rb:7:in `create'
+  [1m[36mInterest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "interests" WHERE "interests"."user_id" IS NULL AND "interests"."book_id" = ? LIMIT ?[0m  [["book_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/interests_controller.rb:7:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/interests_controller.rb:7:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/interests_controller.rb:9:in `create'
+  [1m[36mInterest Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "interests" WHERE "interests"."user_id" = ? AND "interests"."book_id" = ? LIMIT ?[0m  [["user_id", 1], ["book_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/interests_controller.rb:9:in `create'
+  [1m[36mInterest Create (2.8ms)[0m  [1m[32mINSERT INTO "interests" ("book_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["book_id", 3], ["user_id", 1], ["created_at", "2020-05-22 01:51:24.477042"], ["updated_at", "2020-05-22 01:51:24.477042"]]
+  ↳ app/controllers/interests_controller.rb:9:in `create'
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/interests_controller.rb:9:in `create'
+Redirected to http://localhost:3000/books/3
+Completed 302 Found in 66ms (ActiveRecord: 12.6ms | Allocations: 10980)
+
+
+Started GET "/books/3" for 127.0.0.1 at 2020-05-21 22:51:24 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:7:in `show'
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "Book"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:7
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:34
+  [1m[36mInterest Load (0.2ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/books/show.html.erb:51
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:53
+  Rendered books/show.html.erb within layouts/application (Duration: 19.4ms | Allocations: 5160)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 57.7ms | ActiveRecord: 1.2ms | Allocations: 14599)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhkMjFtYldOb2VuaDFabXN4YUhBM09UQTRjREJ0YzJwbFlqSnNNd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSnpaV1JuWlhkcFkyc3VhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkelpXUm5aWGRwWTJzdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZkMlZpY0FZN0JsUT0iLCJleHAiOiIyMDIwLTA1LTIyVDAxOjU2OjIxLjkyNloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--0605cecfdaa93749a6ad8aaa338faa44a7efca8c/sedgewick.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22sedgewick.jpg%22%3B+filename%2A%3DUTF-8%27%27sedgewick.jpg" for 127.0.0.1 at 2020-05-21 22:51:24 -0300
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/webp", "disposition"=>"attachment; filename=\"sedgewick.jpg\"; filename*=UTF-8''sedgewick.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhkMjFtYldOb2VuaDFabXN4YUhBM09UQTRjREJ0YzJwbFlqSnNNd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpU1dGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSnpaV1JuWlhkcFkyc3VhbkJuSWpzZ1ptbHNaVzVoYldVcVBWVlVSaTA0SnlkelpXUm5aWGRwWTJzdWFuQm5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lQYVcxaFoyVXZkMlZpY0FZN0JsUT0iLCJleHAiOiIyMDIwLTA1LTIyVDAxOjU2OjIxLjkyNloiLCJwdXIiOiJibG9iX2tleSJ9fQ==--0605cecfdaa93749a6ad8aaa338faa44a7efca8c", "filename"=>"sedgewick"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 339)
+
+
+  [1m[36mInterest Load (0.1ms)[0m  [1m[34mSELECT "interests".* FROM "interests" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/books" for 127.0.0.1 at 2020-05-21 22:51:45 -0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  Rendered books/index.html.erb within layouts/application (Duration: 31.1ms | Allocations: 4106)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 62.4ms | ActiveRecord: 0.8ms | Allocations: 12862)
+
+
+Started GET "/books" for 127.0.0.1 at 2020-05-21 22:51:48 -0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  Rendered books/index.html.erb within layouts/application (Duration: 27.9ms | Allocations: 4106)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 66ms (Views: 54.7ms | ActiveRecord: 0.8ms | Allocations: 12851)
+
+
+Started GET "/books" for 127.0.0.1 at 2020-05-21 22:52:09 -0300
+Processing by BooksController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 201)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-21 22:52:09 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/thiagopena/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/thiagopena/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 559)
+  Rendered /home/thiagopena/.rbenv/versions/2.6.1/lib/ruby/gems/2.6.0/gems/devise-4.7.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 58.1ms | Allocations: 2087)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 115ms (Views: 104.4ms | ActiveRecord: 0.0ms | Allocations: 10915)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2020-05-21 22:52:15 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"1OeGLbKtcvgfTX9zWv3bCIePrhTllmavvqaaPdpxGh0RJ99jpeTOsc9b2hxjbmv/yfZ6Zc3NYBU1mJmj54cl9w==", "user"=>{"email"=>"guerrero@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "guerrero@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/books
+Completed 302 Found in 216ms (ActiveRecord: 0.3ms | Allocations: 3815)
+
+
+Started GET "/books" for 127.0.0.1 at 2020-05-21 22:52:16 -0300
+Processing by BooksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  ↳ app/views/books/index.html.erb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/index.html.erb:22
+  Rendered books/index.html.erb within layouts/application (Duration: 22.5ms | Allocations: 4117)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 59.3ms | ActiveRecord: 0.8ms | Allocations: 12880)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2020-05-21 22:52:21 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:7:in `show'
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Book"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:7
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:34
+  [1m[36mInterest Load (0.1ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/books/show.html.erb:51
+  Rendered books/show.html.erb within layouts/application (Duration: 31.9ms | Allocations: 4370)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 59.6ms | ActiveRecord: 1.0ms | Allocations: 13650)
+
+
+Started GET "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--52b5ffa29471f9c32ebf7c709e5f5a3511d193b2/franca.jpg" for 127.0.0.1 at 2020-05-21 22:52:21 -0300
+Processing by ActiveStorage::BlobsController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--52b5ffa29471f9c32ebf7c709e5f5a3511d193b2", "filename"=>"franca"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (3.9ms) [0m[34mGenerated URL for file at key: bw48y9socnmhy3pnof8vq8rdt4cs (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhZbmMwT0hrNWMyOWpibTFvZVROd2JtOW1PSFp4T0hKa2REUmpjd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm1jbUZ1WTJFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRtY21GdVkyRXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2ZDJWaWNBWTdCbFE9IiwiZXhwIjoiMjAyMC0wNS0yMlQwMTo1NzoyMS40OTVaIiwicHVyIjoiYmxvYl9rZXkifX0=--c02065c6605407fefdab2236251b6b2a0ee2fc01/franca.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22franca.jpg%22%3B+filename%2A%3DUTF-8%27%27franca.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhZbmMwT0hrNWMyOWpibTFvZVROd2JtOW1PSFp4T0hKa2REUmpjd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm1jbUZ1WTJFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRtY21GdVkyRXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2ZDJWaWNBWTdCbFE9IiwiZXhwIjoiMjAyMC0wNS0yMlQwMTo1NzoyMS40OTVaIiwicHVyIjoiYmxvYl9rZXkifX0=--c02065c6605407fefdab2236251b6b2a0ee2fc01/franca.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22franca.jpg%22%3B+filename%2A%3DUTF-8%27%27franca.jpg
+Completed 302 Found in 12ms (ActiveRecord: 0.2ms | Allocations: 1795)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhZbmMwT0hrNWMyOWpibTFvZVROd2JtOW1PSFp4T0hKa2REUmpjd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm1jbUZ1WTJFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRtY21GdVkyRXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2ZDJWaWNBWTdCbFE9IiwiZXhwIjoiMjAyMC0wNS0yMlQwMTo1NzoyMS40OTVaIiwicHVyIjoiYmxvYl9rZXkifX0=--c02065c6605407fefdab2236251b6b2a0ee2fc01/franca.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22franca.jpg%22%3B+filename%2A%3DUTF-8%27%27franca.jpg" for 127.0.0.1 at 2020-05-21 22:52:21 -0300
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/webp", "disposition"=>"attachment; filename=\"franca.jpg\"; filename*=UTF-8''franca.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhZbmMwT0hrNWMyOWpibTFvZVROd2JtOW1PSFp4T0hKa2REUmpjd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm1jbUZ1WTJFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRtY21GdVkyRXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2ZDJWaWNBWTdCbFE9IiwiZXhwIjoiMjAyMC0wNS0yMlQwMTo1NzoyMS40OTVaIiwicHVyIjoiYmxvYl9rZXkifX0=--c02065c6605407fefdab2236251b6b2a0ee2fc01", "filename"=>"franca"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 350)
+
+
+Started POST "/books/2/interests" for 127.0.0.1 at 2020-05-21 22:52:24 -0300
+Processing by InterestsController#create as HTML
+  Parameters: {"authenticity_token"=>"LFSG5cqJD/cQEwjoD2FYeRMYfG2OGzQQ/kKvxg0jEuVa1XapPBuyJCoffHItUGdUATHdSwgEiwYmHpolaGFYOQ==", "book_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/interests_controller.rb:6:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/interests_controller.rb:7:in `create'
+  [1m[36mInterest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "interests" WHERE "interests"."user_id" IS NULL AND "interests"."book_id" = ? LIMIT ?[0m  [["book_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/interests_controller.rb:7:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/interests_controller.rb:7:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/interests_controller.rb:9:in `create'
+  [1m[36mInterest Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "interests" WHERE "interests"."user_id" = ? AND "interests"."book_id" = ? LIMIT ?[0m  [["user_id", 2], ["book_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/interests_controller.rb:9:in `create'
+  [1m[36mInterest Create (3.1ms)[0m  [1m[32mINSERT INTO "interests" ("book_id", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["book_id", 2], ["user_id", 2], ["created_at", "2020-05-22 01:52:24.333892"], ["updated_at", "2020-05-22 01:52:24.333892"]]
+  ↳ app/controllers/interests_controller.rb:9:in `create'
+  [1m[35m (9.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/interests_controller.rb:9:in `create'
+Redirected to http://localhost:3000/books/2
+Completed 302 Found in 71ms (ActiveRecord: 13.7ms | Allocations: 10979)
+
+
+Started GET "/books/2" for 127.0.0.1 at 2020-05-21 22:52:24 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:7:in `show'
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "Book"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:3
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:7
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:34
+  [1m[36mInterest Load (0.1ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/books/show.html.erb:51
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:53
+  Rendered books/show.html.erb within layouts/application (Duration: 27.9ms | Allocations: 5160)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 42.7ms | ActiveRecord: 2.5ms | Allocations: 14441)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhZbmMwT0hrNWMyOWpibTFvZVROd2JtOW1PSFp4T0hKa2REUmpjd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm1jbUZ1WTJFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRtY21GdVkyRXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2ZDJWaWNBWTdCbFE9IiwiZXhwIjoiMjAyMC0wNS0yMlQwMTo1NzoyMS40OTVaIiwicHVyIjoiYmxvYl9rZXkifX0=--c02065c6605407fefdab2236251b6b2a0ee2fc01/franca.jpg?content_type=image%2Fwebp&disposition=attachment%3B+filename%3D%22franca.jpg%22%3B+filename%2A%3DUTF-8%27%27franca.jpg" for 127.0.0.1 at 2020-05-21 22:52:24 -0300
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"content_type"=>"image/webp", "disposition"=>"attachment; filename=\"franca.jpg\"; filename*=UTF-8''franca.jpg", "encoded_key"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9JYTJWNVNTSWhZbmMwT0hrNWMyOWpibTFvZVROd2JtOW1PSFp4T0hKa2REUmpjd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUTJGMGRHRmphRzFsYm5RN0lHWnBiR1Z1WVcxbFBTSm1jbUZ1WTJFdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRtY21GdVkyRXVhbkJuQmpzR1ZEb1JZMjl1ZEdWdWRGOTBlWEJsU1NJUGFXMWhaMlV2ZDJWaWNBWTdCbFE9IiwiZXhwIjoiMjAyMC0wNS0yMlQwMTo1NzoyMS40OTVaIiwicHVyIjoiYmxvYl9rZXkifX0=--c02065c6605407fefdab2236251b6b2a0ee2fc01", "filename"=>"franca"}
+Completed 304 Not Modified in 3ms (ActiveRecord: 0.0ms | Allocations: 338)
+
+
+  [1m[36mInterest Load (0.1ms)[0m  [1m[34mSELECT "interests".* FROM "interests" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mInterest Load (0.1ms)[0m  [1m[34mSELECT "interests".* FROM "interests" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mInterest Load (0.2ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mInterest Load (0.1ms)[0m  [1m[34mSELECT "interests".* FROM "interests" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "interests"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "interests" WHERE "interests"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests" INNER JOIN "users" ON "users"."id" = "interests"."user_id" WHERE "interests"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mInterest Load (0.1ms)[0m  [1m[34mSELECT "interests".* FROM "interests" WHERE "interests"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
