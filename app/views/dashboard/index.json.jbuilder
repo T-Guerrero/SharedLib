@@ -22,5 +22,4 @@ json.my_interests @my_interests.each do |interest|
         json.email interest.book.user.email
         json.phone interest.book.user.phone
     end
-
 end
