@@ -16,6 +16,8 @@ class BorrowingsController < ApplicationController
             end
             @book.borrowing = @borrowing
             @borrowing.save
+            @book.borrowed = true
+            @book.save
             redirect_to book_path(@book)
         else
             redirect_post(book_interests_path(@book), options: {authenticity_token: :auto})
@@ -24,11 +26,13 @@ class BorrowingsController < ApplicationController
 
     def destroy
         @book = Book.find(params[:book_id])
+        @book.borrowed = false
+        @book.save
         @borrowing = @book.borrowing
         #Para testar, vamos sempre recriar o interesse após deletar o borrowing
         test_createInterest(@borrowing.user)
-        @borrowing.destroy
         #redirect_to book_path(@book)
+        @borrowing.destroy
     end 
 
 end
