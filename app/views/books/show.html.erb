@@ -39,7 +39,15 @@
   <%= @book.user.email %>
 </p>
 
-<%= link_to 'Interest', book_interests_path(@book), method: :post%><br>
+<% unless @book.borrowing.nil?%>
+<p>
+  <strong>Borrowing:</strong>
+  <%= @book.borrowing.user.name %>
+</p>
+<%= link_to 'Delete Borrowing', book_borrowing_path(@book), method: :delete%><br>
+<%end%>
+
+<%= link_to 'Interest', book_borrowings_path(@book), method: :post%><br>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
 

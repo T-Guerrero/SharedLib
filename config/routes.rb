@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 	devise_for :users
 	resources :books do
-		resources :interests
+		resources :borrowings
+		resources :interests, :only => [:create, :destroy]
 	end
 	resources :categories
 
