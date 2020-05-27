@@ -2,6 +2,7 @@ class Borrowing < ApplicationRecord
   belongs_to :user
   belongs_to :book
 
-  #validates :time, presence: true
+  validates :deadline, presence: true
+  vaidates :user_id, presence: true
   validates :book, presence: true
 end

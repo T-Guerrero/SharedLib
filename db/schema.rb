@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_05_13_003614) do
   end
 
   create_table "borrowings", force: :cascade do |t|
-    t.datetime "time"
+    t.datetime "deadline", precision: 6
     t.integer "book_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

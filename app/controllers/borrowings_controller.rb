@@ -4,6 +4,7 @@ class BorrowingsController < ApplicationController
         if @book.borrowing.nil?
             @borrowing = Borrowing.new()
             @borrowing.book_id = @book.id
+            @borrowing.deadline = DateTime.now()+10
             if @book.interests.empty?
                 #Lista de interesse vazia
                 @borrowing.user = current_user
