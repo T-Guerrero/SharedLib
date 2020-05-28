@@ -22,8 +22,10 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-#gem used to call "redirect_to" with method POST
+# gem used to call "redirect_to" with method POST
 gem 'repost'
+# gem used to manage cron jobs in rails aplication
+gem 'whenever', require: false
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
