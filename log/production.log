@@ -1,0 +1,58 @@
+D, [2020-05-29T16:12:02.826916 #24753] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:12:02.827498 #24753] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:13:03.068979 #24912] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:13:03.069500 #24912] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:14:02.355079 #25156] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:14:02.355635 #25156] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:15:02.623213 #25337] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:15:02.623733 #25337] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:16:02.816261 #25354] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:16:02.816759 #25354] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:17:03.312589 #25499] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:17:03.313214 #25499] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:18:02.798991 #25613] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:18:02.799646 #25613] DEBUG -- :   [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:19:03.279364 #25674] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:19:03.280040 #25674] DEBUG -- :   [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:20:02.526946 #25693] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:20:02.527464 #25693] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:21:02.805546 #25717] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:21:02.806110 #25717] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:22:03.098101 #25810] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:22:03.098755 #25810] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:23:02.533046 #26132] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:23:02.533737 #26132] DEBUG -- :   [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:24:02.831903 #26438] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:24:02.832416 #26438] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:25:03.087154 #26585] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:25:03.087668 #26585] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:26:02.338640 #26633] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:26:02.339171 #26633] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:27:02.657779 #26677] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:27:02.658343 #26677] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:28:02.898726 #26857] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:28:02.899250 #26857] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:29:03.153179 #26938] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:29:03.153739 #26938] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:30:02.395965 #26985] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:30:02.396488 #26985] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:31:02.634100 #27031] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:31:02.634624 #27031] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:32:02.919986 #27115] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:32:02.920522 #27115] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:33:03.182070 #27412] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:33:03.182631 #27412] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:34:02.721953 #27592] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:34:02.722527 #27592] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:35:03.134132 #27668] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:35:03.134694 #27668] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:36:02.500582 #27748] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:36:02.501144 #27748] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:37:02.759818 #27762] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:37:02.760334 #27762] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:38:03.208046 #27852] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:38:03.208561 #27852] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:39:02.442324 #27940] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:39:02.442865 #27940] DEBUG -- :   [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+D, [2020-05-29T16:40:02.851526 #28014] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2020-05-29T16:40:02.852225 #28014] DEBUG -- :   [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
