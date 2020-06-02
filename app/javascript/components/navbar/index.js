@@ -4,8 +4,6 @@ import '../../app.scss';
 //import '../../debug.scss';
 import styled from 'styled-components';
 import logoImage from '../../../assets/images/Logo.png';
-// import testeImgLivro from '../../../assets/images/Logo.png';
-import testeImgLivro from '../../../assets/seeds_images/sedgewick.jpg';
 
 const paddingStyle = {
         paddingTop: "40px",
@@ -36,7 +34,7 @@ const NavBar = () => {
                 <Columns>
                     <Columns.Column>
                         <p>Algorithms: Sedgewick, Robert - Wayne, Kevin </p>
-                        <img src={testeImgLivro}/>
+                        <img src=""/>
                         <Button>Disponível</Button>
                     </Columns.Column>
                     <Columns.Column>
