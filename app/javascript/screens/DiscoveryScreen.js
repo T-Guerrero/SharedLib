@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import NavBar from '../../components/navbar';
+import NavBar from '../components/navbar';
 
 
 const DiscoveryScreen = () => {
