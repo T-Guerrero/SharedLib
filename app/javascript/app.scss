@@ -1,0 +1,18 @@
+@import "~react-bulma-components/src/index.sass";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #fff;
+}
+
+.header {
+    background-color: #FFA500;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

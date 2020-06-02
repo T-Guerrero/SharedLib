@@ -1,11 +1,10 @@
 import React, { Fragment } from "react";
-import { Button } from 'react-bulma-components';
+import HomeHeader from '../components/home/HomeHeader';
 
 const HomeScreen = () => {
     return (
         <Fragment>
-            <h1>IN PROGRESS...</h1>
-            <Button>Test</Button>
+            <HomeHeader />
         </Fragment>
     )
 }
