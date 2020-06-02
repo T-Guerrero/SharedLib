@@ -1,7 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
-tmp_dir = Rails.root.join("tmp")
+assets_dir = Rails.root.join("app/assets")
 
 ############################## USUÁRIOS ##############################
 
@@ -32,7 +32,7 @@ pena_guidorizzi1 = Book.create(
     category: matematica,
     user: pena
 )
-pena_guidorizzi1.image.attach(io: File.open("#{tmp_dir}/seed_files/guidorizziV1.jpg"), filename: "guidorizziV1.jpg")
+pena_guidorizzi1.image.attach(io: File.open("#{assets_dir}/seeds_images/guidorizziV1.jpg"), filename: "guidorizziV1.jpg")
 
 pena_franca = Book.create(
     name: 'Mecânica Geral',
@@ -41,7 +41,7 @@ pena_franca = Book.create(
     category: engenharia,
     user: pena
 )
-pena_franca.image.attach(io: File.open("#{tmp_dir}/seed_files/franca.jpg"), filename: "franca.jpg")
+pena_franca.image.attach(io: File.open("#{assets_dir}/seeds_images/franca.jpg"), filename: "franca.jpg")
 
 # Guerrero
 guerrero_algorithms = Book.create(
@@ -51,7 +51,7 @@ guerrero_algorithms = Book.create(
     category: computacao,
     user: guerrero
 )
-guerrero_algorithms.image.attach(io: File.open("#{tmp_dir}/seed_files/sedgewick.jpg"), filename: "sedgewick.jpg")
+guerrero_algorithms.image.attach(io: File.open("#{assets_dir}/seeds_images/sedgewick.jpg"), filename: "sedgewick.jpg")
 
 # Guerrero
 carol_apostol2 = Book.create(
@@ -61,7 +61,7 @@ carol_apostol2 = Book.create(
     category: matematica,
     user: carol
 )
-carol_apostol2.image.attach(io: File.open("#{tmp_dir}/seed_files/apostolV2.jpg"), filename: "apostolV2.jpg")
+carol_apostol2.image.attach(io: File.open("#{assets_dir}/seeds_images/apostolV2.jpg"), filename: "apostolV2.jpg")
 
 ############################## INTERESSES ##############################
 

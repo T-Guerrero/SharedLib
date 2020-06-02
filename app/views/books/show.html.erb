@@ -49,7 +49,7 @@
 <%end%>
 <%end%>
 
-<%= link_to_if !@book.borrowing.nil? || !@book.interests.empty?, 'Interest', book_interests_path(@book), method: :post%><br>
+<%= link_to_if (!@book.borrowing.nil? && @book.borrowing.user != current_user) || !@book.interests.empty?, 'Interest', book_interests_path(@book), method: :post%><br>
 <%= link_to_if @book.interests.empty? && @book.borrowing.nil?, 'Borrow', book_borrowings_path(@book), method: :post%><br>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
