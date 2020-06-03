@@ -1,5 +1,5 @@
 namespace :check do
-    desc 'Faz a checagem se o tempo máximo de empréstimo do livro já passou, se sim, deleta o empréstimo e cria o próximo'
+    desc 'Faz a checagem se o tempo máximo de empréstimo do livro já passou, se sim, deleta o empréstimo'
     task :borrowings_deadline => :environment do
         puts "Task 'Borrowings_deadline' called at #{Time.now}" #Log info
         Book.all.each do |book|

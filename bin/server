@@ -1,0 +1,5 @@
+#!/bin/bash
+
+yarn install --check-files
+whenever -i
+rails s
