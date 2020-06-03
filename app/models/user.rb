@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
-  has_many :borrowings
+  has_many :borrowings, dependent: :destroy
   has_many :books
   has_many :interests, dependent: :destroy
 end

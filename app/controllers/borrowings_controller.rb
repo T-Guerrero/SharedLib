@@ -1,7 +1,7 @@
 class BorrowingsController < ApplicationController
     def create
         @book = Book.find(params[:book_id])
-        if @book.borrowing.nil? && @book.interests.empty?
+        if ((@book.borrowing.nil? && @book.interests.empty?) && @book.user != current_user)
             @borrowing = Borrowing.new()
             @borrowing.book_id = @book.id
             @borrowing.deadline = DateTime.now()+10.minutes

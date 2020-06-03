@@ -1,8 +1,8 @@
 class InterestsController < ApplicationController
     def create
         @book = Book.find(params[:book_id])
-        if (@book.borrowing.nil? || @book.borrowing.user != current_user)
-            #O usuário que está com o livro emprestado não pode declarar interesse
+        if (!@book.borrowing.nil? && (@book.borrowing.user != current_user && @book.user != current_user))
+            #O usuário que está com o livro emprestado e o dono do livro não podem declarar interesse
             @interest = @book.interests.create()
             @interest.user = current_user
             @interest.save
