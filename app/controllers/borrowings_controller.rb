@@ -4,7 +4,7 @@ class BorrowingsController < ApplicationController
         if ((@book.borrowing.nil? && @book.interests.empty?) && @book.user != current_user)
             @borrowing = Borrowing.new()
             @borrowing.book_id = @book.id
-            @borrowing.deadline = DateTime.now()+10.minutes
+            @borrowing.deadline = DateTime.now()+3.minutes
             @borrowing.user = current_user
             @book.borrowing = @borrowing
             @borrowing.save

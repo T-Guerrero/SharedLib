@@ -28,7 +28,7 @@ namespace :check do
         if @book.borrowing.nil? && !@book.interests.empty?
             @borrowing = Borrowing.new()
             @borrowing.book_id = @book.id
-            @borrowing.deadline = DateTime.now()+10.minutes
+            @borrowing.deadline = DateTime.now()+3.minutes
             #Pega o primeiro da lista de interesse
             @interest = @book.interests.order('created_at ASC').first
             @borrowing.user = @interest.user
