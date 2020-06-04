@@ -25,7 +25,7 @@ gem 'devise'
 # gem used to call "redirect_to" with method POST
 gem 'repost'
 # gem used to manage cron jobs in rails aplication
-gem 'whenever', require: false
+gem 'whenever'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
