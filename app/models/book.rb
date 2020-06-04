@@ -8,7 +8,18 @@ class Book < ApplicationRecord
 
   validates :name, presence: true
   validates :author, presence: true
-  validates :edition, presence: true
   validates :category_id, presence: true
   validates :user_id, presence: true
+  validate :include_image
+  
+  private
+  
+  def include_image
+    if  image.attached? && !image.content_type.in?(%w(image/jpeg image/jpg image/png))
+      errors.add(:image, 'must be a JPEG, JPG or PNG.')
+    elsif !image.attached?
+      errors.add(:image, 'must be attached.')
+    end
+  end
 end
+  

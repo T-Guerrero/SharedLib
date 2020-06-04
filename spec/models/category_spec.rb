@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
     let (:valid_attributes){
-        {:name => "Introdução à Computação"}
+        {:name => "Computação"}
     }
 
     let (:invalid_attributes){
-        {:name => "Intr0duçã0"}
+        {:name => "C0mput4ça0"}
     }
 
     let (:invalid_attributes2){
