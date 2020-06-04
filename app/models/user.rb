@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :borrowings, dependent: :destroy
   has_many :books
   has_many :interests, dependent: :destroy
+
+  validates :name, presence: true
 end

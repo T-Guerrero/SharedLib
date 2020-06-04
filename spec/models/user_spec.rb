@@ -6,7 +6,9 @@ RSpec.describe User, type: :model do
     end
 
     it "is not valid without name" do
-        pending "add some examples to (or delete) #{__FILE__}"
+        user = User.new(name: nil)
+        user.valid?
+        expect(user.errors[:name]).to include("can't be blank") 
     end
 
     it "is not valid with invalid name attribute" do

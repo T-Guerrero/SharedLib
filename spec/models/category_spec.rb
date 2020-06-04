@@ -1,19 +1,47 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
+    let (:valid_attributes){
+        {:name => "Introdução à Computação"}
+    }
+
+    let (:invalid_attributes){
+        {:name => "Intr0duçã0"}
+    }
+
+    let (:invalid_attributes2){
+        {:name => " "}
+    }
+
+    let (:nil_attributes){
+        {:name => nil}
+    }
+
     it "is valid with valid attributes" do
-        pending "add some examples to (or delete) #{__FILE__}"
+        category = Category.create(valid_attributes)
+        expect(category).to  be_valid
     end
 
-    it "is not valid without name field" do
-        pending "add some examples to (or delete) #{__FILE__}"
-    end
+    context "in order to create name field" do
+        it "is not valid with nil attribute" do
+            category = Category.create(nil_attributes)
+            expect(category).to_not be_valid
+        end
+        
+        it "is not valid without any character" do
+            category = Category.create(invalid_attributes2)
+            expect(category).to_not be_valid
+        end
 
-    it "is not valid with invalid name attribute" do
-        pending "add some examples to (or delete) #{__FILE__}"
+        it "is not valid with numbers in attribute" do
+            category = Category.create(invalid_attributes)
+            expect(category).to_not be_valid
+        end
     end
-
+    
     it "is valid if uniqueness" do
-        pending "add some examples to (or delete) #{__FILE__}"
+        category1 = Category.create(valid_attributes)
+        category2 = Category.create(valid_attributes)
+        expect(category2).to_not be_valid
     end
 end
