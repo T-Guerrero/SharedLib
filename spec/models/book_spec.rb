@@ -131,4 +131,10 @@ RSpec.describe Book, type: :model do
         book.valid?
         expect(book.errors[:image]).to include("must be a JPEG, JPG or PNG.")
     end
+
+    it "is valid if the interest list is deleted with the book" do
+    end
+
+    it "is valid if the borrowing is deleted with the book" do
+    end
 end

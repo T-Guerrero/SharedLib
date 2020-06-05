@@ -36,4 +36,7 @@ RSpec.describe User, type: :model do
         user = User.create(invalid_name_attributes_user)
         expect(user).to_not be_valid
     end
+
+    it "is valid if borrowing list is deleted with the user" do
+    end
 end
