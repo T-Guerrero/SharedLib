@@ -28,6 +28,14 @@ RSpec.describe Borrowing, type: :model do
         }
     }
 
+    let(:valid_attributes_borrowing){
+        {
+            user: @user,
+            book: @book,
+            deadline: DateTime.now()+10.minutes
+        }
+    }
+
     let(:nil_user_attributes_borrowing){
         {
             user: nil,
@@ -49,6 +57,11 @@ RSpec.describe Borrowing, type: :model do
         @category = Category.create(valid_attributes_category)
         @book = Book.create(valid_attributes_book)
         @book.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
+    end
+
+    it "is valid with valid attributes" do
+        borrowing = Borrowing.create(valid_attributes_borrowing)
+        expect(borrowing).to be_valid
     end
 
     it "is not valid without user reference field" do

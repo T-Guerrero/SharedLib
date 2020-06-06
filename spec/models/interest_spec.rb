@@ -64,6 +64,11 @@ RSpec.describe Interest, type: :model do
         @book2.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
     end
 
+    it "is valid with valid attributes" do
+        interest = Interest.create(valid_attributes_interest1)
+        expect(interest).to be_valid
+    end
+
     it "is not valid without user refence field" do
         interest = Interest.create(nil_user_attributes_interest)
         expect(interest).to_not be_valid

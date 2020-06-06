@@ -28,6 +28,16 @@ RSpec.describe Book, type: :model do
         }
     }
 
+    let (:valid_attributes_book2) {
+        {
+        :name => "Algorithms",
+        :author => "Robert Sedgewick",
+        :edition => "",
+        :user => @user,
+        :category => @category
+        }
+    }
+
     let (:nil_name_attributes_book) {
         {
         :name => nil,
@@ -132,9 +142,27 @@ RSpec.describe Book, type: :model do
         expect(book.errors[:image]).to include("must be a JPEG, JPG or PNG.")
     end
 
-    it "is valid if the interest list is deleted with the book" do
+    it "is valid if delete the dependent interests" do
+        book = Book.new(valid_attributes_book)
+        book2 = Book.new(valid_attributes_book2)
+        book.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
+        book2.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
+        book.save
+        book2.save
+        interest1 = Interest.create(user: @user, book: book)
+        interest2 = Interest.create(user: @user, book: book2)
+        expect{book.destroy}.to change{Interest.count}.by(-1)
     end
-
-    it "is valid if the borrowing is deleted with the book" do
+    
+    it "is valid if delete the dependent borrowing" do
+        book = Book.new(valid_attributes_book)
+        book2 = Book.new(valid_attributes_book2)
+        book.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
+        book2.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
+        book.save
+        book2.save
+        borrowing = Borrowing.create(user: @user, book: book, deadline: DateTime.now()+10.minutes)
+        borrowing = Borrowing.create(user: @user, book: book2, deadline: DateTime.now()+10.minutes)
+        expect{book.destroy}.to change{Borrowing.count}.by(-1)
     end
 end
