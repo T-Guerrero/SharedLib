@@ -19,6 +19,8 @@ class BooksController < ApplicationController
         @book = Book.new(book_params)
         @book.user = current_user
         if @book.save
+            current_user.max_borrowings += 1
+            current_user.save
             redirect_to books_path
         else
             render 'new'
@@ -37,6 +39,8 @@ class BooksController < ApplicationController
     def destroy
         @book = Book.find(params[:id])
         @book.destroy
+        @book.user.max_borrowings -= 1
+        @book.user.save
         redirect_to books_path
     end
 end

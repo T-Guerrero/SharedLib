@@ -7,10 +7,10 @@ class Book < ApplicationRecord
   has_one_attached :image
 
   validates :name, presence: true, length: {minimum:5}
-  validates :author, presence: true, length: {minimum:3}, format: { with: /\A[[:alpha:] ]+\z/, message: "only allows letters" }
+  validates :author, presence: true, length: {minimum:3}, format: { with: /\A[[:alpha:] ,-.]+\z/, message: "character not allowed" }
   validates :category_id, presence: true
   validates :user_id, presence: true
-  validate :include_image
+  #validate :include_image
   
   private
   
