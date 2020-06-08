@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Olá, <%= @user.name %></h1>
+    <p>
+        O seu empréstimo no livro <br/>
+        <%= @borrowing.book.name%><br/>
+        <%= @borrowing.book.author%><br/>
+        <%= @borrowing.book.category.name%><br/>
+        <%= @borrowing.book.user.name%><br/>
+        <%= @borrowing.deadline%><br/>
+        Foi criado com sucesso!
+    </p>
+    <p>
+        Para maiores detalhes sobre o livro, olhe o link: <%= @url %>.
+    </p>
+    <p>SharedLib</p>
+  </body>
+</html>

@@ -38,6 +38,7 @@ namespace :check do
             @borrowing.save
             @book.borrowed = true
             @book.save
+            UserMailer.with(borrowing: @borrowing).borrowing_create.deliver
         end
     end
 

@@ -12,6 +12,7 @@ class BorrowingsController < ApplicationController
                 @borrowing.save
                 @book.borrowed = true
                 @book.save
+                UserMailer.with(borrowing: @borrowing).borrowing_create.deliver
             end
         end
         redirect_to book_path(@book)
