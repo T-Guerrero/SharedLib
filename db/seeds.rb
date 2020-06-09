@@ -28,7 +28,8 @@ quimica = Category.create(name: 'Química')
 pena_guidorizzi1 = Book.create(
     name: 'Um Curso De Cálculo Vol. 1',
     author: 'Guidorizzi, Hamilton Luiz',
-    edition: '5ª Ed. 2011',
+    edition: '5ª Ed.',
+    year: 2011,
     category: matematica,
     user: pena
 )
@@ -37,7 +38,8 @@ pena_guidorizzi1.image.attach(io: File.open("#{assets_dir}/seeds_images/guidoriz
 pena_franca = Book.create(
     name: 'Mecânica Geral',
     author: 'Franca, Luis Novaes Ferreira',
-    edition: '3ª Ed. 2012',
+    edition: '3ª Ed.',
+    year: 2012,
     category: engenharia,
     user: pena
 )
@@ -47,7 +49,8 @@ pena_franca.image.attach(io: File.open("#{assets_dir}/seeds_images/franca.jpg"),
 guerrero_algorithms = Book.create(
     name: 'Algorithms',
     author: 'Sedgewick, Robert - Wayne, Kevin',
-    edition: '4ª Ed. 2011',
+    edition: '4ª Ed.',
+    year: 2011,
     category: computacao,
     user: guerrero
 )
@@ -57,7 +60,8 @@ guerrero_algorithms.image.attach(io: File.open("#{assets_dir}/seeds_images/sedge
 carol_apostol2 = Book.create(
     name: 'Calculo Vol. 2',
     author: 'Apostol, Tom M.',
-    edition: '2ª Ed. 2018',
+    edition: '2ª Ed.',
+    year: 2018,
     category: matematica,
     user: carol
 )
@@ -73,7 +77,7 @@ pena.interests << Interest.new(book: carol_apostol2)
 guerrero.interests << Interest.new(book: pena_guidorizzi1)
 guerrero.interests << Interest.new(book: carol_apostol2)
 
-# Guerrero
+# Carol
 carol.interests << Interest.new(book: pena_franca)
 carol.interests << Interest.new(book: guerrero_algorithms)
 
