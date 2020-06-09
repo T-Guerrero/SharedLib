@@ -2,7 +2,9 @@ class BorrowingsController < ApplicationController
     def create
         @book = Book.find(params[:book_id])
         if ((@book.borrowing.nil? && @book.interests.empty?) && @book.user != current_user)
-            if (current_user.max_borrowings - (current_user.interests.count + current_user.borrowings.count) > 0)
+            borrowings = current_user.interests.count + current_user.borrowings.count
+            borrowings += current_user.myTransitions.count + current_user.transitions.count
+            if (current_user.max_borrowings - borrowings > 0)
                 #O usuário ainda tem empréstimos para pegar
                 @borrowing = Borrowing.new()
                 @borrowing.book_id = @book.id
@@ -26,5 +28,4 @@ class BorrowingsController < ApplicationController
         redirect_to book_path(@book)
         @borrowing.destroy
     end 
-
 end

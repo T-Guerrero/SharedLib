@@ -3,7 +3,9 @@ class InterestsController < ApplicationController
         @book = Book.find(params[:book_id])
         if (!@book.borrowing.nil? && (@book.borrowing.user != current_user && @book.user != current_user))
             #O usuário que está com o livro emprestado e o dono do livro não podem declarar interesse
-            if (current_user.max_borrowings - (current_user.interests.count + current_user.borrowings.count) > 0)
+            borrowings = current_user.interests.count + current_user.borrowings.count
+            borrowings += current_user.myTransitions.count + current_user.transitions.count
+            if (current_user.max_borrowings - borrowings > 0)
                 #O usuário ainda tem empréstimos para pegar
                 @interest = @book.interests.create()
                 @interest.user = current_user
