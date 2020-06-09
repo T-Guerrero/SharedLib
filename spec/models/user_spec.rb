@@ -53,6 +53,7 @@ RSpec.describe User, type: :model do
         :name => "Algoritmos em C",
         :author => "Paulo Feofiloff",
         :edition => "",
+        year: 2010,
         :user => @user,
         :category => @category
         }
@@ -63,6 +64,7 @@ RSpec.describe User, type: :model do
         :name => "Algorithms",
         :author => "Robert Sedgewick",
         :edition => "",
+        year: 2010,
         :user => @user,
         :category => @category
         }

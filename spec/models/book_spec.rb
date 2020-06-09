@@ -23,6 +23,7 @@ RSpec.describe Book, type: :model do
         :name => "Algoritmos em C",
         :author => "Paulo Feofiloff",
         :edition => "",
+        year: 2010,
         :user => @user,
         :category => @category
         }
@@ -33,6 +34,7 @@ RSpec.describe Book, type: :model do
         :name => "Algorithms",
         :author => "Robert Sedgewick",
         :edition => "",
+        year: 2010,
         :user => @user,
         :category => @category
         }
@@ -43,6 +45,7 @@ RSpec.describe Book, type: :model do
         :name => nil,
         :author => "Paulo Feofiloff",
         :edition => "",
+        year: 2010,
         :user => @user,
         :category => @category
         }
@@ -53,6 +56,7 @@ RSpec.describe Book, type: :model do
         :name => "Algoritmos em C",
         :author => nil,
         :edition => "",
+        year: 2010,
         :user => @user,
         :category => @category
         }
@@ -63,6 +67,29 @@ RSpec.describe Book, type: :model do
         :name => "Algoritmos em C",
         :author => "P4ul0 Fe0f1loff",
         :edition => "",
+        year: 2010,
+        :user => @user,
+        :category => @category
+        }
+    }
+
+    let (:nil_year_attributes_book) {
+        {
+        :name => "Algoritmos em C",
+        :author => "Paulo Feofiloff",
+        :edition => "",
+        year: nil,
+        :user => @user,
+        :category => @category
+        }
+    }
+
+    let (:invalid_year_attributes_book) {
+        {
+        :name => "Algoritmos em C",
+        :author => "Paulo Feofiloff",
+        :edition => "",
+        year: 20,
         :user => @user,
         :category => @category
         }
@@ -73,6 +100,7 @@ RSpec.describe Book, type: :model do
         :name => "Algoritmos em C",
         :author => "Paulo Feofiloff",
         :edition => "",
+        year: 2010,
         :user => nil,
         :category => @category
         }
@@ -83,6 +111,7 @@ RSpec.describe Book, type: :model do
         :name => "Algoritmos em C",
         :author => "Paulo Feofiloff",
         :edition => "",
+        year: 2010,
         :user => @user,
         :category => nil
         }
@@ -113,6 +142,18 @@ RSpec.describe Book, type: :model do
     
     it "is not valid with invalid author name attribute" do
         book = Book.create(invalid_author_attributes_book)
+        book.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
+        expect(book).to_not be_valid
+    end
+
+    it "is not valid without year field" do
+        book = Book.create(nil_year_attributes_book)
+        book.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
+        expect(book).to_not be_valid
+    end
+
+    it "is not valid with invalid year attribute" do
+        book = Book.create(invalid_year_attributes_book)
         book.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
         expect(book).to_not be_valid
     end

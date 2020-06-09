@@ -8,6 +8,7 @@ class Book < ApplicationRecord
 
   validates :name, presence: true, length: {minimum:5}
   validates :author, presence: true, length: {minimum:3}, format: { with: /\A[[:alpha:] ,-.]+\z/, message: "character not allowed" }
+  validates :year, presence: true, length: {minimum:4}
   validates :category_id, presence: true
   validates :user_id, presence: true
   #validate :include_image

@@ -23,6 +23,7 @@ RSpec.describe Interest, type: :model do
         :name => "Algoritmos em C",
         :author => "Paulo Feofiloff",
         :edition => "",
+        year: 2010,
         :user => @user,
         :category => @category
         }
