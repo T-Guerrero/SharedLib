@@ -5,6 +5,7 @@ class CreateBooks < ActiveRecord::Migration[6.0]
       t.string :author
       t.string :edition
       t.boolean :borrowed, :default => false
+      t.boolean :available, :default => true
       t.references :category, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
 

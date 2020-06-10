@@ -23,5 +23,5 @@ env :PATH, ENV['PATH']
 
 every 1.minute do
     # rake 'check:borrowings_create', :environment => 'development'
-    rake 'check:borrowings_deadline', :environment => 'development'
+    rake 'check:deadline', :environment => 'development'
 end

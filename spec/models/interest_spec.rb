@@ -70,12 +70,12 @@ RSpec.describe Interest, type: :model do
         expect(interest).to be_valid
     end
 
-    it "is not valid without user refence field" do
+    it "is not valid without user refences field" do
         interest = Interest.create(nil_user_attributes_interest)
         expect(interest).to_not be_valid
     end
     
-    it "is not valid without book refence field" do
+    it "is not valid without book refences field" do
         interest = Interest.create(nil_book_attributes_interest)
         expect(interest).to_not be_valid
     end

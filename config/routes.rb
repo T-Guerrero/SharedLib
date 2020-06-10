@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 	devise_for :users, controllers: { registrations: 'users/registrations' }
 	resources :books do
-		resources :borrowings
+		resources :borrowings, :only => [:create, :destroy]
 		resources :interests, :only => [:create, :destroy]
+		resources :transitions, :only => [:create, :destroy]
 	end
 	resources :categories
 

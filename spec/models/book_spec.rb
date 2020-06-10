@@ -184,24 +184,20 @@ RSpec.describe Book, type: :model do
     end
 
     it "is valid if delete the dependent interests" do
-        book = Book.new(valid_attributes_book)
-        book2 = Book.new(valid_attributes_book2)
+        book = Book.create(valid_attributes_book)
+        book2 = Book.create(valid_attributes_book2)
         book.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
         book2.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
-        book.save
-        book2.save
         interest1 = Interest.create(user: @user, book: book)
         interest2 = Interest.create(user: @user, book: book2)
         expect{book.destroy}.to change{Interest.count}.by(-1)
     end
     
     it "is valid if delete the dependent borrowing" do
-        book = Book.new(valid_attributes_book)
-        book2 = Book.new(valid_attributes_book2)
+        book = Book.create(valid_attributes_book)
+        book2 = Book.create(valid_attributes_book2)
         book.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
         book2.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
-        book.save
-        book2.save
         borrowing = Borrowing.create(user: @user, book: book, deadline: DateTime.now()+10.minutes)
         borrowing = Borrowing.create(user: @user, book: book2, deadline: DateTime.now()+10.minutes)
         expect{book.destroy}.to change{Borrowing.count}.by(-1)

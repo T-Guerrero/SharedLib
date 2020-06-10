@@ -100,8 +100,6 @@ RSpec.describe User, type: :model do
             @book2 = Book.create(valid_attributes_book2)
             @book.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
             @book2.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
-            @book.save
-            @book2.save
         end
 
         it "is valid if delete the dependent interests" do

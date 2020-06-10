@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_174045) do
     t.string "author"
     t.string "edition"
     t.boolean "borrowed", default: false
+    t.boolean "available", default: true
     t.integer "category_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
