@@ -65,12 +65,12 @@ RSpec.describe Borrowing, type: :model do
         expect(borrowing).to be_valid
     end
 
-    it "is not valid without user reference field" do
+    it "is not valid without user references field" do
         borrowing = Borrowing.create(nil_user_attributes_borrowing)
         expect(borrowing).to_not be_valid
     end
     
-    it "is not valid without book reference field" do
+    it "is not valid without book references field" do
         borrowing = Borrowing.create(nil_book_attributes_borrowing)
         expect(borrowing).to_not be_valid
     end

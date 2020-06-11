@@ -1,0 +1,21 @@
+.main {
+    height: 100%;
+    background-color: #FFA500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.field label, .short-field label {
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+input.data:focus {
+    content: "";
+    box-shadow: 0 0 2pt 1pt black;
+}
+
+.links a {
+    color: #536DFE;
+}

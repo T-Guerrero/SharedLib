@@ -158,13 +158,13 @@ RSpec.describe Book, type: :model do
         expect(book).to_not be_valid
     end
     
-    it "is not valid without user owner reference field" do
+    it "is not valid without user owner references field" do
         book = Book.create(nil_user_attributes_book)
         book.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
         expect(book).to_not be_valid
     end
     
-    it "is not valid without category reference field" do
+    it "is not valid without category references field" do
         book = Book.create(nil_category_attributes_book)
         book.image.attach(io: File.open("#{assets_dir}/rspec_images/teste.jpg"), filename: "teste.jpg")
         expect(book).to_not be_valid
