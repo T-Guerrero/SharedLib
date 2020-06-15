@@ -5,11 +5,11 @@ assets_dir = Rails.root.join("app/assets")
 
 ############################## USUÁRIOS ##############################
 
-pena = User.create(name: 'Thiago Pena', email: 'tjbpena@gmail.com', phone: '(11) 97982-9433', password: "123456", password_confirmation: "123456", max_borrowings: 2)
-guerrero = User.create(name: 'Thiago Guerrero', email: 'guerrero@gmail.com', phone: '(11) 22222-2222', password: "123456", password_confirmation: "123456", max_borrowings: 1)
-carol = User.create(name: 'Carol', email: 'carol@gmail.com', phone: '(11) 11111-1111', password: "123456", password_confirmation: "123456", max_borrowings: 1)
-joao = User.create(name: 'João', email: 'joao@usp.br', phone: '(11) 99999-9999', password: "123456", password_confirmation: "123456")
-pedro = User.create(name: 'Pedro', email: 'pedro@usp.br', phone: '(11) 88888-8888', password: "123456", password_confirmation: "123456")
+pena = User.create(name: 'Thiago Pena', email: 'tjbpena@gmail.com', phone: '(11) 97982-9433', password: "123456", password_confirmation: "123456", max_borrowings: 2, nusp: 6847829)
+guerrero = User.create(name: 'Thiago Guerrero', email: 'guerrero@gmail.com', phone: '(11) 22222-2222', password: "123456", password_confirmation: "123456", max_borrowings: 1, nusp: 11275297)
+carol = User.create(name: 'Carol', email: 'carol@gmail.com', phone: '(11) 11111-1111', password: "123456", password_confirmation: "123456", max_borrowings: 1, nusp: 1073701)
+joao = User.create(name: 'João', email: 'joao@usp.br', phone: '(11) 99999-9999', password: "123456", password_confirmation: "123456", nusp: 1234567)
+pedro = User.create(name: 'Pedro', email: 'pedro@usp.br', phone: '(11) 88888-8888', password: "123456", password_confirmation: "123456", nusp: 7654321)
 
 ############################## CATEGORIAS ##############################
 
