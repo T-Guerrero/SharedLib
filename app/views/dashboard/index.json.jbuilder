@@ -10,6 +10,7 @@ end
 json.my_interests @my_interests.each do |interest|
     json.id interest.id
     json.book do
+        json.id interest.book.id
         json.name interest.book.name
         json.author interest.book.author
         json.borrowed interest.book.borrowed
