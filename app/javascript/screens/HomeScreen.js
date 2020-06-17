@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
 import { Columns, Button, Container, Notification, Heading } from 'react-bulma-components';
-import '../app.scss';
-//import '../debug.scss';
 import styled from 'styled-components';
 import logoImage from '../../assets/images/Logo.png';
 import questionImage from '../../assets/images/question.png';
@@ -13,18 +11,19 @@ const ButtonHome = styled(Button)`
     padding-left: 60px;
 `
 
-const paddingStyle = {
-        paddingTop: "40px",
-        paddingBottom: "40px"
-};
+const sectionStyle = {
+    paddingTop: "40px",
+    paddingBottom: "40px",
+    boxShadow: "0px 4px 5px rgba(0, 0, 0, 0.25)"
+}
 
 const HomeScreen = () => {
     return (
         <Fragment>
-            <section className="header" style={paddingStyle}>
+            <section className="header" style={sectionStyle}>
                 <Columns className="center">
                     <Columns.Column desktop={{size: 'half'}} mobile={{size: 'two-thirds'}}>
-                        <img src={logoImage}/>
+                        <img src={logoImage} className="image is-520x150"/>
                     </Columns.Column>
                 </Columns>
                 <Columns>
@@ -47,7 +46,7 @@ const HomeScreen = () => {
                     </Columns.Column>
                 </Columns>
             </section>
-            <section style={paddingStyle}>
+            <section style={sectionStyle}>
                 <Container>
                     <Columns>
                         <Columns.Column>

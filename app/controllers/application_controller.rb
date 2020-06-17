@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     protected
 
 	def after_sign_in_path_for(resource) # método do devise
-    '/books'
+    '/discovery'
   end
 
     def configure_permitted_parameters

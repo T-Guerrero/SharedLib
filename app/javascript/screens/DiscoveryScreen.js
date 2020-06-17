@@ -6,7 +6,7 @@ import MyBooks from '../components/discovery';
 const DiscoveryScreen = () => {
     return(
         <Fragment>
-            <NavBar/>
+            <NavBar />
             <MyBooks/>
         </Fragment>
     );
