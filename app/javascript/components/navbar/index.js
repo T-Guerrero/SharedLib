@@ -65,7 +65,7 @@ const navbar = () => {
                                 <FaUserCircle size="2em"/>
                             </NavbarLink>
                             <Navbar.Dropdown>
-                                <Navbar.Item href="#">
+                                <Navbar.Item href="/user">
                                     Meu Perfil
                                 </Navbar.Item>
                                 <Navbar.Divider/>

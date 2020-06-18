@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 	end
 	resources :categories
 
+	resources :users, only: [:index], defaults: {format: :json}
     resources :dashboard, only: :index, defaults: {format: :json}
 
 	# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
