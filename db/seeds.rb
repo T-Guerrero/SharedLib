@@ -69,17 +69,17 @@ carol_apostol2.image.attach(io: File.open("#{assets_dir}/seeds_images/apostolV2.
 
 ############################## INTERESSES ##############################
 
-# Pena
-pena.interests << Interest.new(book: guerrero_algorithms)
-pena.interests << Interest.new(book: carol_apostol2)
+# # Pena
+# pena.interests << Interest.new(book: guerrero_algorithms)
+# pena.interests << Interest.new(book: carol_apostol2)
 
-# Guerrero
-guerrero.interests << Interest.new(book: pena_guidorizzi1)
-guerrero.interests << Interest.new(book: carol_apostol2)
+# # Guerrero
+# guerrero.interests << Interest.new(book: pena_guidorizzi1)
+# guerrero.interests << Interest.new(book: carol_apostol2)
 
-# Carol
-carol.interests << Interest.new(book: pena_franca)
-carol.interests << Interest.new(book: guerrero_algorithms)
+# # Carol
+# carol.interests << Interest.new(book: pena_franca)
+# carol.interests << Interest.new(book: guerrero_algorithms)
 
 
 ############################## EMPRÉSTIMOS ##############################

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Menu, Container, Columns, Image, Heading } from 'react-bulma-components';
+import { Menu, Container, Columns, Heading } from 'react-bulma-components';
 import styled from 'styled-components';
 import UserService from '../../services/user';
 import './index.scss';
@@ -12,6 +12,14 @@ const CustomContainer = styled(Container)`
 `
 
 const UserImage = styled.img`
+    border: 5px solid #536DFE;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 10px;
+`
+
+const UserWithoutImage = styled.div`
     border: 5px solid #536DFE;
     border-radius: 50%;
     width: 180px;
@@ -53,7 +61,7 @@ const UserMenu = (props) => {
                         <Heading className="has-text-centered is-4">
                             Perfil
                         </Heading>
-                        <UserImage src={User.photo_url} className="image"/>
+                        {User.photo_url ? <UserImage src={User.photo_url} className="image"/>:<UserWithoutImage id="userNoPhoto"/>}
                         <Heading className="has-text-centered is-4" style={{marginBottom: "0"}}>
                             {User.name}
                         </Heading>

@@ -55,9 +55,13 @@
 <%end%>
 
 <%= link_to_if (!@book.borrowing.nil? && @book.borrowing.user != current_user) || !@book.interests.empty?, 'Interest', book_interests_path(@book), method: :post%><br>
-<%= link_to_if @book.interests.empty? && @book.borrowing.nil?, 'Borrow', book_borrowings_path(@book), method: :post%><br>
+<%= link_to_if @book.interests.empty? && @book.borrowing.nil?, 'Borrow', transitions_path(:book_id => @book.id), method: :post%><br>
 <%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+<%= link_to 'Back', books_path %><br>
+<% unless @book.transition.nil?%>
+  <%= link_to 'Delete Transition', transition_path(@book.transition), method: :delete%>
+<% end %>
+
 
 <p>
   <strong>Interests:</strong>

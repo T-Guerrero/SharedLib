@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-	before_action :authenticate_user!, unless: -> { request.env['PATH_INFO'] == '/' }
-
+  before_action :authenticate_user!, unless: -> { request.env['PATH_INFO'] == '/' }
+  protect_from_forgery except: [:create, :destroy, :update]
 	before_action :configure_permitted_parameters, if: :devise_controller?
 
     protected

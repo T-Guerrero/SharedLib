@@ -5,7 +5,7 @@
     
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-    <%= f.label :login %><br />
+    <%= f.label :"email | Nusp" %><br />
       <%= f.text_field :login, class:"data", autofocus: true, autocomplete: "login", placeholder: "sharedlib@gmail.com", required: true %>
     </div>
     

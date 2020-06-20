@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 	resources :books do
 		resources :borrowings, :only => [:create, :destroy]
 		resources :interests, :only => [:create, :destroy]
-		resources :transitions, :only => [:create, :destroy]
 	end
+	resources :transitions, only: [:index, :destroy], defaults: {format: :json}
+	resources :transitions, :only => [:create]
 	resources :categories
 
 	resources :users, only: [:index], defaults: {format: :json}

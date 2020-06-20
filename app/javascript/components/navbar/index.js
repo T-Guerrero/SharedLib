@@ -60,7 +60,7 @@ const navbar = () => {
                     <Navbar.Item renderAs="a" href="/discovery">
                         <img src={logoImage} style={logoStyle} desktop={{size: 'half'}} mobile={{size: 'two-thirds'}}/>
                     </Navbar.Item>
-                    <NavbarButton id="user" dropdown hoverable className="navbar-end" style={UserIconStyle}>
+                    <NavbarButton dropdown hoverable className="navbar-end" style={UserIconStyle}>
                             <NavbarLink>
                                 <FaUserCircle size="2em"/>
                             </NavbarLink>

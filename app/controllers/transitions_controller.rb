@@ -1,4 +1,8 @@
 class TransitionsController < ApplicationController
+    def index
+        @transitions = Transition.where(newUser: current_user)
+    end
+
     def create
         @book = Book.find(params[:book_id])
         if (@book.borrowing.nil? && @book.transition.nil? && @book.interests.empty?)
@@ -32,7 +36,7 @@ private
         @borrowing = Borrowing.new()
         @borrowing.book = @book
         @borrowing.deadline = DateTime.now()+3.minutes
-        @Borrowing.user = @transition.newUser
+        @borrowing.user = @transition.newUser
         @book.borrowing = @borrowing
         @book.borrowed = true
         @borrowing.save
