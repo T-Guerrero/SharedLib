@@ -21,6 +21,7 @@ direito = Category.create(name: 'Direito')
 medicina = Category.create(name: 'Medicina')
 biologia = Category.create(name: 'Biologia')
 quimica = Category.create(name: 'Química')
+variados = Category.create(name: 'Variados')
 
 ############################## LIVROS ##############################
 
@@ -45,6 +46,27 @@ pena_franca = Book.create(
 )
 pena_franca.image.attach(io: File.open("#{assets_dir}/seeds_images/franca.jpg"), filename: "franca.jpg")
 
+pena_feynman = Book.create(
+    name: "Surely You're Joking, Mr. Feynman: Adventures of a Curious Character",
+    author: 'Richard Phillips Feynman',
+    edition: '1ª Ed.',
+    year: 1997,
+    category: variados,
+    user: pena
+)
+pena_feynman.image.attach(io: File.open("#{assets_dir}/seeds_images/jokingFeynman.jpg"), filename: "jokingFeynman.jpg")
+
+pena_clanguage = Book.create(
+    name: 'The C Programming Language',
+    author: 'Kernighan, Brian W. - Ritchie, Dennis M.',
+    edition: '2ª Ed.',
+    year: 1988,
+    category: computacao,
+    user: pena
+)
+pena_clanguage.image.attach(io: File.open("#{assets_dir}/seeds_images/clanguage.jpg"), filename: "clanguage.jpg")
+
+
 # Guerrero
 guerrero_algorithms = Book.create(
     name: 'Algorithms',
@@ -56,7 +78,17 @@ guerrero_algorithms = Book.create(
 )
 guerrero_algorithms.image.attach(io: File.open("#{assets_dir}/seeds_images/sedgewick.jpg"), filename: "sedgewick.jpg")
 
-# Guerrero
+guerrero_iwoz = Book.create(
+    name: 'Iwoz - a Verdadeira História da Apple Segundo Seu Cofundador',
+    author: 'Wozniak, Steve - Smith, Gina ',
+    edition: '1ª Ed.',
+    year: 2010,
+    category: variados,
+    user: guerrero
+)
+guerrero_iwoz.image.attach(io: File.open("#{assets_dir}/seeds_images/iwoz.jpg"), filename: "iwoz.jpg")
+
+# Carol
 carol_apostol2 = Book.create(
     name: 'Calculo Vol. 2',
     author: 'Apostol, Tom M.',
@@ -67,11 +99,23 @@ carol_apostol2 = Book.create(
 )
 carol_apostol2.image.attach(io: File.open("#{assets_dir}/seeds_images/apostolV2.jpg"), filename: "apostolV2.jpg")
 
+carol_olivrodoscodigos = Book.create(
+    name: 'O Livro dos Codigos',
+    author: 'Singh, Simon ',
+    edition: '1ª Ed.',
+    year: 2002,
+    category: computacao,
+    user: carol
+)
+carol_olivrodoscodigos.image.attach(io: File.open("#{assets_dir}/seeds_images/olivrodoscodigos.jpg"), filename: "olivrodoscodigos.jpg")
+
+
 ############################## INTERESSES ##############################
 
 # # Pena
-# pena.interests << Interest.new(book: guerrero_algorithms)
-# pena.interests << Interest.new(book: carol_apostol2)
+pena.interests << Interest.new(book: guerrero_algorithms)
+pena.interests << Interest.new(book: carol_apostol2)
+pena.interests << Interest.new(book: guerrero_iwoz)
 
 # # Guerrero
 # guerrero.interests << Interest.new(book: pena_guidorizzi1)

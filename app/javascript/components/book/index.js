@@ -10,7 +10,9 @@ const DivVSpaced = styled.div`
 const Book = (props) => {
   return(
     <Link to={`/books/${props.id}`}>
-        <Image src={props.image_url}/>
+        <div style={{width: 291}}>
+            <Image src={props.image_url} className={"card"}/>
+        </div>
         <DivVSpaced>
             <Heading size={6} className='has-text-black'>{props.name}</Heading>
             <Heading size={6} className='has-text-black' subtitle>{props.author}</Heading>
