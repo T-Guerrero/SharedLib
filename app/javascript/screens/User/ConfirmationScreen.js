@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import NavBar from '../../components/navbar';
 import UserMenu from '../../components/userMenu';
 import BookConfirmation from '../../components/book_confirmation';
-import TransitionService from '../../services/transition'
+import { TransitionService } from '../../services/index';
 
 const CustomSection = styled(Section)`
     display: flex;

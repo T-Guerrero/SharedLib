@@ -26,6 +26,9 @@ gem 'devise'
 gem 'repost'
 # gem used to manage cron jobs in rails aplication
 gem 'whenever'
+# gem used to allow import react views into erb views
+gem 'react-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

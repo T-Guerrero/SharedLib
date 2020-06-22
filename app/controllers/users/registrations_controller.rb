@@ -56,8 +56,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
         '/discovery'
     end
 
+  # The default url to be used after updating a resource. You need to overwrite
+  # this method in your own RegistrationsController.
+  def after_update_path_for(resource)
+    '/users/edit'
+  end
+
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private
+
+  def sign_in_after_change_password?
+    return true if account_update_params[:password].blank?
+  end
+
 end

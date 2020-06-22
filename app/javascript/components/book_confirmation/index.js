@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Container, Columns, Button } from 'react-bulma-components';
 import styled from 'styled-components';
-import TransitionService from '../../services/transition';
+import { TransitionService } from '../../services/index';
 
 const CustomContainer = styled(Container)`
     margin-top: 100px;

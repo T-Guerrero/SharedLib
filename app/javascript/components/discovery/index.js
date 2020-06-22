@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Navbar, Columns, Container, Notification, Heading, Button } from 'react-bulma-components';
 import testeImgLivro from '../../../assets/seeds_images/sedgewick.jpg';
-import MyBooksService from '../../services/mybooks';
+import { MyBooksService } from '../../services/index';
 import Book from '../book';
 
 const MyBooks = () => {

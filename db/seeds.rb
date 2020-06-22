@@ -112,18 +112,18 @@ carol_olivrodoscodigos.image.attach(io: File.open("#{assets_dir}/seeds_images/ol
 
 ############################## INTERESSES ##############################
 
-# # Pena
+# Pena
 pena.interests << Interest.new(book: guerrero_algorithms)
 pena.interests << Interest.new(book: carol_apostol2)
 pena.interests << Interest.new(book: guerrero_iwoz)
 
-# # Guerrero
-# guerrero.interests << Interest.new(book: pena_guidorizzi1)
-# guerrero.interests << Interest.new(book: carol_apostol2)
+# Guerrero
+guerrero.interests << Interest.new(book: pena_guidorizzi1)
+guerrero.interests << Interest.new(book: carol_apostol2)
 
-# # Carol
-# carol.interests << Interest.new(book: pena_franca)
-# carol.interests << Interest.new(book: guerrero_algorithms)
+# Carol
+carol.interests << Interest.new(book: pena_franca)
+carol.interests << Interest.new(book: guerrero_algorithms)
 
 
 ############################## EMPRÉSTIMOS ##############################
