@@ -1,5 +1,6 @@
-<h1>New Book</h1>
+<%= react_component("navbar") %>
+<div class="book section">
+    <h1>Adicionar um Livro</h1>
+    <%= render 'form', text: @book %>
+</div>
 
-<%= render 'form', text: @book %>
-
-<%= link_to 'Back', books_path %>

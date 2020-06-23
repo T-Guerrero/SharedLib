@@ -1,49 +1,86 @@
-<%= form_with(model: @book, local: true) do |form| %>
-  <% if @book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
-
-      <ul>
-        <% @book.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+<div class="form">
+  <%= form_with(model: @book, local: true) do |form| %>
+    <div class="image">
+        <div class="field">
+          <%= form.label :foto_do_livro %>
+          <%= form.file_field :image, id:"imageField" %>
+        </div>
+        <% if !@book.image.blank? %>
+          <div id="preview">
+              <%= image_tag @book.image, id:"imageValue"%>
+          </div>
+        <% else %>
+          <div id="preview" style="display:none;">
+              <img id="imageValue">
+          </div>
         <% end %>
-      </ul>
+    </div>
+
+  <div class="content">
+      <% if @book.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@book.errors.count, "Erro") %>
+          <% if @book.errors.count == 1 %>
+            impediu
+          <% else %>
+            impediram
+          <% end %>
+          esse livro de ser salvo:</h2>
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :nome_do_livro %><br />
+        <%= form.text_field :name, class:"data", placeholder:"Um Curso De Cálculo Vol. 1" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :"autores" %><br />
+        <%= form.text_field :author, class:"data", placeholder:"Guidorizzi, Hamilton Luiz" %>
+      </div>
+
+      <div class="fields">
+        <div class="short-field">
+          <%= form.label :edição %><br />
+          <%= form.text_field :edition, class:"data", placeholder:"6ºEdição" %>
+        </div>
+
+        <div class="short-field">
+          <%= form.label :ano_de_publicação %><br />
+          <%= form.number_field :year, class:"data", placeholder:"2018" %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= form.label :categoria %><br />
+        <%= collection_select(:book, :category_id, Category.all, :id, :name, {}, { :multiple => false}) %>
+      </div>
+
+      <div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Enviar" %>
     </div>
   <% end %>
+</div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<script>
+  document.getElementById("imageField").onchange = function () {
+    var reader = new FileReader();
 
-  <div class="field">
-    <%= form.label :author %>
-    <%= form.text_field :author %>
-  </div>
+    reader.onload = function (e) {
+        // get loaded data and render thumbnail.
+        document.getElementById("imageValue").src = e.target.result;
+        document.getElementById("preview").style.display = "inline";
+    };
 
-  <div class="field">
-    <%= form.label :edition %>
-    <%= form.text_field :edition %>
-  </div>
-
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.number_field :year %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= collection_select(:book, :category_id, Category.all, :id, :name, {}, { :multiple => false}) %>
-  </div>
-
-  <div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    // read the image file as a data URL.
+    reader.readAsDataURL(this.files[0]);
+};
+</script>

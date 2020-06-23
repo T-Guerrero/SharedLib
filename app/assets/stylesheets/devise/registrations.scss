@@ -21,7 +21,6 @@
 
 .signup input.data, .edit input.data {
     margin-bottom: 15px;
-    box-sizing: border-box;
     border: 1px solid #000000;
     border-radius: 15px;
     width: 600px;
@@ -70,11 +69,6 @@
 
 .signup .actions input:hover, .edit .actions input:hover{
     background-color: #4B61DD;
-}
-
-.edit {
-    display: flex;
-    padding: 48px 24px;
 }
 
 .edit .form {

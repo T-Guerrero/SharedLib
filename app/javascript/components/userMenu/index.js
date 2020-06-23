@@ -85,10 +85,10 @@ const UserMenu = (props) => {
                             <Menu>
                                 <Menu.List>
                                     <Menu.List.Item href="/users/edit" className={props.edit? "is-active":""}>
-                                        Editar Dados
+                                        Editar dados
                                     </Menu.List.Item>
                                     <Menu.List.Item href="/users/confirmations" className={props.confirmations? "is-active":""}>
-                                        Confirmações de livro
+                                        Confirmar recebimento
                                     </Menu.List.Item>
                                 </Menu.List>
                             </Menu>

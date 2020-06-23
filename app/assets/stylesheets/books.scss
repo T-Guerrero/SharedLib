@@ -1,3 +1,109 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book h1 {
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 41px;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.book .form {
+    margin: 50px 20px 0;
+}
+
+.book .form form {
+    display: flex;
+}
+
+.book .image{
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.book #imageValue {
+    width: 300px;
+    box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.book .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.book .form input.data {
+    margin-bottom: 15px;
+    border: 1px solid #000000;
+    border-radius: 15px;
+    width: 600px;
+    height: 45px;
+    font-size: 20px;
+    padding-left: 15px;
+    outline-style: none;
+}
+
+.book .form .short-field input.data {
+    margin-bottom: 20px;
+    width: 280px;
+}
+
+.book .form .fields {
+    display: flex;
+    justify-content: space-between;
+}
+
+.book .form .field select {
+    margin-bottom: 15px;
+    border: 1px solid #000000;
+    background-color: white;
+    border-radius: 15px;
+    width: 280px;
+    height: 45px;
+    font-size: 20px;
+    padding-left: 15px;
+    outline-style: none;
+
+}
+
+.book .form .actions {
+    margin: auto 0;
+}
+
+.book .form .actions input {
+    background-color: #536DFE;
+    outline: none;
+    border-radius: 35px;
+    color: #FFE0E0;
+    font-weight: 500;
+    font-size: 20px;
+    transition: 400ms;
+    width: 300px;
+    height: 50px;
+}
+
+.form .actions input:hover {
+    background-color: #4B61DD;
+}
+
+.book #error_explanation {
+    max-width: 580px;
+    margin: 0 20px 20px;
+}
+
+@media (max-width: 1100px) {
+    .book .form form {
+        flex-direction: column;
+    }
+    .book .image {
+        margin: auto;
+        margin-bottom: 20px;
+    }
+}

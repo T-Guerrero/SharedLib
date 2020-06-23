@@ -1,6 +1,10 @@
-<h1>Editing Book</h1>
+<%= react_component("navbar") %>
+<div class="book section">
+    <h1>Editar Livro</h1>
+    <%= render 'form', text: @book %>
+    <div class="links">
+        <%= link_to 'Ver Mais', @book %> |
+        <%= link_to 'Voltar', books_path %>
+    </div>
+</div>
 
-<%= render 'form', text: @book %>
-
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>

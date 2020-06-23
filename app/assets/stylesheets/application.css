@@ -15,3 +15,22 @@
  */
 
  @import "./responsive.scss";
+
+ .section {
+    display: flex;
+    padding: 48px 24px;
+ }
+
+ input.data:focus {
+   content: "";
+   box-shadow: 0 0 2pt 1pt black;
+}
+
+* {
+   box-sizing: border-box;
+ }
+
+ .links a {
+   color: #536DFE;
+}
+ 
