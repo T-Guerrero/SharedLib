@@ -1,7 +1,9 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Navbar, Columns, Container, Notification, Heading, Button } from 'react-bulma-components';
+import { Columns, Notification, Heading, Container, Button, Section } from 'react-bulma-components';
 import { MyBooksService } from '../../services/index';
 import Book from '../book';
+import addBookImg from '../../../assets/images/adicione-um-livro.png';
+import borrowABookImg from '../../../assets/images/pegue-um-livro-emprestado.png';
 
 const MyBooks = () => {
     const [my_books, setMyBooks] = useState([]);
@@ -53,6 +55,42 @@ const MyBooks = () => {
                     {my_books_components}
         		</Columns>
             </div>
+            <Section>
+                <Container>
+                    <Columns className="center">
+                        <Columns.Column className="is-one-third">
+                            <Notification className="is-warning center2" style={{height: 320, padding: "1.25rem 1.5rem 1.25rem 1.5rem"}}>
+                                <figure className="image is-128x128">
+                                    <img src={addBookImg} desktop={{size: 'half'}} mobile={{size: 'two-thirds'}}/>
+                                </figure>
+                                <Heading size={5} className="has-text-centered">
+                                  Adicione um livro!
+                                </Heading>
+                                <Heading subtitle size={6} className="has-text-centered">
+                                    Não deixe seu livro pegando pó! Adicione-o à sua coleção de livro e ajude aqueles que precisam!
+                                </Heading>
+                                <a href="/books/new">
+                                <Button className="is-info">Adicione agora!</Button>
+                                </a>
+                            </Notification>
+                        </Columns.Column>
+                        <Columns.Column className="is-one-third">
+                            <Notification className="is-warning center2" style={{height: 320, padding: "1.25rem 1.5rem 1.25rem 1.5rem"}}>
+                                <figure className="image is-128x128">
+                                    <img src={borrowABookImg} desktop={{size: 'half'}} mobile={{size: 'two-thirds'}}/>
+                                </figure>
+                                <Heading size={5} className="has-text-centered">
+                                  Pegue um livro emprestado!
+                                </Heading>
+                                <Heading subtitle size={6} className="has-text-centered">
+                                    Precisando de um livro? Pegue ele emprestado!
+                                </Heading>
+                                <Button className="is-info">Pegue agora!</Button>
+                            </Notification>
+                        </Columns.Column>
+                    </Columns>
+                </Container>
+            </Section>
             <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
                 <Columns>
                     <Columns.Column>
