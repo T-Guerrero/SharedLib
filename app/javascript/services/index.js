@@ -4,13 +4,27 @@ const MyBooksService = {
     index: () => Api.get('/dashboard')
 }
 
-const TransitionService = {
-    index: () => Api.get(`/transitions`),
-    destroy: (id) => Api.delete(`/transitions/${id}`)
-}
-
 const UserService = {
     index: () => Api.get(`/users`)
 }
 
-export {MyBooksService, TransitionService, UserService}
+const TransitionService = {
+    index: () => Api.get(`/transitions`),
+    create: (bookId) => Api.post(`/transitions`, {book_id: bookId}),
+    destroy: (id) => Api.delete(`/transitions/${id}`)
+}
+
+const BookService = {
+    show: (id) => Api.get(`/books/${id}`)
+}
+
+const InterestService = {
+    create: (id) => Api.post(`/books/${id}/interests`),
+    destroy: (bookId, id) => Api.delete(`/books/${bookId}/interests/${id}`)
+}
+
+const BorrowingService = {
+    destroy: (bookId, id) => Api.delete(`/books/${bookId}/borrowings/${id}`)
+}
+
+export {MyBooksService, UserService, TransitionService, BookService, InterestService, BorrowingService}

@@ -27,7 +27,7 @@ const ConfirmationUser = () => {
     useEffect( () => {
         fetchTransitions();
     }, []);
-
+    
     const BooksComponents = Transitions.map((transition, key) => {
         return(
             <BookConfirmation 

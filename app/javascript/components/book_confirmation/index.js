@@ -37,10 +37,9 @@ const ImageColumnStyle = {
 }
 
 const BookConfirmation = (props) => {
-    // console.log(props)
     async function ConfirmBook(){
-        const response = await TransitionService.destroy(props.id);
-        console.log(response);
+        await TransitionService.destroy(props.id);
+        window.location.reload();
     }
 
     return(

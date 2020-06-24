@@ -20,7 +20,6 @@ class TransitionsController < ApplicationController
                 end
             end
         end
-        redirect_to book_path(@book)
     end
 
     def destroy

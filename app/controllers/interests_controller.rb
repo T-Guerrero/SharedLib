@@ -16,7 +16,6 @@ class InterestsController < ApplicationController
                 end
             end
         end
-        redirect_to book_path(@book)
     end
 
     def destroy
@@ -25,6 +24,5 @@ class InterestsController < ApplicationController
         if (@interest.user == current_user)
             @interest.destroy
         end
-        redirect_to book_path(@book)
     end
 end

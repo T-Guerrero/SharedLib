@@ -1,46 +1,211 @@
-import React, {Fragment} from 'react';
-import { Heading, Image } from 'react-bulma-components';
+import React, { Fragment } from 'react';
+import Pluralize from 'pluralize';
+import { Heading, Container, Section, Columns, Button, Tag } from 'react-bulma-components';
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import Navbar from '../navbar';
+import { InterestService, TransitionService, BorrowingService } from '../../services/index'
+
+const CustomSection = styled(Section)`
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+`
+
+const BookImage = styled.img`
+    max-width: 380px;
+    max-height: 55vh;
+    margin-bottom: 10px;
+`
+
+const ButtonsContainer = styled(Container)`
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin: 0 auto 0 0;
+`
+
+const CustomButton = styled(Button)`
+    color: #FFE0E0;
+    outlined: none;
+    background-color: #536DFE;
+    transition: 400ms;
+    width: 100%;
+    margin-top: 20px;
+    :hover {
+        background-color: #4B61DD;
+    }
+`
+
+const BookInfo = styled.div`
+    display: flex;
+    margin-bottom: 1rem;
+`
+
+const titleStyle = {
+    fontWeight: "normal",
+    fontSize: "36px",
+    color: "#000000",
+    marginBottom: "30px"
+}
+
+const CenterColumnStyle = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginRight: "100px"
+}
+
+const ColumnsStyle = {
+    marginTop: "50px"
+}
 
 const Book = (props) => {
-    let status;
-    let statusStyle = {};
+    let BookStatusTag, BookStatus
+    let Buttons, Title
+    // console.log(props)
 
-    if (props.borrowed) {
-        status = "Emprestado";
-        statusStyle.backgroundColor = "#F8502B";
-    }
-    else if (props.available) {
-        status = "Disponível";
-        statusStyle.backgroundColor = "#45D615";
-    }
-    else {
-        status = "Em retorno";
-        statusStyle.backgroundColor = "#F6F816";
+    async function manifestInterest(){
+        await InterestService.create(props.book.id)
+        window.location.reload();
     }
 
-    return(
-        <div className="box center2">
-            <a href={`/books/${props.id}`}>
-                <Heading size={6} className='has-text-black centered-text book-title'>{props.name}</Heading>
-                <Heading size={6} className='has-text-black centered-text' subtitle>{props.author}</Heading>
+    async function destroyInterest(){
+        await InterestService.destroy(props.book.id, props.book.interestId)
+        window.location.reload();
+    }
+
+    async function createTransition(){
+        await TransitionService.create(props.book.id)
+        window.location.reload();
+    }
+
+    async function returnBook(){
+        await BorrowingService.destroy(props.book.id, props.book.borrowing.id)
+        window.location.reload();
+    }
+
+    //Botões
+    if (props.isMyBook){
+        Buttons = 
+        <ButtonsContainer>
+            <a href={`/books/${props.book.id}/edit`}>
+                <CustomButton className="is-rounded is-medium">Editar detalhes do livro</CustomButton>
             </a>
-            <div style={{marginTop: 10}}>
-                <a href={`/books/${props.id}`}>
-                    <div className="book-img-wrapper center">
-                        <img src={props.image_url} style={{maxHeight: "100%", width: "auto"}}/>
-                    </div>
-                </a>
-            </div>
-            <div style={{marginTop: 20}}>
-                <a href={`/books/${props.id}`}>
-                    <div style={statusStyle} className="btn-bookStatus center">
-                        <span>{status}</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    );
+            <CustomButton className="is-rounded is-medium">Requisitar livro de volta</CustomButton>
+            <CustomButton className="is-rounded is-medium">Remover livro do site</CustomButton>
+        </ButtonsContainer>
+        Title = <Heading style={titleStyle}>Detalhes do seu livro</Heading>
+    }
+    else{
+        let interestButton
+        if (props.book.hasInterest){
+            interestButton = 
+            <CustomButton className="changeable is-rounded is-medium"
+            onClick={() => destroyInterest()}>Remover interesse</CustomButton>
+        }
+        else{
+            interestButton = 
+            <CustomButton className="changeable is-rounded is-medium"
+            onClick={() => manifestInterest()}
+            disabled={(props.book.borrowed && props.currentUserId != props.book.borrowing.userId) ||
+                    (props.book.inTransition && props.currentUserId != props.book.transition.userId) ? false:true}>
+            Manifestar interesse</CustomButton>
+        }
+
+        Buttons =
+        <ButtonsContainer>
+            {interestButton}
+            <p style={{textAlign: "center"}}>{Pluralize("Pessoa", props.book.interestsCount, true)} têm interesse</p>
+
+            <CustomButton className="changeable is-rounded is-medium"
+            onClick={() => createTransition()}
+            disabled={!props.book.borrowed && !props.book.inTransition && props.book.interestsCount == 0 ? false:true}>
+            Pegar emprestado</CustomButton>
+
+            <CustomButton className="changeable is-rounded is-medium"
+            onClick={() => returnBook()}
+            disabled={props.book.borrowed && props.currentUserId == props.book.borrowing.userId ? false:true}>
+            Devolver livro</CustomButton>
+        </ButtonsContainer>
+        Title = <Heading style={titleStyle}>Detalhes do livro</Heading>
+    }
+
+    //Estado do livro
+    if (!props.book.available){
+        BookStatusTag = <Tag className="is-light is-large"><p>Indisponível</p></Tag>
+        BookStatus = <p>Indisponível</p>
+    }
+    else if (props.book.borrowed){
+        BookStatusTag = <Tag className="is-danger is-large"><p>Emprestado</p></Tag>
+        BookStatus = <p>Emprestado para {props.book.borrowing.userName} (Prazo: {props.book.borrowing.deadline})</p>
+    }
+    else if(props.book.inTransition){
+        BookStatusTag = <Tag className="is-warning is-large"><p>Em transição</p></Tag>
+        BookStatus = <p>Em transição</p>
+        // let DOMbuttons = document.getElementsByClassName("changeable")
+        // console.log(DOMbuttons)
+        // console.log(DOMbuttons[0].button)
+        // for (let i=0; i < DOMbuttons.length; i++){
+        //     DOMbuttons[i].disabled = true
+        // }
+    }
+    else{
+        BookStatusTag = <Tag className="is-success is-large"><p>Disponível</p></Tag>
+        BookStatus = <p>Disponível</p>
+    }
+
+    return (
+        <Fragment>
+            <Navbar />
+            <CustomSection>
+                {Title}
+                <Columns style={ColumnsStyle}>
+                    <Columns.Column style={CenterColumnStyle}>
+                            <BookImage src={props.book.image_url} alt="Book Image"/>
+                            {BookStatusTag}
+                    </Columns.Column>
+                    <Columns.Column style={CenterColumnStyle}>
+                        <Container>
+                            <BookInfo>
+                                <h6 style={{fontWeight: "bold"}}>Nome:</h6> 
+                                <h6 style={{marginLeft: "0.5vw"}}>{props.book.name}</h6>
+                            </BookInfo>
+                            <BookInfo>
+                                <h6 style={{fontWeight: "bold"}}>Autor:</h6> 
+                                <h6 style={{marginLeft: "0.5vw"}}>{props.book.author}</h6>
+                            </BookInfo>
+                            <BookInfo>
+                                <h6 style={{fontWeight: "bold"}}>Edição:</h6> 
+                                <h6 style={{marginLeft: "0.5vw"}}>{props.book.edition}</h6>
+                            </BookInfo>
+                            <BookInfo>
+                                <h6 style={{fontWeight: "bold"}}>Ano:</h6> 
+                                <h6 style={{marginLeft: "0.5vw"}}>{props.book.year}</h6>
+                            </BookInfo>
+                            <BookInfo>
+                                <h6 style={{fontWeight: "bold"}}>Categoria:</h6> 
+                                <h6 style={{marginLeft: "0.5vw"}}>{props.book.category}</h6>
+                            </BookInfo>
+                            <BookInfo>
+                                <h6 style={{fontWeight: "bold"}}>Dono:</h6> 
+                                <h6 style={{marginLeft: "0.5vw"}}>{props.book.owner}</h6>
+                            </BookInfo>
+                            <BookInfo>
+                                <h6 style={{fontWeight: "bold"}}>Status:</h6> 
+                                <h6 style={{marginLeft: "0.5vw"}}>{BookStatus}</h6>
+                            </BookInfo>
+                            {Buttons}
+                        </Container>
+                    </Columns.Column>
+                </Columns>
+                <Columns>
+                    <Columns.Column style={{marginRight: "120px", marginTop: "10px"}}>
+                        <CustomButton className="is-rounded is-large" style={{width: "200px"}}>Voltar</CustomButton>
+                    </Columns.Column>
+                </Columns>
+            </CustomSection>
+        </Fragment>
+    )
 }
+
 export default Book;

@@ -56,7 +56,6 @@ const UserMenu = (props) => {
 
     async function fetchUser(){
         const response = await UserService.index();
-        console.log(response.data)
         setUser(response.data['user']);
     }
 
