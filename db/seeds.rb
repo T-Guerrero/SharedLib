@@ -26,7 +26,7 @@ variados = Category.create(name: 'Variados')
 ############################## LIVROS ##############################
 
 # Pena
-pena_guidorizzi1 = Book.create(
+pena_guidorizzi1 = Book.new(
     name: 'Um Curso De Cálculo Vol. 1',
     author: 'Guidorizzi, Hamilton Luiz',
     edition: '5ª Ed.',
@@ -35,8 +35,9 @@ pena_guidorizzi1 = Book.create(
     user: pena
 )
 pena_guidorizzi1.image.attach(io: File.open("#{assets_dir}/seeds_images/guidorizziV1.jpg"), filename: "guidorizziV1.jpg")
+pena_guidorizzi1.save
 
-pena_franca = Book.create(
+pena_franca = Book.new(
     name: 'Mecânica Geral',
     author: 'Franca, Luis Novaes Ferreira',
     edition: '3ª Ed.',
@@ -45,8 +46,9 @@ pena_franca = Book.create(
     user: pena
 )
 pena_franca.image.attach(io: File.open("#{assets_dir}/seeds_images/franca.jpg"), filename: "franca.jpg")
+pena_franca.save
 
-pena_feynman = Book.create(
+pena_feynman = Book.new(
     name: "Surely You're Joking, Mr. Feynman: Adventures of a Curious Character",
     author: 'Richard Phillips Feynman',
     edition: '1ª Ed.',
@@ -55,8 +57,9 @@ pena_feynman = Book.create(
     user: pena
 )
 pena_feynman.image.attach(io: File.open("#{assets_dir}/seeds_images/jokingFeynman.jpg"), filename: "jokingFeynman.jpg")
+pena_feynman.save
 
-pena_clanguage = Book.create(
+pena_clanguage = Book.new(
     name: 'The C Programming Language',
     author: 'Kernighan, Brian W. - Ritchie, Dennis M.',
     edition: '2ª Ed.',
@@ -65,10 +68,10 @@ pena_clanguage = Book.create(
     user: pena
 )
 pena_clanguage.image.attach(io: File.open("#{assets_dir}/seeds_images/clanguage.jpg"), filename: "clanguage.jpg")
-
+pena_clanguage.save
 
 # Guerrero
-guerrero_algorithms = Book.create(
+guerrero_algorithms = Book.new(
     name: 'Algorithms',
     author: 'Sedgewick, Robert - Wayne, Kevin',
     edition: '4ª Ed.',
@@ -77,8 +80,9 @@ guerrero_algorithms = Book.create(
     user: guerrero
 )
 guerrero_algorithms.image.attach(io: File.open("#{assets_dir}/seeds_images/sedgewick.jpg"), filename: "sedgewick.jpg")
+guerrero_algorithms.save
 
-guerrero_iwoz = Book.create(
+guerrero_iwoz = Book.new(
     name: 'Iwoz - a Verdadeira História da Apple Segundo Seu Cofundador',
     author: 'Wozniak, Steve - Smith, Gina ',
     edition: '1ª Ed.',
@@ -87,9 +91,10 @@ guerrero_iwoz = Book.create(
     user: guerrero
 )
 guerrero_iwoz.image.attach(io: File.open("#{assets_dir}/seeds_images/iwoz.jpg"), filename: "iwoz.jpg")
+guerrero_iwoz.save
 
 # Carol
-carol_apostol2 = Book.create(
+carol_apostol2 = Book.new(
     name: 'Calculo Vol. 2',
     author: 'Apostol, Tom M.',
     edition: '2ª Ed.',
@@ -98,8 +103,9 @@ carol_apostol2 = Book.create(
     user: carol
 )
 carol_apostol2.image.attach(io: File.open("#{assets_dir}/seeds_images/apostolV2.jpg"), filename: "apostolV2.jpg")
+carol_apostol2.save
 
-carol_olivrodoscodigos = Book.create(
+carol_olivrodoscodigos = Book.new(
     name: 'O Livro dos Codigos',
     author: 'Singh, Simon ',
     edition: '1ª Ed.',
@@ -108,6 +114,7 @@ carol_olivrodoscodigos = Book.create(
     user: carol
 )
 carol_olivrodoscodigos.image.attach(io: File.open("#{assets_dir}/seeds_images/olivrodoscodigos.jpg"), filename: "olivrodoscodigos.jpg")
+carol_olivrodoscodigos.save
 
 
 ############################## INTERESSES ##############################

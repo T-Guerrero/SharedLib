@@ -12,13 +12,13 @@ class Book < ApplicationRecord
   validates :year, presence: true, length: {minimum:4}
   validates :category_id, presence: true
   validates :user_id, presence: true
-  #validate :include_image
-  
+  validate :include_image
+
   private
-  
+
   def include_image
-    if  image.attached? && !image.content_type.in?(%w(image/jpeg image/jpg image/png))
-      errors.add(:image, 'must be a JPEG, JPG or PNG.')
+    if  image.attached? && !image.content_type.in?(%w(image/jpeg image/jpg image/png image/webp))
+      errors.add(:image, 'must be a JPEG, JPG, PNG or WEBP.')
     elsif !image.attached?
       errors.add(:image, 'must be attached.')
     end
