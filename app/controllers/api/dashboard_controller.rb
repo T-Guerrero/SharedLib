@@ -1,4 +1,4 @@
-class DashboardController < ApplicationController
+class Api::DashboardController < ApplicationController
     def index
         load_my_books
         load_my_borrowings

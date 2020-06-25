@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import Pluralize from 'pluralize';
+import { useHistory } from 'react-router-dom';
 import { Heading, Container, Section, Columns, Button, Tag } from 'react-bulma-components';
 import styled from 'styled-components';
 import Navbar from '../navbar';
-import { InterestService, TransitionService, BorrowingService } from '../../services/index'
+import { InterestService, TransitionService, BookService, BorrowingService } from '../../services/index'
 
 const CustomSection = styled(Section)`
     flex-direction: column;
@@ -62,7 +63,7 @@ const ColumnsStyle = {
 const Book = (props) => {
     let BookStatusTag, BookStatus
     let Buttons, Title
-    // console.log(props)
+    let history = useHistory();
 
     async function manifestInterest(){
         await InterestService.create(props.book.id)
@@ -84,6 +85,11 @@ const Book = (props) => {
         window.location.reload();
     }
 
+    async function destroyBook(){
+        await BookService.destroy(props.book.id)
+        history.push('/discovery')
+    }
+
     //Botões
     if (props.isMyBook){
         Buttons = 
@@ -91,8 +97,11 @@ const Book = (props) => {
             <a href={`/books/${props.book.id}/edit`}>
                 <CustomButton className="is-rounded is-medium">Editar detalhes do livro</CustomButton>
             </a>
-            <CustomButton className="is-rounded is-medium">Requisitar livro de volta</CustomButton>
-            <CustomButton className="is-rounded is-medium">Remover livro do site</CustomButton>
+            <CustomButton className="is-rounded is-medium" disabled={true}>Requisitar livro de volta</CustomButton>
+            <CustomButton className="is-rounded is-medium"
+            onClick={() => {if (window.confirm('Você tem certeza?')) destroyBook()} }
+            disabled={!props.book.borrowed && !props.book.inTransition ? false:true}>
+            Remover livro do site</CustomButton>
         </ButtonsContainer>
         Title = <Heading style={titleStyle}>Detalhes do seu livro</Heading>
     }
@@ -200,7 +209,9 @@ const Book = (props) => {
                 </Columns>
                 <Columns>
                     <Columns.Column style={{marginRight: "120px", marginTop: "10px"}}>
-                        <CustomButton className="is-rounded is-large" style={{width: "200px"}}>Voltar</CustomButton>
+                        <CustomButton className="is-rounded is-large" style={{width: "200px"}} onClick={history.goBack}>
+                            Voltar
+                        </CustomButton>
                     </Columns.Column>
                 </Columns>
             </CustomSection>

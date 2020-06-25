@@ -15,7 +15,8 @@ const TransitionService = {
 }
 
 const BookService = {
-    show: (id) => Api.get(`/books/${id}`)
+    show: (id) => Api.get(`/books/${id}`),
+    destroy: (id) => Api.delete(`/books/${id}`)
 }
 
 const InterestService = {

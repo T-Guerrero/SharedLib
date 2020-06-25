@@ -1,10 +1,7 @@
 class BooksController < ApplicationController
     def index
+        #Temporário
         @books = Book.all
-    end
-
-    def show
-        @book = Book.find(params[:id])
     end
 
     def new
@@ -34,14 +31,6 @@ class BooksController < ApplicationController
         else
             render 'edit'
         end
-    end
-
-    def destroy
-        @book = Book.find(params[:id])
-        @book.destroy
-        @book.user.max_borrowings -= 1
-        @book.user.save
-        redirect_to books_path
     end
 end
 

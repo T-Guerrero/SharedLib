@@ -22,19 +22,19 @@ const BookPreview = (props) => {
 
     return(
         <div className="box center2">
-            <a href={`/book/${props.id}`}>
+            <a href={`/books/${props.id}`}>
                 <Heading size={6} className='has-text-black centered-text book-title'>{props.name}</Heading>
                 <Heading size={6} className='has-text-black centered-text' subtitle>{props.author}</Heading>
             </a>
             <div style={{marginTop: 10}}>
-                <a href={`/book/${props.id}`}>
+                <a href={`/books/${props.id}`}>
                     <div className="book-img-wrapper center">
                         <img src={props.image_url} style={{maxHeight: "100%", width: "auto"}}/>
                     </div>
                 </a>
             </div>
             <div style={{marginTop: 20}}>
-                <a href={`/book/${props.id}`}>
+                <a href={`/books/${props.id}`}>
                     <div style={statusStyle} className="btn-bookStatus center">
                         <span>{status}</span>
                     </div>

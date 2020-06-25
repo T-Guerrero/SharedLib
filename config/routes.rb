@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
 	devise_for :users, controllers: { registrations: 'users/registrations' }
-	resources :books, except: [:show] do
-		resources :borrowings, :only => [:destroy], defaults: {format: :json}
-		resources :interests, :only => [:create, :destroy], defaults: {format: :json}
-	end
-	resources :books, only: [:show], defaults: {format: :json}
-	resources :transitions, only: [:index, :create, :destroy], defaults: {format: :json}
+	resources :books, except: [:show, :destroy]
 	resources :categories
 
-	resources :users, only: [:index], defaults: {format: :json}
-    resources :dashboard, only: [:index], defaults: {format: :json}
+	namespace :api , defaults: { format: :json } do
+		resources :books, only: [:show, :destroy] do
+			resources :borrowings, :only => [:destroy]
+			resources :interests, :only => [:create, :destroy]
+		end
+		resources :transitions, only: [:index, :create, :destroy]
+		resources :users, only: [:index]
+		resources :dashboard, only: [:index]
+	end
+
 
 	# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 	root "home#index"

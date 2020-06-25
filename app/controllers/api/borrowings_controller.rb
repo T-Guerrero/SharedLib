@@ -1,4 +1,4 @@
-class BorrowingsController < ApplicationController
+class Api::BorrowingsController < ApplicationController
     def destroy
         @book = Book.find(params[:book_id])
         return_book

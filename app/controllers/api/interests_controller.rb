@@ -1,4 +1,4 @@
-class InterestsController < ApplicationController
+class Api::InterestsController < ApplicationController
     def create
         @book = Book.find(params[:book_id])
         if ((!@book.borrowing.nil? && @book.borrowing.user != current_user) ||

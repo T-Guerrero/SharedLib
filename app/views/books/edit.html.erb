@@ -3,8 +3,8 @@
     <h1>Editar Livro</h1>
     <%= render 'form', text: @book %>
     <div class="links">
-        <%= link_to 'Ver Mais', @book %> |
-        <%= link_to 'Voltar', books_path %>
+        <%= link_to 'Ver Mais', "/books/#{@book.id}" %> |
+        <%= link_to 'Voltar', :back %>
     </div>
 </div>
 

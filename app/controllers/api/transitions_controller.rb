@@ -1,4 +1,4 @@
-class TransitionsController < ApplicationController
+class Api::TransitionsController < ApplicationController
     def index
         @transitions = Transition.where(newUser: current_user)
     end
@@ -32,13 +32,15 @@ end
 private
     def borrowing_create
         @book = @transition.book
-        @borrowing = Borrowing.new()
-        @borrowing.book = @book
-        @borrowing.deadline = DateTime.now()+3.minutes
-        @borrowing.user = @transition.newUser
-        @book.borrowing = @borrowing
-        @book.borrowed = true
-        @borrowing.save
-        @book.save
-        UserMailer.with(borrowing: @borrowing).borrowing_create.deliver
+        if (@transition.newUser != @book.user)
+            @borrowing = Borrowing.new()
+            @borrowing.book = @book
+            @borrowing.deadline = DateTime.now()+3.minutes
+            @borrowing.user = @transition.newUser
+            @book.borrowing = @borrowing
+            @book.borrowed = true
+            @borrowing.save
+            @book.save
+            UserMailer.with(borrowing: @borrowing).borrowing_create.deliver
+        end
     end
