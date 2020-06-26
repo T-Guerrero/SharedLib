@@ -1,7 +1,9 @@
 import Api from './api'
 
-const MyBooksService = {
-    index: () => Api.get('/dashboard')
+const DashboardService = {
+    index: () => Api.get('/dashboard'),
+    activeBook: (id) => Api.patch(`/dashboard/active/${id}`),
+    disableBook: (id) => Api.patch(`/dashboard/disable/${id}`)
 }
 
 const UserService = {
@@ -26,7 +28,8 @@ const InterestService = {
 }
 
 const BorrowingService = {
-    destroy: (bookId, id) => Api.delete(`/books/${bookId}/borrowings/${id}`)
+    destroyByUser: (bookId, id) => Api.delete(`/books/${bookId}/borrowings/user/${id}`),
+    destroyByOwner: (bookId, id) => Api.delete(`/books/${bookId}/borrowings/owner/${id}`)
 }
 
-export {MyBooksService, UserService, TransitionService, BookService, InterestService, BorrowingService}
+export {DashboardService, UserService, TransitionService, BookService, InterestService, BorrowingService}

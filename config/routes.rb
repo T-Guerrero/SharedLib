@@ -5,12 +5,14 @@ Rails.application.routes.draw do
 
 	namespace :api , defaults: { format: :json } do
 		resources :books, only: [:show, :destroy] do
-			resources :borrowings, :only => [:destroy]
+
+			resources :borrowings, path: "borrowings/:type", :only => [:destroy]
 			resources :interests, :only => [:create, :destroy]
 		end
 		resources :transitions, only: [:index, :create, :destroy]
 		resources :users, only: [:index, :show]
 		resources :dashboard, only: [:index]
+		resources :dashboard, path: "/dashboard/:type", only: [:update]
 	end
 
 

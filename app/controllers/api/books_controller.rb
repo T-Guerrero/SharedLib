@@ -10,7 +10,9 @@ class Api::BooksController < ApplicationController
     def destroy
         @book = Book.find(params[:id])
         if (@book.borrowing.nil? && @book.transition.nil? && @book.user == current_user)
-            @book.user.max_borrowings -= 1
+            if (@book.available)
+                @book.user.max_borrowings -= 1
+            end
             @book.user.save
             @book.destroy
         end

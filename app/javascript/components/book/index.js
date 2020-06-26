@@ -5,7 +5,7 @@ import { Heading, Container, Section, Columns, Button, Tag } from 'react-bulma-c
 import styled from 'styled-components';
 import Navbar from '../navbar';
 import UserModel from '../user_modal';
-import { InterestService, TransitionService, BookService, BorrowingService } from '../../services/index'
+import { DashboardService, InterestService, TransitionService, BookService, BorrowingService } from '../../services/index'
 
 const CustomSection = styled(Section)`
     flex-direction: column;
@@ -23,6 +23,9 @@ const ButtonsContainer = styled(Container)`
     flex-direction: column;
     width: 350px;
     margin: 0 auto 0 0;
+    @media (max-width: 1000px){
+        margin: 0 auto;
+    }
 `
 
 const CustomButton = styled(Button)`
@@ -88,7 +91,7 @@ const Book = (props) => {
     }
 
     async function returnBook(){
-        await BorrowingService.destroy(props.book.id, props.book.borrowing.id)
+        await BorrowingService.destroyByUser(props.book.id, props.book.borrowing.id)
         window.location.reload();
     }
 
@@ -97,14 +100,50 @@ const Book = (props) => {
         history.push('/discovery')
     }
 
+    async function takeBookBack(){
+        await BorrowingService.destroyByOwner(props.book.id, props.book.borrowing.id)
+        window.location.reload();
+    }
+
+    async function activeBook(){
+        await DashboardService.activeBook(props.book.id)
+        window.location.reload();
+    }
+
+    async function disableBook(){
+        await DashboardService.disableBook(props.book.id)
+        window.location.reload();
+    }
+
     //Botões
     if (props.isMyBook){
+        let statusButton
+        if (props.book.available){
+            if (!props.book.borrowed && !props.book.inTransition){
+                statusButton =
+                <CustomButton className="is-rounded is-medium" 
+                onClick={() => disableBook()}>Desativar livro</CustomButton>
+            }
+            else{
+                statusButton =
+                <CustomButton className="is-rounded is-medium" 
+                onClick={() => takeBookBack()}
+                disabled={!props.book.inTransition && props.book.borrowed ? false:true}>
+                Requisitar livro de volta</CustomButton>
+            }
+        }
+        else{
+            statusButton =
+            <CustomButton className="is-rounded is-medium" 
+            onClick={() => activeBook()}>Ativar livro</CustomButton>
+        }
+        
         Buttons = 
         <ButtonsContainer>
             <a href={`/books/${props.book.id}/edit`}>
                 <CustomButton className="is-rounded is-medium">Editar detalhes do livro</CustomButton>
             </a>
-            <CustomButton className="is-rounded is-medium" disabled={true}>Requisitar livro de volta</CustomButton>
+            {statusButton}
             <CustomButton className="is-rounded is-medium"
             onClick={() => {if (window.confirm('Você tem certeza?')) destroyBook()} }
             disabled={!props.book.borrowed && !props.book.inTransition ? false:true}>

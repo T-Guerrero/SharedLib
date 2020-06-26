@@ -21,9 +21,9 @@ namespace :check do
             elsif (!book.transition.nil?)
                 transition = book.transition
                 if (transition.deadline < DateTime.now)
-                    transition_deadline(transition.id)
+                    deadline_punishment(transition.id)
                 end
-            else
+            elsif (book.available)
                 transition_create(book.id)
             end
         end
@@ -51,11 +51,15 @@ namespace :check do
         end
     end
 
-    def transition_deadline(transition_id)
+    def deadline_punishment(transition_id)
         # Aplica as punições para o usuário que estava com o livro e não concluiu a transição e deixa o livro indisponível
         @transition = Transition.find(transition_id)
         @book = @transition.book
         @transition.oldUser.max_borrowings -= 1
+        if (@transition.newUser == @book.user && !@book.available)
+            #O livro foi requsitado de volta pelo dono, ou seja, ele tinha desabilitado o livro e perdido um empréstimo
+            @book.user.max_borrowings += 1
+        end
         @book.available = false
         @book.save
     end

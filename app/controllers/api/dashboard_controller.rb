@@ -8,6 +8,20 @@ class Api::DashboardController < ApplicationController
         load_counters
     end
 
+    def update
+        #Altera o estado do livro
+        @book = Book.find(params[:id])
+        if (params[:type] == "active" && !@book.available)
+            @book.available = true
+            @book.user.max_borrowings += 1
+        elsif (params[:type] == "disable" && @book.available) 
+            @book.available = false
+            @book.user.max_borrowings -= 1
+        end
+        @book.user.save
+        @book.save
+    end
+
     private
 
     def load_my_books
