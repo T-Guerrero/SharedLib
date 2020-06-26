@@ -57,7 +57,7 @@ const navbar = () => {
         <Fragment>
             <CustomNavbar>
                 <Navbar.Brand style={BrandStyle}>
-                    <Navbar.Item renderAs="a" href="/discovery">
+                    <Navbar.Item renderAs="a" href="/home">
                         <img src={logoImage} style={logoStyle} desktop={{size: 'half'}} mobile={{size: 'two-thirds'}}/>
                     </Navbar.Item>
                     <NavbarButton dropdown hoverable className="navbar-end" style={UserIconStyle}>
@@ -78,7 +78,7 @@ const navbar = () => {
                 <Navbar.Burger onClick={() => document.querySelectorAll('#mainNavbar').forEach(item => item.classList.toggle('is-active'))}/>
                     <Navbar.Menu id="mainNavbar">
                         <Navbar.Container style={navbarMenuStyle}>
-                            <NavbarButton href="/discovery">
+                            <NavbarButton href="/home">
                                 <AiFillHome/>
                                 Home
                             </NavbarButton>
@@ -94,6 +94,10 @@ const navbar = () => {
                                     <Navbar.Divider/>
                                     <Navbar.Item href="#">
                                         Empréstimos
+                                    </Navbar.Item>
+                                    <Navbar.Divider/>
+                                    <Navbar.Item href="#">
+                                        Interesses
                                     </Navbar.Item>
                                 </Navbar.Dropdown>
                             </NavbarButton>

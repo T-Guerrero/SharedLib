@@ -97,7 +97,7 @@ const Book = (props) => {
 
     async function destroyBook(){
         await BookService.destroy(props.book.id)
-        history.push('/discovery')
+        history.push('/home')
     }
 
     async function takeBookBack(){
