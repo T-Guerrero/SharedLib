@@ -5,18 +5,20 @@ import { BookService } from '../services/index'
 const BookScreen = (props) => {
     const [Book, setBook] = useState([]);
     const [Users, setUsers] = useState([]);
+    const [Loaded, setLoaded] = useState(false);
     let myBook = false
 
     async function fetchBook(){
         const response = await BookService.show(props.match.params.id)
-        setBook(response.data['book']);
         setUsers(response.data['users']);
+        setBook(response.data['book']);
+        setLoaded(true);
     }
 
     useEffect( () => {
-        fetchBook();
+        fetchBook(); 
     }, [])
-
+    
     if (Users.currentUser == Users.owner)
         myBook = true;
     else
@@ -24,11 +26,12 @@ const BookScreen = (props) => {
 
     return (
         <Fragment>
-            <BookInfo
+            {Loaded && <BookInfo
             isMyBook={myBook}
             book={Book}
             currentUserId={Users.currentUser}
-            />
+            ownerId={Users.owner}
+            />}
         </Fragment>
     )
 }

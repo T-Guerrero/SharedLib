@@ -5,7 +5,8 @@ const MyBooksService = {
 }
 
 const UserService = {
-    index: () => Api.get(`/users`)
+    index: () => Api.get(`/users`),
+    show: (id) => Api.get(`/users/${id}`)
 }
 
 const TransitionService = {

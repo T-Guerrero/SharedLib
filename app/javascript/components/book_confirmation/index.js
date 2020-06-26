@@ -1,6 +1,7 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Container, Columns, Button } from 'react-bulma-components';
 import styled from 'styled-components';
+import UserModal from '../user_modal';
 import { TransitionService } from '../../services/index';
 
 const CustomContainer = styled(Container)`
@@ -36,7 +37,15 @@ const ImageColumnStyle = {
     maxWidth: "300px"
 }
 
+const UserNameStyle = {
+    cursor: "pointer",
+    color: "#536DFE",
+    marginLeft: "0.5vw"
+}
+
 const BookConfirmation = (props) => {
+    const [Show, setShow] = useState(false);
+
     async function ConfirmBook(){
         await TransitionService.destroy(props.id);
         window.location.reload();
@@ -75,7 +84,7 @@ const BookConfirmation = (props) => {
                         </BookInfo>
                         <BookInfo>
                             <h6 style={{fontWeight: "bold"}}>Responsável pelo transporte:</h6> 
-                            <h6 style={{marginLeft: "0.5vw"}}>{props.oldUser.name}</h6>
+                            <h6 style={UserNameStyle} onClick={() => setShow(true)}>{props.oldUser.name}</h6>
                         </BookInfo>
                         <BookInfo>
                             <h6 style={{fontWeight: "bold"}}>Tempo restante para conclusão do transporte:</h6> 
@@ -89,6 +98,7 @@ const BookConfirmation = (props) => {
                     </Columns.Column>
                 </Columns>
             </CustomContainer>
+            <UserModal id={props.oldUserId} show={Show} setShow={setShow}/>
         </Fragment>
     )
 

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 			resources :interests, :only => [:create, :destroy]
 		end
 		resources :transitions, only: [:index, :create, :destroy]
-		resources :users, only: [:index]
+		resources :users, only: [:index, :show]
 		resources :dashboard, only: [:index]
 	end
 

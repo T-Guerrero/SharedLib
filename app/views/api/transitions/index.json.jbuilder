@@ -3,6 +3,7 @@ json.transitions @transitions.each do |transition|
     json.image_url url_for(transition.book.image)
     json.book transition.book
     json.oldUser transition.oldUser
+    json.oldUserId transition.oldUser.id
     json.category transition.book.category.name
     json.deadline transition.deadline
 end

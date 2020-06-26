@@ -4,6 +4,7 @@ import HomeScreen from "./screens/HomeScreen";
 import DiscoveryScreen from "./screens/DiscoveryScreen";
 import ConfirmationUserScreen from './screens/User/ConfirmationScreen';
 import BookScreen from './screens/BookScreen';
+import test from './components/user_modal/index'
 
 
 const Routes = () => (
@@ -12,6 +13,7 @@ const Routes = () => (
         <Route exact path='/discovery' component={DiscoveryScreen} />
         <Route exact path='/users/confirmations' component={ConfirmationUserScreen} />
         <Route exact path='/books/:id' component={BookScreen} />
+        <Route exact path='/test' component={test} />
     </Switch>
 )
 

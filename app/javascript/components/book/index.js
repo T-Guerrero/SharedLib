@@ -1,15 +1,15 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import Pluralize from 'pluralize';
 import { useHistory } from 'react-router-dom';
 import { Heading, Container, Section, Columns, Button, Tag } from 'react-bulma-components';
 import styled from 'styled-components';
 import Navbar from '../navbar';
+import UserModel from '../user_modal';
 import { InterestService, TransitionService, BookService, BorrowingService } from '../../services/index'
 
 const CustomSection = styled(Section)`
     flex-direction: column;
     align-items: center;
-    min-height: 100%;
 `
 
 const BookImage = styled.img`
@@ -60,9 +60,16 @@ const ColumnsStyle = {
     marginTop: "50px"
 }
 
+const OwnerNameStyle = {
+    cursor: "pointer",
+    color: "#536DFE",
+    marginLeft: "0.5vw"
+}
+
 const Book = (props) => {
-    let BookStatusTag, BookStatus
-    let Buttons, Title
+    const [Show, setShow] = useState(false);
+    let BookStatusTag, BookStatus;
+    let Buttons, Title;
     let history = useHistory();
 
     async function manifestInterest(){
@@ -109,14 +116,14 @@ const Book = (props) => {
         let interestButton
         if (props.book.hasInterest){
             interestButton = 
-            <CustomButton className="changeable is-rounded is-medium"
+            <CustomButton className="is-rounded is-medium"
             onClick={() => destroyInterest()}>Remover interesse</CustomButton>
         }
         else{
             interestButton = 
-            <CustomButton className="changeable is-rounded is-medium"
+            <CustomButton className="is-rounded is-medium"
             onClick={() => manifestInterest()}
-            disabled={(props.book.borrowed && props.currentUserId != props.book.borrowing.userId) ||
+            disabled={props.book.available && (props.book.borrowed && props.currentUserId != props.book.borrowing.userId) ||
                     (props.book.inTransition && props.currentUserId != props.book.transition.userId) ? false:true}>
             Manifestar interesse</CustomButton>
         }
@@ -126,14 +133,16 @@ const Book = (props) => {
             {interestButton}
             <p style={{textAlign: "center"}}>{Pluralize("Pessoa", props.book.interestsCount, true)} têm interesse</p>
 
-            <CustomButton className="changeable is-rounded is-medium"
+            <CustomButton className="is-rounded is-medium"
             onClick={() => createTransition()}
-            disabled={!props.book.borrowed && !props.book.inTransition && props.book.interestsCount == 0 ? false:true}>
+            disabled={props.book.available && !props.book.borrowed
+                    && !props.book.inTransition && props.book.interestsCount == 0 ? false:true}>
             Pegar emprestado</CustomButton>
 
-            <CustomButton className="changeable is-rounded is-medium"
+            <CustomButton className="is-rounded is-medium"
             onClick={() => returnBook()}
-            disabled={props.book.borrowed && props.currentUserId == props.book.borrowing.userId ? false:true}>
+            disabled={props.book.available && props.book.borrowed
+                    && props.currentUserId == props.book.borrowing.userId ? false:true}>
             Devolver livro</CustomButton>
         </ButtonsContainer>
         Title = <Heading style={titleStyle}>Detalhes do livro</Heading>
@@ -151,12 +160,6 @@ const Book = (props) => {
     else if(props.book.inTransition){
         BookStatusTag = <Tag className="is-warning is-large"><p>Em transição</p></Tag>
         BookStatus = <p>Em transição</p>
-        // let DOMbuttons = document.getElementsByClassName("changeable")
-        // console.log(DOMbuttons)
-        // console.log(DOMbuttons[0].button)
-        // for (let i=0; i < DOMbuttons.length; i++){
-        //     DOMbuttons[i].disabled = true
-        // }
     }
     else{
         BookStatusTag = <Tag className="is-success is-large"><p>Disponível</p></Tag>
@@ -196,8 +199,8 @@ const Book = (props) => {
                                 <h6 style={{marginLeft: "0.5vw"}}>{props.book.category}</h6>
                             </BookInfo>
                             <BookInfo>
-                                <h6 style={{fontWeight: "bold"}}>Dono:</h6> 
-                                <h6 style={{marginLeft: "0.5vw"}}>{props.book.owner}</h6>
+                                <h6 style={{fontWeight: "bold"}}>Dono:</h6>
+                                <h6 style={OwnerNameStyle} onClick={() => setShow(true)}>{props.book.owner}</h6>
                             </BookInfo>
                             <BookInfo>
                                 <h6 style={{fontWeight: "bold"}}>Status:</h6> 
@@ -215,6 +218,7 @@ const Book = (props) => {
                     </Columns.Column>
                 </Columns>
             </CustomSection>
+            <UserModel id={props.ownerId} show={Show} setShow={setShow} />
         </Fragment>
     )
 }

@@ -36,7 +36,8 @@ const ConfirmationUser = () => {
             book={transition.book}
             image_url={transition.image_url}
             category={transition.category}
-            oldUser={transition.oldUser} 
+            oldUser={transition.oldUser}
+            oldUserId={transition.oldUserId}
             deadline={transition.deadline}/>
         );
     });
