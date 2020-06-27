@@ -101,7 +101,7 @@ const navbar = () => {
                                     </Navbar.Item>
                                 </Navbar.Dropdown>
                             </NavbarButton>
-                            <NavbarButton href="/books">
+                            <NavbarButton href="/all_books">
                                 <GiBookshelf/>
                                 Livros
                             </NavbarButton>
