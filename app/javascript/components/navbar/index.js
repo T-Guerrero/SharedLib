@@ -22,7 +22,7 @@ const NavbarButton = styled(Navbar.Item)`
     justify-content: center;
     font-size: 18px;
 `
-    
+
 const NavbarLink = styled(Navbar.Link)`
     width: 180px;
     justify-content: center;
@@ -88,7 +88,7 @@ const navbar = () => {
                                     Meus Livros
                                 </NavbarLink>
                                 <Navbar.Dropdown>
-                                    <Navbar.Item href="#">
+                                    <Navbar.Item href="/my_books">
                                         Meus Livros
                                     </Navbar.Item>
                                     <Navbar.Divider/>

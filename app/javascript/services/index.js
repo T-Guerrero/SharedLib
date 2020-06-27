@@ -18,6 +18,7 @@ const TransitionService = {
 }
 
 const BookService = {
+    index: () => Api.get('/books'),
     show: (id) => Api.get(`/books/${id}`),
     destroy: (id) => Api.delete(`/books/${id}`)
 }

@@ -1,14 +1,14 @@
 import React, { Fragment, useState } from 'react';
 import NavBar from '../components/navbar';
-import BooksTemp from '../components/home';
+import MyBooks from '../components/my_books';
 
 
-const HomeScreen = () => {
+const MyBooksScreen = () => {
     return(
         <Fragment>
             <NavBar />
-            <BooksTemp />
+            <MyBooks/>
         </Fragment>
     );
 }
-export default HomeScreen;
+export default MyBooksScreen;

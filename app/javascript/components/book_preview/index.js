@@ -24,7 +24,7 @@ const BookPreview = (props) => {
         <div className="box center2">
             <a href={`/books/${props.id}`}>
                 <Heading size={6} className='has-text-black centered-text book-title'>{props.name}</Heading>
-                <Heading size={6} className='has-text-black centered-text' subtitle>{props.author}</Heading>
+                <Heading size={6} className='has-text-black centered-text book-subtitle' subtitle>{props.author}</Heading>
             </a>
             <div style={{marginTop: 10}}>
                 <a href={`/books/${props.id}`}>

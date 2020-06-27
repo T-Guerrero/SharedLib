@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 	resources :categories
 
 	namespace :api , defaults: { format: :json } do
-		resources :books, only: [:show, :destroy] do
+		resources :books, only: [:index, :show, :destroy] do
 
 			resources :borrowings, path: "borrowings/:type", :only => [:destroy]
 			resources :interests, :only => [:create, :destroy]

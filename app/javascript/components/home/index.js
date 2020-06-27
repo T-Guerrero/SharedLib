@@ -5,7 +5,7 @@ import Book from '../book_preview';
 import addBookImg from '../../../assets/images/adicione-um-livro.png';
 import borrowABookImg from '../../../assets/images/pegue-um-livro-emprestado.png';
 
-const MyBooks = () => {
+const BooksTemp = () => {
     const [my_books, setMyBooks] = useState([]);
     const [my_interests, setMyInterests] = useState([]);
     const [counter, setCounter] = useState({
@@ -129,4 +129,4 @@ const MyBooks = () => {
     );
 };
 
-export default MyBooks;
+export default BooksTemp;
