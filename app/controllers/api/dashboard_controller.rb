@@ -14,7 +14,7 @@ class Api::DashboardController < ApplicationController
         if (params[:type] == "active" && !@book.available)
             @book.available = true
             @book.user.max_borrowings += 1
-        elsif (params[:type] == "disable" && @book.available) 
+        elsif (params[:type] == "disable" && @book.available)
             @book.available = false
             @book.user.max_borrowings -= 1
         end
@@ -29,19 +29,19 @@ class Api::DashboardController < ApplicationController
     end
 
     def load_my_borrowings
-        @my_borrowings = current_user.borrowings.limit(3)
+        @my_borrowings = current_user.borrowings
     end
 
     def load_my_interests
-        @my_interests = current_user.interests.limit(3)
+        @my_interests = current_user.interests
     end
 
     def load_my_transitions
-        @my_transitions = current_user.transitions.limit(3)
+        @my_transitions = current_user.transitions
     end
 
     def load_transitions_to_deliver
-        @transitions_to_deliver = Transition.where('oldUser_id = :this_user_id', this_user_id: current_user.id).limit(3)
+        @transitions_to_deliver = Transition.where('oldUser_id = :this_user_id', this_user_id: current_user.id)
     end
 
     def load_counters

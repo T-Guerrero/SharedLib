@@ -96,7 +96,7 @@ const navbar = () => {
                                         Meus Livros
                                     </Navbar.Item>
                                     <Navbar.Divider/>
-                                    <Navbar.Item href="#">
+                                    <Navbar.Item href="/borrowings">
                                         Empréstimos
                                     </Navbar.Item>
                                     <Navbar.Divider/>
