@@ -33,4 +33,8 @@ const BorrowingService = {
     destroyByOwner: (bookId, id) => Api.delete(`/books/${bookId}/borrowings/owner/${id}`)
 }
 
-export {DashboardService, UserService, TransitionService, BookService, InterestService, BorrowingService}
+const SearchService = {
+    index: (query) => Api.get(`/search?query=${query}`)
+}
+
+export {DashboardService, UserService, TransitionService, BookService, InterestService, BorrowingService, SearchService}

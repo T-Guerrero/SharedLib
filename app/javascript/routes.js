@@ -6,6 +6,7 @@ import ConfirmationUserScreen from './screens/User/ConfirmationScreen';
 import BookScreen from './screens/BookScreen';
 import MyBooksScreen from './screens/MyBooksScreen';
 import AllBooksScreen from './screens/AllBooksScreen';
+import SearchScreen from './screens/SearchScreen';
 
 
 const Routes = () => (
@@ -16,6 +17,7 @@ const Routes = () => (
         <Route exact path='/books/:id' component={BookScreen} />
         <Route exact path='/all_books' component={AllBooksScreen} />
         <Route exact path='/my_books' component={MyBooksScreen} />
+        <Route exact path='/search' component={SearchScreen} />
     </Switch>
 )
 

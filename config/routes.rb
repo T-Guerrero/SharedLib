@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 		resources :users, only: [:index, :show]
 		resources :dashboard, only: [:index]
 		resources :dashboard, path: "/dashboard/:type", only: [:update]
+        resources :search, only: [:index]
 	end
 
 
