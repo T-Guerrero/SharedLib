@@ -37,7 +37,7 @@ class Api::DashboardController < ApplicationController
     end
 
     def load_my_transitions
-        @my_transitions = current_user.transitions
+        @my_transitions = Transition.where('newUser_id = :this_user_id', this_user_id: current_user.id)
     end
 
     def load_transitions_to_deliver

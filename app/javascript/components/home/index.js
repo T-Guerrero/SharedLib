@@ -8,6 +8,8 @@ import borrowABookImg from '../../../assets/images/pegue-um-livro-emprestado.png
 const BooksTemp = () => {
     const [my_books, setMyBooks] = useState([]);
     const [my_interests, setMyInterests] = useState([]);
+    const [my_transitions, setMyTransitions] = useState([]);
+    const [transitions_to_deliver, setTransitionsToDeliver] = useState([]);
     const [counter, setCounter] = useState({
         books: {},
         interests: {}
@@ -18,26 +20,64 @@ const BooksTemp = () => {
         setCounter(response.data['counter']);
         setMyBooks(response.data['my_books']);
         setMyInterests(response.data['my_interests']);
+        setMyTransitions(response.data['my_transitions']);
+        setTransitionsToDeliver(response.data['transitions_to_deliver']);
     }
 
     useEffect(() => {
         fetchBooks();
     }, []);
 
+    const my_transitions_components = my_transitions.map((transition, key) =>
+        <Columns.Column key={key} className="is-one-third-desktop is-four-fifths-mobile">
+            <Book name={transition.book.name} author={transition.book.author} borrowed={transition.book.borrowed} available={transition.book.available} image_url={transition.book.image_url} key={key} id={transition.book.id}/>
+        </Columns.Column>
+    );
+
+    const transitions_to_deliver_components = transitions_to_deliver.map((transition, key) =>
+        <Columns.Column key={key} className="is-one-third-desktop is-four-fifths-mobile">
+            <Book name={transition.book.name} author={transition.book.author} borrowed={transition.book.borrowed} available={transition.book.available} image_url={transition.book.image_url} key={key} id={transition.book.id}/>
+        </Columns.Column>
+    );
+
     const my_books_components = my_books.map((book, key) =>
-        <Columns.Column key={key}>
+        <Columns.Column key={key} className="is-one-third-desktop is-four-fifths-mobile">
             <Book name={book.name} author={book.author} borrowed={book.borrowed} available={book.available} image_url={book.image_url} key={key} id={book.id}/>
         </Columns.Column>
     );
 
     const my_interests_components = my_interests.map((interest, key) =>
-        <Columns.Column key={key}>
+        <Columns.Column key={key} className="is-one-third-desktop is-four-fifths-mobile">
             <Book name={interest.book.name} author={interest.book.author} borrowed={interest.book.borrowed} available={interest.book.available} image_url={interest.book.image_url} key={key} id={interest.book.id}/>
         </Columns.Column>
     );
 
     return (
         <div>
+            <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
+                <Columns>
+                    <Columns.Column>
+                        <Heading className='has-text-black' size={4}>
+                        	Livros para você entregar
+                        </Heading>
+                    </Columns.Column>
+                </Columns>
+                <Columns className='is-mobile center2-mobile'>
+                    {transitions_to_deliver_components}
+        		</Columns>
+            </div>
+            <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
+                <Columns>
+                    <Columns.Column>
+                        <Heading className='has-text-black' size={4}>
+                        	Livros a receber
+                        </Heading>
+                    </Columns.Column>
+                </Columns>
+                <Columns className='is-mobile center2-mobile'>
+                    {my_transitions_components}
+        		</Columns>
+            </div>
             <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
                 <Columns>
                     <Columns.Column>
@@ -51,7 +91,7 @@ const BooksTemp = () => {
                         </div>
                     </Columns.Column>
                 </Columns>
-                <Columns className='is-mobile'>
+                <Columns className='is-mobile center2-mobile'>
                     {my_books_components}
         		</Columns>
             </div>
@@ -121,7 +161,7 @@ const BooksTemp = () => {
                         </div>
                     </Columns.Column>
                 </Columns>
-                <Columns className='is-mobile'>
+                <Columns className='is-mobile center2-mobile'>
                     {my_interests_components}
         		</Columns>
             </div>
