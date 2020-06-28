@@ -5,11 +5,12 @@ import styled from 'styled-components';
 import { AiFillHome } from 'react-icons/ai';
 import { GiOpenBook, GiBookshelf } from 'react-icons/gi'
 import { FaUserCircle } from 'react-icons/fa'
+import SearchBar from "../search_bar";
 
 const CustomNavbar = styled(Navbar)`
     background-color: #FFA500;
     padding: 20px 20px 0;
-    height: 170px;
+    height: 170x;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     flex-direction: column;
 `
@@ -60,6 +61,9 @@ const navbar = () => {
                     <Navbar.Item renderAs="a" href="/home">
                         <img src={logoImage} style={logoStyle} desktop={{size: 'half'}} mobile={{size: 'two-thirds'}}/>
                     </Navbar.Item>
+                    <Navbar.Item style={{backgroundColor: "transparent"}}>
+                        <SearchBar/>
+                    </Navbar.Item>
                     <NavbarButton dropdown hoverable className="navbar-end" style={UserIconStyle}>
                             <NavbarLink>
                                 <FaUserCircle size="2em"/>
@@ -104,6 +108,10 @@ const navbar = () => {
                             <NavbarButton href="/all_books">
                                 <GiBookshelf/>
                                 Livros
+                            </NavbarButton>
+                            <NavbarButton href="/categories">
+                                <GiBookshelf/>
+                                Categorias
                             </NavbarButton>
                         </Navbar.Container>
                     </Navbar.Menu>

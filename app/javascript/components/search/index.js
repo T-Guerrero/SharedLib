@@ -2,8 +2,6 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Columns, Notification, Heading, Container, Button, Section } from 'react-bulma-components';
 import { SearchService } from '../../services/index';
 import Book from '../book_preview';
-// import { useParams } from 'react-router-dom' // para pegar '/id'
-
 
 const SearchResults = (props) => {
     const [books, setBooks] = useState([]);
@@ -35,7 +33,7 @@ const SearchResults = (props) => {
 
     const categories_components = categories.map((category, key) =>
         <Columns.Column key={key}>
-            <p>{category.name}</p>
+            <a href={`/categories/${category.id}`}>{category.name}</a>
         </Columns.Column>
     );
 
