@@ -10,6 +10,7 @@ import SearchScreen from './screens/SearchScreen';
 import CategoriesScreen from './screens/CategoriesScreen';
 import CategoryBooksScreen from './screens/CategoryBooksScreen';
 import BorrowingsScreen from './screens/BorrowingsScreen';
+import MyInterestsScreen from './screens/MyInterestsScreen';
 
 
 const Routes = () => (
@@ -24,6 +25,7 @@ const Routes = () => (
         <Route exact path='/all_categories' component={CategoriesScreen} />
         <Route exact path='/category_books/:id' component={CategoryBooksScreen} />
         <Route exact path='/borrowings' component={BorrowingsScreen} />
+        <Route exact path='/my_interests' component={MyInterestsScreen} />
     </Switch>
 )
 

@@ -100,7 +100,7 @@ const navbar = () => {
                                         Empréstimos
                                     </Navbar.Item>
                                     <Navbar.Divider/>
-                                    <Navbar.Item href="#">
+                                    <Navbar.Item href="my_interests">
                                         Interesses
                                     </Navbar.Item>
                                 </Navbar.Dropdown>
