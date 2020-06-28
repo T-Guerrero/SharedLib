@@ -109,7 +109,7 @@ const navbar = () => {
                                 <GiBookshelf/>
                                 Livros
                             </NavbarButton>
-                            <NavbarButton href="/categories">
+                            <NavbarButton href="/all_categories">
                                 <GiBookshelf/>
                                 Categorias
                             </NavbarButton>

@@ -37,4 +37,9 @@ const SearchService = {
     index: (query) => Api.get(`/search?query=${query}`)
 }
 
-export {DashboardService, UserService, TransitionService, BookService, InterestService, BorrowingService, SearchService}
+const CategoryService = {
+    index: () => Api.get(`/categories`),
+    show: (id) => Api.get(`/categories/${id}`)
+}
+
+export {DashboardService, UserService, TransitionService, BookService, InterestService, BorrowingService, SearchService, CategoryService}
