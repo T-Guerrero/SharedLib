@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Section, Container, Heading } from 'react-bulma-components';
 import styled from 'styled-components';
 import NavBar from '../../components/navbar';
-import UserMenu from '../../components/userMenu';
+import UserMenu from '../../components/userProfile_menu';
 import BookConfirmation from '../../components/book_confirmation';
 import { TransitionService } from '../../services/index';
 

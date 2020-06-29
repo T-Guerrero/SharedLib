@@ -5,7 +5,7 @@ namespace :check do
     3 - Checa se existe interesse mas não existe nenhum empréstimo ou tabela de transição ativa, se sim,
     cria a tabela de transição'
     task :deadline => :environment do
-        puts "Task 'Borrowings_deadline' called at #{Time.now}" #Log info
+        puts "Task 'deadline' called at #{Time.now}" #Log info
         Book.all.each do |book|
             if (!book.borrowing.nil?)
                 borrowing = book.borrowing
@@ -38,7 +38,7 @@ namespace :check do
             @interest = @book.interests.order('created_at ASC').first
             @transition = Transition.new()
             @transition.book = @book
-            @transition.deadline = DateTime.now()+1.day
+            @transition.deadline = DateTime.now()+3.minutes
             @transition.newUser = @interest.user
             if (@borrowing.nil?)
                 @transition.oldUser = @book.user

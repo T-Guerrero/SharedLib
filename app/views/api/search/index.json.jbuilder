@@ -6,6 +6,7 @@ json.books @books.each do |book|
     json.category_name book.category.name
     json.available book.available
     json.borrowed book.borrowed
+    json.inTransition !book.transition.nil?
     json.image_url url_for(book.image)
 end
 
@@ -22,5 +23,6 @@ json.authors_books @authors_books.each do |book|
     json.category_name book.category.name
     json.available book.available
     json.borrowed book.borrowed
+    json.inTransition !book.transition.nil?
     json.image_url url_for(book.image)
 end

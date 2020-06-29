@@ -1,6 +1,6 @@
 <%= react_component("navbar") %>
 <div class="edit section">
-  <%= react_component("userMenu", {edit: true}) %>
+  <%= react_component("userProfile_menu", {edit: true}) %>
   <div class="form">
     <h2>Editar Dados</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

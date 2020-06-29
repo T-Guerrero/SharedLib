@@ -3,14 +3,14 @@ import { Navbar } from 'react-bulma-components';
 import logoImage from '../../../assets/images/Logo.png';
 import styled from 'styled-components';
 import { AiFillHome } from 'react-icons/ai';
-import { GiOpenBook, GiBookshelf } from 'react-icons/gi'
+import { GiOpenBook, GiBookshelf, GiAbstract114 } from 'react-icons/gi'
 import { FaUserCircle } from 'react-icons/fa'
 import SearchBar from "../search_bar";
 
 const CustomNavbar = styled(Navbar)`
     background-color: #FFA500;
     padding: 20px 20px 0;
-    height: 170x;
+    height: 170px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     flex-direction: column;
 `
@@ -61,10 +61,11 @@ const navbar = () => {
                     <Navbar.Item renderAs="a" href="/home">
                         <img src={logoImage} style={logoStyle} desktop={{size: 'half'}} mobile={{size: 'two-thirds'}}/>
                     </Navbar.Item>
-                    <Navbar.Item style={{backgroundColor: "transparent"}}>
-                        <SearchBar/>
-                    </Navbar.Item>
-                    <NavbarButton dropdown hoverable className="navbar-end" style={UserIconStyle}>
+                    <Navbar.Item renderAs ="div" className="navbar-end">
+                        <Navbar.Item renderAs ="div">
+                            <SearchBar/>
+                        </Navbar.Item>
+                        <NavbarButton dropdown hoverable style={UserIconStyle}>
                             <NavbarLink>
                                 <FaUserCircle size="2em"/>
                             </NavbarLink>
@@ -77,7 +78,8 @@ const navbar = () => {
                                     Sair
                                 </Navbar.Item>
                             </Navbar.Dropdown>
-                    </NavbarButton>
+                        </NavbarButton>
+                    </Navbar.Item>
                 </Navbar.Brand>
                 <Navbar.Burger onClick={() => document.querySelectorAll('#mainNavbar').forEach(item => item.classList.toggle('is-active'))}/>
                     <Navbar.Menu id="mainNavbar">
@@ -92,25 +94,25 @@ const navbar = () => {
                                     Meus Livros
                                 </NavbarLink>
                                 <Navbar.Dropdown>
-                                    <Navbar.Item href="/my_books">
+                                    <Navbar.Item href="/users/books">
                                         Meus Livros
                                     </Navbar.Item>
                                     <Navbar.Divider/>
-                                    <Navbar.Item href="/borrowings">
+                                    <Navbar.Item href="/users/borrowings">
                                         Empréstimos
                                     </Navbar.Item>
                                     <Navbar.Divider/>
-                                    <Navbar.Item href="/my_interests">
+                                    <Navbar.Item href="/users/interests">
                                         Interesses
                                     </Navbar.Item>
                                 </Navbar.Dropdown>
                             </NavbarButton>
-                            <NavbarButton href="/all_books">
+                            <NavbarButton href="/books">
                                 <GiBookshelf/>
                                 Livros
                             </NavbarButton>
-                            <NavbarButton href="/all_categories">
-                                <GiBookshelf/>
+                            <NavbarButton href="/categories">
+                                <GiAbstract114/>
                                 Categorias
                             </NavbarButton>
                         </Navbar.Container>

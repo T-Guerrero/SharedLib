@@ -6,6 +6,7 @@ json.my_books @my_books.each do |book|
     json.category_name book.category.name
     json.available book.available
     json.borrowed book.borrowed
+    json.inTrasition !book.transition.nil?
     json.image_url url_for(book.image)
 end
 
@@ -19,6 +20,7 @@ json.my_interests @my_interests.each do |interest|
         json.category_name interest.book.category.name
         json.available interest.book.available
         json.borrowed interest.book.borrowed
+        json.inTransition !interest.book.transition.nil?
         json.image_url url_for(interest.book.image)
     end
     json.owner do
@@ -40,6 +42,7 @@ json.my_transitions @my_transitions.each do |transition|
         json.category_name transition.book.category.name
         json.available transition.book.available
         json.borrowed transition.book.borrowed
+        !transition.nil?
         json.image_url url_for(transition.book.image)
     end
     json.oldUser do
@@ -61,6 +64,7 @@ json.transitions_to_deliver @transitions_to_deliver.each do |transition|
         json.category_name transition.book.category.name
         json.available transition.book.available
         json.borrowed transition.book.borrowed
+        json.inTrasition !transition.nil?
         json.image_url url_for(transition.book.image)
     end
     json.newUser do
@@ -90,7 +94,6 @@ json.my_borrowings @my_borrowings.each do |borrowing|
         json.email borrowing.user.email
         json.phone borrowing.user.phone
     end
-
 end
 
 json.counter do
@@ -114,4 +117,9 @@ json.counter do
         json.showing @borrowings_counter[:showing]
         json.total @borrowings_counter[:total]
     end
+end
+
+json.currentUser do
+    json.maxBorrowings current_user.max_borrowings - (current_user.interests.count + current_user.borrowings.count +
+    current_user.myTransitions.count + current_user.transitions.count)
 end

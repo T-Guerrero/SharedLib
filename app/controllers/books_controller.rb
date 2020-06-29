@@ -1,9 +1,4 @@
 class BooksController < ApplicationController
-    def index
-        #Temporário
-        @books = Book.all
-    end
-
     def new
         @book = Book.new
     end

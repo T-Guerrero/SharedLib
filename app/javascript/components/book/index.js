@@ -1,11 +1,12 @@
 import React, { Fragment, useState } from 'react';
 import Pluralize from 'pluralize';
 import { useHistory } from 'react-router-dom';
-import { Heading, Container, Section, Columns, Button, Tag } from 'react-bulma-components';
+import { Heading, Container, Section, Columns, Button } from 'react-bulma-components';
 import styled from 'styled-components';
 import Navbar from '../navbar';
 import UserModel from '../user_modal';
-import { DashboardService, InterestService, TransitionService, BookService, BorrowingService } from '../../services/index'
+import BookStatusTag from '../bookStatus_tag';
+import { DashboardService, InterestService, TransitionService, BookService, BorrowingService } from '../../services/index';
 
 const CustomSection = styled(Section)`
     flex-direction: column;
@@ -71,7 +72,7 @@ const OwnerNameStyle = {
 
 const Book = (props) => {
     const [Show, setShow] = useState(false);
-    let BookStatusTag, BookStatus;
+    let BookStatus;
     let Buttons, Title;
     let history = useHistory();
 
@@ -189,19 +190,15 @@ const Book = (props) => {
 
     //Estado do livro
     if (!props.book.available){
-        BookStatusTag = <Tag className="is-light is-large"><p>Indisponível</p></Tag>
         BookStatus = <p>Indisponível</p>
     }
     else if (props.book.borrowed){
-        BookStatusTag = <Tag className="is-danger is-large"><p>Emprestado</p></Tag>
         BookStatus = <p>Emprestado para {props.book.borrowing.userName} (Prazo: {props.book.borrowing.deadline})</p>
     }
     else if(props.book.inTransition){
-        BookStatusTag = <Tag className="is-warning is-large"><p>Em transição</p></Tag>
         BookStatus = <p>Em transição</p>
     }
     else{
-        BookStatusTag = <Tag className="is-success is-large"><p>Disponível</p></Tag>
         BookStatus = <p>Disponível</p>
     }
 
@@ -213,7 +210,10 @@ const Book = (props) => {
                 <Columns style={ColumnsStyle}>
                     <Columns.Column style={CenterColumnStyle}>
                             <BookImage src={props.book.image_url} alt="Book Image"/>
-                            {BookStatusTag}
+                            <BookStatusTag
+                            available={props.book.available}
+                            borrowed={props.book.borrowed}
+                            inTransition={props.book.inTransition} />
                     </Columns.Column>
                     <Columns.Column style={CenterColumnStyle}>
                         <Container>

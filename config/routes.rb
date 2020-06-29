@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 	devise_for :users, controllers: { registrations: 'users/registrations' }
-	resources :books, except: [:show, :destroy]
-	resources :categories
+	resources :books, except: [:index, :show, :destroy]
+	resources :categories, except: [:index, :show]
 
 	namespace :api , defaults: { format: :json } do
 		resources :books, only: [:index, :show, :destroy] do
-
 			resources :borrowings, path: "borrowings/:type", :only => [:destroy]
 			resources :interests, :only => [:create, :destroy]
 		end

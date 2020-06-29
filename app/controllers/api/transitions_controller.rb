@@ -13,7 +13,7 @@ class Api::TransitionsController < ApplicationController
                     #O usuário ainda tem empréstimos disponíveis
                     @transition =  Transition.new()
                     @transition.book = @book
-                    @transition.deadline = DateTime.now()+1.day
+                    @transition.deadline = DateTime.now()+3.minutes
                     @transition.oldUser = @book.user
                     @transition.newUser = current_user
                     @transition.save

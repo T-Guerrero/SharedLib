@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import { Heading, Image } from 'react-bulma-components';
-import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import BookStatusTag from '../bookStatus_tag';
 
 const BookPreview = (props) => {
     let status;
@@ -35,9 +34,10 @@ const BookPreview = (props) => {
             </div>
             <div style={{marginTop: 20}}>
                 <a href={`/books/${props.id}`}>
-                    <div style={statusStyle} className="btn-bookStatus center">
-                        <span>{status}</span>
-                    </div>
+                    <BookStatusTag
+                    available={props.available}
+                    borrowed={props.borrowed}
+                    inTransition={props.inTransition}/>
                 </a>
             </div>
         </div>

@@ -17,7 +17,7 @@ private
         @borrowing = @book.borrowing
         @transition = Transition.new()
         @transition.book = @book
-        @transition.deadline = DateTime.now()+1.day
+        @transition.deadline = DateTime.now()+3.minutes
         @transition.oldUser = @borrowing.user
         if (@book.interests.empty?)
             @transition.newUser = @book.user
@@ -35,7 +35,7 @@ private
         @borrowing = @book.borrowing
         @transition = Transition.new()
         @transition.book = @book
-        @transition.deadline = DateTime.now()+1.day
+        @transition.deadline = DateTime.now()+3.minutes
         @transition.oldUser = @borrowing.user
         @transition.newUser = @book.user
         @transition.save
