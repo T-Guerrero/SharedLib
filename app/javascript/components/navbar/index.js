@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Navbar } from 'react-bulma-components';
 import logoImage from '../../../assets/images/Logo.png';
 import styled from 'styled-components';
@@ -6,6 +6,9 @@ import { AiFillHome } from 'react-icons/ai';
 import { GiOpenBook, GiBookshelf, GiAbstract114 } from 'react-icons/gi'
 import { FaUserCircle } from 'react-icons/fa'
 import SearchBar from "../search_bar";
+import UserModel from '../user_modal';
+import { UserService } from '../../services/index';
+import './style.scss'
 
 const CustomNavbar = styled(Navbar)`
     background-color: #FFA500;
@@ -54,6 +57,20 @@ const UserIconStyle = {
 }
 
 const navbar = () => {
+    const [User, setUser] = useState([]);
+    const [Show, setShow] = useState(false);
+    const [Loaded, setLoaded] = useState(false);
+
+    async function fetchUser(){
+        const response = await UserService.index();
+        setUser(response.data['user']);
+        setLoaded(true);
+    }
+
+    useEffect(() => {
+        fetchUser();
+    }, [])
+    
     return (
         <Fragment>
             <CustomNavbar>
@@ -65,23 +82,30 @@ const navbar = () => {
                         <Navbar.Item renderAs ="div">
                             <SearchBar/>
                         </Navbar.Item>
-                        <NavbarButton dropdown hoverable style={UserIconStyle}>
-                            <NavbarLink>
-                                <FaUserCircle size="2em"/>
-                            </NavbarLink>
-                            <Navbar.Dropdown>
-                                <Navbar.Item href="/users/edit">
-                                    Meu Perfil
-                                </Navbar.Item>
-                                <Navbar.Divider/>
-                                <Navbar.Item href="/users/sign_out">
-                                    Sair
-                                </Navbar.Item>
-                            </Navbar.Dropdown>
-                        </NavbarButton>
+                        <Navbar.Item renderAs ="div" id="currentUserInfo">
+                            <Navbar.Item>
+                                <strong onClick={() => setShow(true)}>Olá, {User.name}</strong>
+                            </Navbar.Item>
+                            <NavbarButton id="user" className="UserDropdown" dropdown hoverable style={UserIconStyle}
+                            onClick={() => document.querySelectorAll('.UserDropdown').forEach(item => item.classList.toggle('is-active'))}>
+                                <NavbarLink>
+                                    <FaUserCircle size="2em"/>
+                                </NavbarLink>
+                                <Navbar.Dropdown>
+                                    <Navbar.Item href="/users/edit">
+                                        Meu Perfil
+                                    </Navbar.Item>
+                                    <Navbar.Divider/>
+                                    <Navbar.Item href="/users/sign_out">
+                                        Sair
+                                    </Navbar.Item>
+                                </Navbar.Dropdown>
+                            </NavbarButton>
+                        </Navbar.Item>
                     </Navbar.Item>
                 </Navbar.Brand>
-                <Navbar.Burger onClick={() => document.querySelectorAll('#mainNavbar').forEach(item => item.classList.toggle('is-active'))}/>
+                <Navbar.Burger onClick={() => document.querySelector('#mainNavbar').classList.toggle('is-active')}>
+                </Navbar.Burger>
                     <Navbar.Menu id="mainNavbar">
                         <Navbar.Container style={navbarMenuStyle}>
                             <NavbarButton href="/home">
@@ -118,6 +142,7 @@ const navbar = () => {
                         </Navbar.Container>
                     </Navbar.Menu>
             </CustomNavbar>
+            {Loaded && <UserModel id={User.id} show={Show} setShow={setShow} />}
         </Fragment>
     )
 }

@@ -1,4 +1,5 @@
 json.user do
+    json.id @user.id
     if (!@user.photo.blank?)
         json.photo_url url_for(@user.photo)
     end

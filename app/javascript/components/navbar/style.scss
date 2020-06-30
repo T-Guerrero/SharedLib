@@ -1,0 +1,21 @@
+.navbar-item#user {
+    &.has-dropdown {
+      .navbar-dropdown {
+        display: none;
+      }
+      &.is-active {
+        .navbar-dropdown {
+          display: block;
+        }
+      }
+   }
+}
+
+@media (max-width: 1075px){
+  #currentUserInfo {
+    align-items: center;
+    flex-direction: column;
+    max-height: 90px;
+    padding-bottom: 0px;
+  }
+}
