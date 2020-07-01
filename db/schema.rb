@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2020_06_15_212226) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 2020_06_15_212226) do
     t.string "edition"
     t.boolean "borrowed", default: false
     t.boolean "available", default: true
-    t.integer "category_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "year"
@@ -50,8 +53,8 @@ ActiveRecord::Schema.define(version: 2020_06_15_212226) do
 
   create_table "borrowings", force: :cascade do |t|
     t.datetime "deadline", precision: 6
-    t.integer "book_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "book_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_borrowings_on_book_id"
@@ -65,8 +68,8 @@ ActiveRecord::Schema.define(version: 2020_06_15_212226) do
   end
 
   create_table "interests", force: :cascade do |t|
-    t.integer "book_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "book_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_interests_on_book_id"
@@ -74,9 +77,9 @@ ActiveRecord::Schema.define(version: 2020_06_15_212226) do
   end
 
   create_table "transitions", force: :cascade do |t|
-    t.integer "oldUser_id", null: false
-    t.integer "newUser_id", null: false
-    t.integer "book_id", null: false
+    t.bigint "oldUser_id", null: false
+    t.bigint "newUser_id", null: false
+    t.bigint "book_id", null: false
     t.datetime "deadline", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -132,7 +132,7 @@ const HomeScreen = () => {
                     </Columns.Column>
                     <Columns.Column>
                         <div style={{textAlign: "right"}}>
-                            <p>{`Mostrando ${counter.my_transitions.showing} de ${counter.my_transitions.showing}`}</p>
+                            <p>{`Mostrando ${counter.my_transitions.showing} de ${counter.my_transitions.total}`}</p>
                         </div>
                     </Columns.Column>
                 </Columns>

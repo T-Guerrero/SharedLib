@@ -37,11 +37,11 @@ class Api::DashboardController < ApplicationController
     end
 
     def load_my_transitions
-        @my_transitions = Transition.where('newUser_id = :this_user_id', this_user_id: current_user.id)
+        @my_transitions = current_user.transitions
     end
 
     def load_transitions_to_deliver
-        @transitions_to_deliver = Transition.where('oldUser_id = :this_user_id', this_user_id: current_user.id)
+        @transitions_to_deliver = current_user.myTransitions
     end
 
     def load_counters
@@ -58,8 +58,8 @@ class Api::DashboardController < ApplicationController
             total: current_user.transitions.size()
         }
         @transitions_to_deliver_counter = {
-            showing: Transition.where('oldUser_id = :this_user_id', this_user_id: current_user.id).limit(3).size(),
-            total: Transition.where('oldUser_id = :this_user_id', this_user_id: current_user.id).size()
+            showing: current_user.myTransitions.limit(3).size(),
+            total: current_user.myTransitions.size()
         }
         @borrowings_counter = {
             showing: current_user.borrowings.limit(3).size(),

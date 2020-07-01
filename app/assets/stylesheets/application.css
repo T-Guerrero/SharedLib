@@ -14,8 +14,6 @@
  *= require_self
  */
 
- @import "./responsive.scss";
-
  .section {
     display: flex;
     padding: 48px 24px;
