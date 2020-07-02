@@ -56,6 +56,10 @@ const UserIconStyle = {
     marginRight: "60px"
 }
 
+const MenuTextStyle = {
+    paddingLeft: "5px"
+}
+
 const navbar = () => {
     const [User, setUser] = useState([]);
     const [Show, setShow] = useState(false);
@@ -110,16 +114,16 @@ const navbar = () => {
                         <Navbar.Container style={navbarMenuStyle}>
                             <NavbarButton href="/home">
                                 <AiFillHome/>
-                                Home
+                                <p style={MenuTextStyle}>Home</p>
                             </NavbarButton>
                             <NavbarButton dropdown hoverable href="#">
                                 <NavbarLink>
                                     <GiOpenBook/>
-                                    Meus Livros
+                                    <p style={MenuTextStyle}>Meus Livros</p>
                                 </NavbarLink>
                                 <Navbar.Dropdown>
                                     <Navbar.Item href="/users/books">
-                                        Meus Livros
+                                        Livros
                                     </Navbar.Item>
                                     <Navbar.Divider/>
                                     <Navbar.Item href="/users/borrowings">
@@ -133,11 +137,11 @@ const navbar = () => {
                             </NavbarButton>
                             <NavbarButton href="/books">
                                 <GiBookshelf/>
-                                Livros
+                                <p style={MenuTextStyle}>Livros</p>
                             </NavbarButton>
                             <NavbarButton href="/categories">
                                 <GiAbstract114/>
-                                Categorias
+                                <p style={MenuTextStyle}>Categorias</p>
                             </NavbarButton>
                         </Navbar.Container>
                     </Navbar.Menu>
