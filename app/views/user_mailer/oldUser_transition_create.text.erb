@@ -1,0 +1,22 @@
+Olá, <%= @user.name %>
+
+O livro <%= @transition.book.name %> que estava com você foi requisitado por outra pessoa! 
+O prazo máximo para você entregar o livro é <%= @transition.deadline %>.
+
+Segue detalhes do novo usuário que ficará com o livro:
+
+* Nome: <%= @transition.newUser.nome %>
+* Email: <%= @transition.newUser.email %>
+* Celular: <%= @transition.newUser.phone %>
+
+Detalhes do livro:
+
+* Nome: <%= @transition.book.name %>
+* Autor: <%= @transition.book.author %>
+* Edição: <%= @transition.book.edition %>
+* Ano: <%= @transition.book.year %>
+* Categoria: <%= @transition.book.category.name %>
+
+Não esqueça de entregar o livro dentro do prazo para não sofrer punições!
+
+Contato SharedLib

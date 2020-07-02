@@ -1,0 +1,23 @@
+Olá, <%= @user.name %>
+
+O transporte do livro <%= @transition.book.name %> foi criado com sucesso!
+
+Segue detalhes da transição do livro:
+
+* Responsável pelo transporte: <%= @transition.oldUser.nome %> 
+* Email do responsável: <%= @transition.oldUser.email %> 
+* Celular do responsável: <%= @transition.oldUser.phone %> 
+* Prazo máximo para a transição: <%= @transition.deadline %>
+
+Detalhes do livro:
+
+* Nome: <%= @transition.book.name %>
+* Autor: <%= @transition.book.author %>
+* Edição: <%= @transition.book.edition %>
+* Ano: <%= @transition.book.year %>
+* Categoria: <%= @transition.book.category.name %>
+
+
+Entre em contato com o antigo usuário e não esqueça de confirmar o recebimento do livro em Perfil->Confirmar recebimento
+
+Contato SharedLib

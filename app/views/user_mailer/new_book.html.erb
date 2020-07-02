@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Olá, <%= @user.name %></h1>
+    <p>
+        O seu livro foi cadastrado com sucesso!
+    </p>
+    <p>Você agora pode pegar <%= @maxBorrowings %> livros emprestados!</p>
+    <p>
+        Detalhes do livro:
+    </p>
+    <ul>
+        <li>Nome: <%= @book.name %></li>
+        <li>Autor: <%= @book.author %></li>
+        <li>Edição: <%= @book.edition %></li>
+        <li>Ano: <%= @book.year %></li>
+        <li>Categoria: <%= @book.category.name %></li>
+    </ul>
+    <p>Contato SharedLib</p>
+  </body>
+</html>

@@ -47,6 +47,8 @@ namespace :check do
                 @borrowing.destroy
             end
             @transition.save
+            # UserMailer.with(transition: @transition).newUser_transition_create.deliver
+            # UserMailer.with(transition: @transition).oldUser_transition_create.deliver
             @interest.destroy
         end
     end

@@ -11,7 +11,6 @@ class Api::DashboardController < ApplicationController
     def update
         #Altera o estado do livro
         @book = Book.find(params[:id])
-        UserMailer.with(user: current_user).welcome_email.deliver
         if (params[:type] == "active" && !@book.available)
             @book.available = true
             @book.user.max_borrowings += 1

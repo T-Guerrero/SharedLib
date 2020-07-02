@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Olá, <%= @user.name %></h1>
+    <p>
+        O livro <%= @transition.book.name %> que estava com você foi requisitado por outra pessoa! 
+        O prazo máximo para você entregar o livro é <%= @transition.deadline %>.
+    </p>
+    <p>
+        Segue detalhes do novo usuário que ficará com o livro:
+        <ul>
+        <li>Nome: <%= @transition.newUser.nome %> </li>
+        <li>Email: <%= @transition.newUser.email %> </li>
+        <li>Celular: <%= @transition.newUser.phone %> </li>
+        </ul>
+    </p>
+    <p>
+        Detalhes do livro:
+    </p>
+    <ul>
+        <li>Nome: <%= @transition.book.name %></li>
+        <li>Autor: <%= @transition.book.author %></li>
+        <li>Edição: <%= @transition.book.edition %></li>
+        <li>Ano: <%= @transition.book.year %></li>
+        <li>Categoria: <%= @transition.book.category.name %></li>
+    </ul>
+    <p>Não esqueça de entregar o livro dentro do prazo para não sofrer punições!</p>
+    <p>Contato SharedLib</p>
+  </body>
+</html>

@@ -7,10 +7,20 @@ class UserMailer < ApplicationMailer
         mail(to: @user.email, subject: 'Welcome to My Awesome Site')
     end
 
-    def borrowing_create
-        @borrowing = params[:borrowing]
-        @user = @borrowing.user
-        @url = "/books/#{@borrowing.book.id}"
-        mail(to: @user.email, subject: 'Empréstimo gerado com sucesso!')
+    def new_book
+        @book = params[:book]
+        @maxBorrowings = @book.user.max_borrowings - (@book.user.interests.count + @book.user.borrowings.count +
+        @book.user.myTransitions.count + @book.user.transitions.count)
+        mail(to: @book.user.email, subject: 'Livro cadastrado com sucesso!' )
+    end
+
+    def newUser_transition_create
+        @transition = params[:transition]
+        mail(to: @transition.newUser.email, subject: 'Transporte do livro criado com sucesso!')
+    end
+
+    def oldUser_transition_create
+        @transition = params[:transition]
+        mail(to: @transition.oldUser.email, subject: 'IMPORTANTE: Você tem um novo livro para entregar!')
     end
 end

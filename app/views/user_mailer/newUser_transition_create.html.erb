@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Olá, <%= @user.name %></h1>
+    <p>
+        O transporte do livro <%= @transition.book.name %> foi criado com sucesso!
+    </p>
+    <p>
+        Segue detalhes da transição do livro:
+        <ul>
+        <li>Responsável pelo transporte: <%= @transition.oldUser.nome %> </li>
+        <li>Email do responsável: <%= @transition.oldUser.email %> </li>
+        <li>Celular do responsável: <%= @transition.oldUser.phone %> </li>
+        <li>Prazo máximo para a transição: <%= @transition.deadline %></li>
+        </ul>
+    </p>
+    <p>
+        Detalhes do livro:
+    </p>
+    <ul>
+        <li>Nome: <%= @transition.book.name %></li>
+        <li>Autor: <%= @transition.book.author %></li>
+        <li>Edição: <%= @transition.book.edition %></li>
+        <li>Ano: <%= @transition.book.year %></li>
+        <li>Categoria: <%= @transition.book.category.name %></li>
+    </ul>
+    <p>Entre em contato com o antigo usuário e não esqueça de confirmar o recebimento do livro em Perfil->Confirmar recebimento</p>
+    <p>Contato SharedLib</p>
+  </body>
+</html>
