@@ -7,6 +7,7 @@ RSpec.describe User, type: :model do
             name: 'Thiago Pena',
             email: 'tjbpena@gmail.com',
             phone: '(11) 97982-9433',
+            nusp: '6847829',
             password: "123456",
             password_confirmation: "123456"
         }
@@ -17,6 +18,18 @@ RSpec.describe User, type: :model do
             name: 'Thiago Guerrero',
             email: 'guerrero@gmail.com',
             phone: '(11) 22222-2222',
+            nusp: '11275297',
+            password: "123456",
+            password_confirmation: "123456"
+        }
+    }
+
+    let (:same_nusp_attributes_user) {
+        {
+            name: 'Thiago Guerrero',
+            email: 'guerrero@gmail.com',
+            phone: '(11) 22222-2222',
+            nusp: '6847829',
             password: "123456",
             password_confirmation: "123456"
         }
@@ -27,6 +40,7 @@ RSpec.describe User, type: :model do
             name: 'b4r',
             email: 'tjbpena@gmail.com',
             phone: '(11) 97982-9433',
+            nusp: '6847829',
             password: "123456",
             password_confirmation: "123456"
         }
@@ -37,6 +51,18 @@ RSpec.describe User, type: :model do
             name: 'Thiago Pena',
             email: 'tjbpena@gmail.com',
             phone: '(11).97982~9433',
+            nusp: '6847829',
+            password: "123456",
+            password_confirmation: "123456"
+        }
+    }
+
+    let (:invalid_nusp_attributes_user) {
+        {
+            name: 'Thiago Pena',
+            email: 'tjbpena@gmail.com',
+            phone: '(11) 97982~9433',
+            nusp: '',
             password: "123456",
             password_confirmation: "123456"
         }
@@ -91,6 +117,17 @@ RSpec.describe User, type: :model do
         expect(user).to_not be_valid
     end
 
+    it "is not valid with invalid nusp attribute" do
+        user = User.create(invalid_nusp_attributes_user)
+        expect(user).to_not be_valid  
+    end
+
+    it "is not valid if two users have the same nusp" do
+        user = User.create(valid_attributes_user)
+        user2 = User.create(same_nusp_attributes_user)
+        expect(user2).to_not be_valid  
+    end
+
     context "in order to test the dependent fields" do
         before do
             @user = User.create(valid_attributes_user)
@@ -108,10 +145,10 @@ RSpec.describe User, type: :model do
             expect{@user2.destroy}.to change{Interest.count}.by(-2)
         end
     
-        it "is valid if interest list is deleted with the user" do
+        it "is valid if borrowing list is deleted with the user" do
             borrowing1 = Borrowing.create(user: @user2, book: @book, deadline: DateTime.now()+10.minutes)
             borrowing2 = Borrowing.create(user: @user2, book: @book2, deadline: DateTime.now()+10.minutes)
             expect{@user2.destroy}.to change{Borrowing.count}.by(-2)
         end
-    end 
+    end
 end

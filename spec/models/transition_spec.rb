@@ -7,6 +7,7 @@ RSpec.describe Transition, type: :model do
             name: 'Thiago Pena',
             email: 'tjbpena@gmail.com',
             phone: '(11) 97982-9433',
+            nusp: '6847829',
             password: "123456",
             password_confirmation: "123456"
         }
@@ -17,6 +18,7 @@ RSpec.describe Transition, type: :model do
             name: 'Thiago Guerrero',
             email: 'guerrero@gmail.com',
             phone: '(11) 22222-2222',
+            nusp: '11275297',
             password: "123456",
             password_confirmation: "123456"
         }

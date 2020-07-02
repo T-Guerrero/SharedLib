@@ -7,6 +7,7 @@ RSpec.describe Borrowing, type: :model do
             name: 'Thiago Pena',
             email: 'tjbpena@gmail.com',
             phone: '(11) 97982-9433',
+            nusp: '6847829',
             password: "123456",
             password_confirmation: "123456"
         }

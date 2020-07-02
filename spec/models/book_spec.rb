@@ -7,6 +7,7 @@ RSpec.describe Book, type: :model do
             name: 'Thiago Pena',
             email: 'tjbpena@gmail.com',
             phone: '(11) 97982-9433',
+            nusp: '6847829',
             password: "123456",
             password_confirmation: "123456"
         }
@@ -180,7 +181,7 @@ RSpec.describe Book, type: :model do
         book = Book.create(valid_attributes_book)
         book.image.attach(io: File.open("#{assets_dir}/rspec_images/svgFormat.svg"), filename: "svgFormat.svg")
         book.valid?
-        expect(book.errors[:image]).to include("must be a JPEG, JPG or PNG.")
+        expect(book.errors[:image]).to include("must be a JPEG, JPG, PNG or WEBP.")
     end
 
     it "is valid if delete the dependent interests" do
