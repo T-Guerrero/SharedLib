@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-    default from: 'sharedlib@gmail.com'
+    default from: 'contactsharedlib@gmail.com'
  
     def welcome_email
         @user = params[:user]
