@@ -26,6 +26,8 @@ gem 'devise'
 gem 'whenever'
 # gem used to allow import react views into erb views
 gem 'react-rails'
+# gem used to send emails
+gem 'sendgrid-ruby'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
