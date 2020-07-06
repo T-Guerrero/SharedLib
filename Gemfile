@@ -28,6 +28,8 @@ gem 'whenever'
 gem 'react-rails'
 # gem used to send emails
 gem 'sendgrid-ruby'
+#gem used to allow active storage files to be storage in postgresql
+gem 'active_storage-postgresql'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
