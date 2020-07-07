@@ -13,7 +13,7 @@ class BooksController < ApplicationController
         if @book.save
             current_user.max_borrowings += 1
             current_user.save
-            # UserMailer.with(book: @book).new_book.deliver
+            UserMailer.with(book: @book).new_book.deliver
             redirect_to books_path
         else
             render 'new'
