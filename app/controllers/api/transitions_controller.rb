@@ -17,8 +17,6 @@ class Api::TransitionsController < ApplicationController
                     @transition.oldUser = @book.user
                     @transition.newUser = current_user
                     @transition.save
-                    # UserMailer.with(transition: @transition).newUser_transition_create.deliver
-                    # UserMailer.with(transition: @transition).oldUser_transition_create.deliver
                 end
             end
         end
@@ -43,6 +41,5 @@ private
             @book.borrowed = true
             @borrowing.save
             @book.save
-            # UserMailer.with(borrowing: @borrowing).borrowing_create.deliver
         end
     end

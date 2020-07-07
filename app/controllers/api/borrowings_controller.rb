@@ -6,8 +6,6 @@ class Api::BorrowingsController < ApplicationController
         elsif (params[:type] == "user")
             return_book
         end
-        # UserMailer.with(transition: @transition).newUser_transition_create.deliver
-        # UserMailer.with(transition: @transition).oldUser_transition_create.deliver
         @book.borrowed = false
         @book.save
     end
