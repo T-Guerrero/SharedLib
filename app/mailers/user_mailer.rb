@@ -7,10 +7,11 @@ class UserMailer < ApplicationMailer
         mail(to: @user.email, subject: 'Welcome to My Awesome Site')
     end
 
-    def new_book
+    def new_book(user)
         @book = params[:book]
         @maxBorrowings = @book.user.max_borrowings - (@book.user.interests.count + @book.user.borrowings.count +
         @book.user.myTransitions.count + @book.user.transitions.count)
+        @user = user
         mail(to: @book.user.email, subject: 'Livro cadastrado com sucesso!' )
     end
 
