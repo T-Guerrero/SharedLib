@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Menu, Container, Content, Columns, Heading } from 'react-bulma-components';
 import styled from 'styled-components';
-import { UserService } from '../../services/index';
 import './style.scss';
 
 const CustomDiv = styled.div`
@@ -52,17 +51,6 @@ const DividerDivStyle = {
 }
 
 const UserMenu = (props) => {
-    const [User, setUser] = useState([]);
-
-    async function fetchUser(){
-        const response = await UserService.index();
-        setUser(response.data['user']);
-    }
-
-    useEffect(() => {
-        fetchUser();
-    }, []);
-
     return (
         <Fragment>
             <CustomDiv>
@@ -72,9 +60,9 @@ const UserMenu = (props) => {
                             <Heading className="has-text-centered is-4">
                                 Perfil
                             </Heading>
-                            {User.photo_url ? <UserImage src={User.photo_url} className="image"/>:<UserWithoutImage id="userNoPhoto"/>}
+                            {props.user.photo_url ? <UserImage src={props.user.photo_url} className="image"/>:<UserWithoutImage id="userNoPhoto"/>}
                             <Heading className="has-text-centered is-4" style={{marginBottom: "0"}}>
-                                {User.name}
+                                {props.user.name}
                             </Heading>
                             <LogOut href="/users/sign_out">Sair</LogOut>
                         </Columns.Column>

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import NavBar from '../../components/navbar';
 import UserMenu from '../../components/userProfile_menu';
 import BookConfirmation from '../../components/book_confirmation';
-import { TransitionService } from '../../services/index';
+import { TransitionService, UserService } from '../../services/index';
 
 const CustomSection = styled(Section)`
     display: flex;
@@ -18,14 +18,21 @@ const CustomContainer = styled(Container)`
 
 const ConfirmationUser = () => {
     const [Transitions, setTransitions] = useState([]);
+    const [User, setUser] = useState([]);
 
     async function fetchTransitions(){
         const response = await TransitionService.index();
         setTransitions(response.data['transitions']);
     }
 
+    async function fetchUser(){
+        const response = await UserService.index();
+        setUser(response.data['user']);
+    }
+
     useEffect( () => {
         fetchTransitions();
+        fetchUser();
     }, []);
     
     const BooksComponents = Transitions.map((transition, key) => {
@@ -46,7 +53,7 @@ const ConfirmationUser = () => {
         <Fragment>
             <NavBar/>
             <CustomSection>
-                <UserMenu confirmations={true}/>
+                <UserMenu confirmations={true} user={User}/>
                 <CustomContainer>
                     <Heading className="has-text-centered is-4">Confirmar recebimento de livro</Heading>
                     {BooksComponents}

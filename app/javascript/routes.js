@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import ConfirmationUserScreen from './screens/User/ConfirmationScreen';
+import EditUserScreen from './screens/User/EditScreen';
 import BookScreen from './screens/BookScreen';
 import AllBooksScreen from './screens/AllBooksScreen';
 import SearchScreen from './screens/SearchScreen';
@@ -17,6 +18,7 @@ const Routes = () => (
     <Switch>
         <Route exact path='/' component={WelcomeScreen} />
         <Route exact path='/home' component={HomeScreen} />
+        <Route exact path='/users/edit' component={EditUserScreen} />
         <Route exact path='/users/confirmations' component={ConfirmationUserScreen} />
         <Route exact path='/books/:id' component={BookScreen} />
         <Route exact path='/users/books' component={MyBooksScreen} />
