@@ -13,8 +13,18 @@ class Api::InterestsController < ApplicationController
                     @interest = @book.interests.create()
                     @interest.user = current_user
                     @interest.save
+                    render json: {status:"success"}
+                else
+                    render json:
+                        {
+                        status: "error",
+                        message: "Você não pode pegar mais nenhum livro emprestado! Seu número máximo de 
+                        empréstimos/manifestação de interesses foram atingidos"
+                        }
                 end
             end
+        else
+            render json: {status: "error", message: "Ops. Algo deu errado"}
         end
     end
 

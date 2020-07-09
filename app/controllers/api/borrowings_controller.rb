@@ -28,6 +28,7 @@ private
         end
         @transition.save
         @borrowing.destroy
+        render json: {status: "success", message: "Transição criada com sucesso! Acesse a sua home para ver mais"}
     end
 
     def take_book_back
@@ -42,4 +43,5 @@ private
         @borrowing.destroy
         @book.available = false
         @book.user.max_borrowings -= 1
+        render json: {status: "success", message: "Livro requisitado de volta com sucesso! Acesse o seu perfil para ver mais"}
     end

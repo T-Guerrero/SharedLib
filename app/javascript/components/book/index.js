@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import Pluralize from 'pluralize';
 import { useHistory } from 'react-router-dom';
-import { Heading, Container, Section, Columns, Button } from 'react-bulma-components';
+import { Heading, Container, Section, Columns, Button, Notification } from 'react-bulma-components';
 import styled from 'styled-components';
 import Navbar from '../navbar';
 import UserModel from '../user_modal';
@@ -72,28 +72,34 @@ const OwnerNameStyle = {
 
 const Book = (props) => {
     const [Show, setShow] = useState(false);
+    const [ResponseData, setResponseData] = useState([]);
     let BookStatus;
     let Buttons, Title;
     let history = useHistory();
 
     async function manifestInterest(){
-        await InterestService.create(props.book.id)
-        window.location.reload();
+        const response = await InterestService.create(props.book.id);
+        setResponseData(response.data);
+        if (response.data.status == 'success')
+            window.location.reload();
     }
 
     async function destroyInterest(){
-        await InterestService.destroy(props.book.id, props.book.interestId)
+        await InterestService.destroy(props.book.id, props.book.interestId);
         window.location.reload();
     }
 
     async function createTransition(){
-        await TransitionService.create(props.book.id)
-        window.location.reload();
+        const response = await TransitionService.create(props.book.id);
+        setResponseData(response.data);
+        if (response.data.status == 'success')
+            setTimeout(() => window.location.reload(), 2000);
     }
 
     async function returnBook(){
-        await BorrowingService.destroyByUser(props.book.id, props.book.borrowing.id)
-        window.location.reload();
+        const response = await BorrowingService.destroyByUser(props.book.id, props.book.borrowing.id);
+        setResponseData(response.data);
+        setTimeout(() => window.location.reload(), 2000);
     }
 
     async function destroyBook(){
@@ -102,8 +108,9 @@ const Book = (props) => {
     }
 
     async function takeBookBack(){
-        await BorrowingService.destroyByOwner(props.book.id, props.book.borrowing.id)
-        window.location.reload();
+        const response = await BorrowingService.destroyByOwner(props.book.id, props.book.borrowing.id);
+        setResponseData(response.data);
+        setTimeout(() => window.location.reload(), 2000);
     }
 
     async function activeBook(){
@@ -207,6 +214,8 @@ const Book = (props) => {
             <Navbar />
             <CustomSection>
                 {Title}
+                {ResponseData.message &&
+                <Notification color={ResponseData.status == 'success'? "success":"danger"}>{ResponseData.message}</Notification>}
                 <Columns style={ColumnsStyle}>
                     <Columns.Column style={CenterColumnStyle}>
                             <BookImage src={props.book.image_url} alt="Book Image"/>

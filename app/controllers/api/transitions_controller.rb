@@ -17,8 +17,18 @@ class Api::TransitionsController < ApplicationController
                     @transition.oldUser = @book.user
                     @transition.newUser = current_user
                     @transition.save
+                    render json: {status: "success", message: "Transição criada com sucesso! Acesse o seu perfil para ver mais"}
+                else
+                    render json: 
+                        {
+                        status: "error", 
+                        message: "Você não pode pegar mais nenhum livro emprestado! Seu número máximo de 
+                        empréstimos/manifestação de interesses foram atingidos"
+                    }
                 end
             end
+        else
+            render json: {status: "error", message: "Ops. Algo deu errado"}
         end
     end
 
