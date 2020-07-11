@@ -3,7 +3,7 @@ import { Section } from 'react-bulma-components';
 import styled from 'styled-components';
 import NavBar from '../../components/navbar';
 import UserMenu from '../../components/userProfile_menu';
-import Form from '../../components/forms';
+import Form from '../../components/user_form';
 import { UserService } from '../../services/index';
 
 

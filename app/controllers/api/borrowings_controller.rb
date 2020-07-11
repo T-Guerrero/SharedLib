@@ -28,7 +28,7 @@ private
         end
         @transition.save
         @borrowing.destroy
-        render json: {status: "success", message: "Transição criada com sucesso! Acesse a sua home para ver mais"}
+        render json: {status: "success", message: "Transição criada com sucesso! Acesse a sua home page para ver mais"}
     end
 
     def take_book_back

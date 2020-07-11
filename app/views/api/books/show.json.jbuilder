@@ -6,6 +6,7 @@ json.book do
     json.edition @book.edition
     json.year @book.year
     json.category @book.category.name
+    json.category_id @book.category.id
     json.owner @book.user.name
     json.borrowed @book.borrowed
     json.available @book.available

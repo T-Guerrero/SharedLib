@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Books", type: :request do
+RSpec.describe "Api::Books", type: :request do
     context "post #create" do
         it "create the book in the database" do
             pending "add some examples to (or delete) #{__FILE__}"

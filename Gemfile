@@ -24,8 +24,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 # gem used to manage cron jobs in rails aplication
 gem 'whenever'
-# gem used to allow import react views into erb views
-gem 'react-rails'
 # gem used to send emails
 gem 'sendgrid-ruby'
 #gem used to allow active storage files to be storage in postgresql

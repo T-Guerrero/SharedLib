@@ -3,7 +3,6 @@ import Pluralize from 'pluralize';
 import { useHistory } from 'react-router-dom';
 import { Heading, Container, Section, Columns, Button, Notification } from 'react-bulma-components';
 import styled from 'styled-components';
-import Navbar from '../navbar';
 import UserModel from '../user_modal';
 import BookStatusTag from '../bookStatus_tag';
 import { DashboardService, InterestService, TransitionService, BookService, BorrowingService } from '../../services/index';
@@ -211,7 +210,6 @@ const Book = (props) => {
 
     return (
         <Fragment>
-            <Navbar />
             <CustomSection>
                 {Title}
                 {ResponseData.message &&

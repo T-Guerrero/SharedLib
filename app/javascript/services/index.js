@@ -27,6 +27,8 @@ const TransitionService = {
 const BookService = {
     index: () => Api.get(`/${apiSource}/books`),
     show: (id) => Api.get(`/${apiSource}/books/${id}`),
+    create: (book) => Api.post(`/${apiSource}/books`, book),
+    update: (book, bookId) => Api.patch(`/${apiSource}/books/${bookId}`, book),
     destroy: (id) => Api.delete(`/${apiSource}/books/${id}`)
 }
 

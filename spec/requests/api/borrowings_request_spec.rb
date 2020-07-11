@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Borrowings", type: :request do
+RSpec.describe "Api::Borrowings", type: :request do
     context "post #create" do
         it "create the borrowing in the data base if in a valid environment" do
             pending "add some examples to (or delete) #{__FILE__}"

@@ -9,11 +9,10 @@ Rails.application.routes.draw do
 		post '/users' => 'users/registrations#create'
 	end
 	
-	resources :books, except: [:index, :show, :destroy]
 	resources :categories, except: [:index, :show]
 
 	namespace :api , defaults: { format: :json } do
-		resources :books, only: [:index, :show, :destroy] do
+		resources :books, only: [:index, :show, :destroy, :create, :update] do
 			resources :borrowings, path: "borrowings/:type", :only => [:destroy]
 			resources :interests, :only => [:create, :destroy]
 		end

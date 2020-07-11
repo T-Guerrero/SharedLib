@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import BookInfo from '../components/book';
-import { BookService } from '../services/index'
+import NavBar from '../../components/navbar';
+import BookInfo from '../../components/book';
+import { BookService } from '../../services/index'
 
 const BookScreen = (props) => {
     const [Book, setBook] = useState([]);
@@ -26,6 +27,7 @@ const BookScreen = (props) => {
 
     return (
         <Fragment>
+            <NavBar />
             {Loaded && <BookInfo
             isMyBook={myBook}
             book={Book}

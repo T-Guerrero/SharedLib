@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Interests", type: :request do
+RSpec.describe "Api::Interests", type: :request do
     context "post #create" do
         it "create the interest in the database if in a valid environment" do
             pending "add some examples to (or delete) #{__FILE__}"
