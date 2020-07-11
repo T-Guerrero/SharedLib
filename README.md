@@ -14,7 +14,7 @@ A SharedLib é uma biblioteca virtual que não possui nenhum livro! Feito para o
 
 * Aumente o seu limite de livros que pode pegar emprestado cadastrando os seus livros no sistema
 
-* Pegue livros emprestados por 10 dias e renove automaticamente caso não exista lista de espera
+* Pegue um livro emprestado por 10 dias e renove automaticamente caso não exista lista de espera
 
 * Manifeste interesse e fique na lista de espera para pegar um livro emprestado
 
