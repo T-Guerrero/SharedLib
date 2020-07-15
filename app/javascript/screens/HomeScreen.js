@@ -6,6 +6,7 @@ import Book from '..//components/book_preview';
 import { DashboardService } from '../services/index';
 import addBookImg from '../../assets/images/adicione-um-livro.png';
 import borrowABookImg from '../../assets/images/pegue-um-livro-emprestado.png';
+import UserModel from '../components/user_modal';
 
 const notificationStyle = {
     display: "flex",
@@ -30,6 +31,10 @@ const HomeScreen = () => {
         transitions_to_deliver: {}
     });
 
+    const [newUser, setNewUser] = useState({});
+    const [Show, setShow] = useState(false);
+    const [Loaded, setLoaded] = useState(false);
+
     async function fetchBooks() {
         const response = await DashboardService.index();
         setCounter(response.data['counter']);
@@ -38,11 +43,18 @@ const HomeScreen = () => {
         setMyInterests(response.data['my_interests']);
         setMyTransitions(response.data['my_transitions']);
         setTransitionsToDeliver(response.data['transitions_to_deliver']);
+        setNewUser({});
+        setLoaded(true);
     }
 
     useEffect(() => {
         fetchBooks();
     }, []);
+
+    function handleTransitionClick(user) {
+        setNewUser(user);
+        setShow(true);
+    }
 
     const my_transitions_components = my_transitions.map((transition, key) =>
         <Columns.Column key={key} className="is-one-third-desktop is-four-fifths-mobile">
@@ -68,12 +80,14 @@ const HomeScreen = () => {
             image_url={transition.book.image_url}
             key={key}
             id={transition.book.id}/>
+            <p className="has-text-centered">Entregar para <strong style={{cursor: "pointer"}} onClick={(e) => handleTransitionClick(transition.newUser)}>{transition.newUser.name}</strong>
+            </p>
         </Columns.Column>
     );
 
     const my_books_components = my_books.map((book, key) =>
         <Columns.Column key={key} className="is-one-third-desktop is-four-fifths-mobile">
-            <Book 
+            <Book
             name={book.name}
             author={book.author}
             borrowed={book.borrowed}
@@ -87,7 +101,7 @@ const HomeScreen = () => {
 
     const my_borrowings_components = my_borrowings.map((borrowing, key) =>
         <Columns.Column key={key} className="is-one-third-desktop is-four-fifths-mobile">
-            <Book 
+            <Book
             name={borrowing.book.name}
             author={borrowing.book.author}
             borrowed={borrowing.book.borrowed}
@@ -116,57 +130,63 @@ const HomeScreen = () => {
     return(
         <Fragment>
             <NavBar />
-            <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
-                <Columns>
-                    <Columns.Column>
-                        <Heading className='has-text-black' size={4}>
-                        	Livros em transição para você entregar
-                        </Heading>
-                    </Columns.Column>
-                    <Columns.Column>
-                        <div style={{textAlign: "right"}}>
-                            <p>{`Mostrando ${counter.transitions_to_deliver.showing} de ${counter.transitions_to_deliver.showing}`}</p>
-                        </div>
-                    </Columns.Column>
-                </Columns>
-                <Columns className='is-mobile center2-mobile'>
-                    {transitions_to_deliver_components}
-        		</Columns>
-            </div>
-            <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
-                <Columns>
-                    <Columns.Column>
-                        <Heading className='has-text-black' size={4}>
-                        	Livros em transição para você receber
-                        </Heading>
-                    </Columns.Column>
-                    <Columns.Column>
-                        <div style={{textAlign: "right"}}>
-                            <p>{`Mostrando ${counter.my_transitions.showing} de ${counter.my_transitions.total}`}</p>
-                        </div>
-                    </Columns.Column>
-                </Columns>
-                <Columns className='is-mobile center2-mobile'>
-                    {my_transitions_components}
-        		</Columns>
-            </div>
-            <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
-                <Columns>
-                    <Columns.Column>
-                        <Heading className='has-text-black' size={4}>
-                        	Meus Livros
-                        </Heading>
-                    </Columns.Column>
-                    <Columns.Column>
-                        <div style={{textAlign: "right"}}>
-                            <p>{`Mostrando ${counter.books.showing} de ${counter.books.total}`}</p>
-                        </div>
-                    </Columns.Column>
-                </Columns>
-                <Columns className='is-mobile center2-mobile'>
-                    {my_books_components}
-        		</Columns>
-            </div>
+            {counter.transitions_to_deliver.total > 0 &&
+                <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
+                    <Columns>
+                        <Columns.Column>
+                            <Heading className='has-text-black' size={4}>
+                            	Livros em transição para você entregar
+                            </Heading>
+                        </Columns.Column>
+                        <Columns.Column>
+                            <div style={{textAlign: "right"}}>
+                                <p>{`Mostrando ${counter.transitions_to_deliver.showing} de ${counter.transitions_to_deliver.showing}`}</p>
+                            </div>
+                        </Columns.Column>
+                    </Columns>
+                    <Columns className='is-mobile center2-mobile'>
+                        {transitions_to_deliver_components}
+            		</Columns>
+                </div>
+            }
+            {counter.my_transitions.total > 0 &&
+                <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
+                    <Columns>
+                        <Columns.Column>
+                            <Heading className='has-text-black' size={4}>
+                            	Livros em transição para você receber
+                            </Heading>
+                        </Columns.Column>
+                        <Columns.Column>
+                            <div style={{textAlign: "right"}}>
+                                <p>{`Mostrando ${counter.my_transitions.showing} de ${counter.my_transitions.total}`}</p>
+                            </div>
+                        </Columns.Column>
+                    </Columns>
+                    <Columns className='is-mobile center2-mobile'>
+                        {my_transitions_components}
+            		</Columns>
+                </div>
+            }
+            {counter.books.total > 0 &&
+                <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
+                    <Columns>
+                        <Columns.Column>
+                            <Heading className='has-text-black' size={4}>
+                            	Meus Livros
+                            </Heading>
+                        </Columns.Column>
+                        <Columns.Column>
+                            <div style={{textAlign: "right"}}>
+                                <p>{`Mostrando ${counter.books.showing} de ${counter.books.total}`}</p>
+                            </div>
+                        </Columns.Column>
+                    </Columns>
+                    <Columns className='is-mobile center2-mobile'>
+                        {my_books_components}
+            		</Columns>
+                </div>
+            }
             <Section>
                 <Container>
                     <Columns className="center">
@@ -205,41 +225,47 @@ const HomeScreen = () => {
                     </Columns>
                 </Container>
             </Section>
-            <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
-                <Columns>
-                    <Columns.Column>
-                        <Heading className='has-text-black' size={4}>
-                	       Meus Empréstimos
-                        </Heading>
-                    </Columns.Column>
-                    <Columns.Column>
-                        <div style={{textAlign: "right"}}>
-                            <p>{`Mostrando ${counter.my_borrowings.showing} de ${counter.my_borrowings.showing}`}</p>
-                        </div>
-                    </Columns.Column>
-                </Columns>
-                <Columns className='is-mobile'>
-                    {my_borrowings_components}
-        		</Columns>
-            </div>
-            <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
-                <Columns>
-                    <Columns.Column>
-                        <Heading className='has-text-black' size={4}>
-                	       Meus Interesses
-                        </Heading>
-                    </Columns.Column>
-                    <Columns.Column>
-                        <div style={{textAlign: "right"}}>
-                            <p>{`Mostrando ${counter.interests.showing} de ${counter.interests.total}`}</p>
-                        </div>
-                    </Columns.Column>
-                </Columns>
-                <Columns className='is-mobile center2-mobile'>
-                    {my_interests_components}
-        		</Columns>
-            </div>
+            {counter.my_borrowings.showing > 0 &&
+                <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
+                    <Columns>
+                        <Columns.Column>
+                            <Heading className='has-text-black' size={4}>
+                    	       Meus Empréstimos
+                            </Heading>
+                        </Columns.Column>
+                        <Columns.Column>
+                            <div style={{textAlign: "right"}}>
+                                <p>{`Mostrando ${counter.my_borrowings.showing} de ${counter.my_borrowings.showing}`}</p>
+                            </div>
+                        </Columns.Column>
+                    </Columns>
+                    <Columns className='is-mobile'>
+                        {my_borrowings_components}
+            		</Columns>
+                </div>
+            }
+            {counter.interests.total > 0 &&
+                <div style={{marginTop: 40, paddingLeft: 40, paddingRight: 40}}>
+                    <Columns>
+                        <Columns.Column>
+                            <Heading className='has-text-black' size={4}>
+                    	       Meus Interesses
+                            </Heading>
+                        </Columns.Column>
+                        <Columns.Column>
+                            <div style={{textAlign: "right"}}>
+                                <p>{`Mostrando ${counter.interests.showing} de ${counter.interests.total}`}</p>
+                            </div>
+                        </Columns.Column>
+                    </Columns>
+                    <Columns className='is-mobile center2-mobile'>
+                        {my_interests_components}
+            		</Columns>
+                </div>
+            }
+            {Loaded &&  <UserModel id={newUser.id} show={Show} setShow={setShow} />}
         </Fragment>
     );
 }
+
 export default HomeScreen;

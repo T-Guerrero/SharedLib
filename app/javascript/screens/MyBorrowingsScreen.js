@@ -19,11 +19,16 @@ const MyBorrowingsScreen = () => {
         fetchBorrowings();
     }, []);
 
+    function formatDate(s) {
+        let d = new Date(s);
+        return `${d.getDate()}/${1 + d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`;
+    }
+
     const my_borrowings_components = borrowings.map((borrowing, key) =>
-        <Columns.Column key={key} className="is-one-third-desktop is-four-fifths-mobile">
-            <Book name={borrowing.book.name} author={borrowing.book.author} borrowed={borrowing.book.borrowed} available={borrowing.book.available} image_url={borrowing.book.image_url} key={key} id={borrowing.book.id}/>
-            <p>{`Prazo limite ${borrowing.deadline}`}</p>
-        </Columns.Column>
+            <Columns.Column key={key} className="is-one-third-desktop is-four-fifths-mobile">
+                <Book name={borrowing.book.name} author={borrowing.book.author} borrowed={borrowing.book.borrowed} available={borrowing.book.available} image_url={borrowing.book.image_url} key={key} id={borrowing.book.id}/>
+                <p className="has-text-centered">{`Prazo limite ${formatDate(borrowing.deadline)}`}</p>
+            </Columns.Column>
     );
 
     return(

@@ -69,6 +69,11 @@ const UserModal = (props) => {
         fetchUser();
     }, []);
 
+    if (User.id != props.id) {
+        fetchUser();
+    }
+
+
     return (
         <Fragment>
             <Modal show={props.show} onClose={() => props.setShow(false)} closeOnBlur={true}>
@@ -83,15 +88,15 @@ const UserModal = (props) => {
                             {User.photo_url ? <UserImage src={User.photo_url} className="image"/>:<UserWithoutImage id="userNoPhoto"/>}
                             <Container style={{marginLeft: "30px"}}>
                                 <UserInfo>
-                                    <h6 style={{fontWeight: "bold"}}>Nome:</h6> 
+                                    <h6 style={{fontWeight: "bold"}}>Nome:</h6>
                                     <h6 style={{marginLeft: "0.5vw"}}>{User.name}</h6>
                                 </UserInfo>
                                 <UserInfo>
-                                    <h6 style={{fontWeight: "bold"}}>Email:</h6> 
+                                    <h6 style={{fontWeight: "bold"}}>Email:</h6>
                                     <h6 style={{marginLeft: "0.5vw"}}>{User.email}</h6>
                                 </UserInfo>
                                 <UserInfo>
-                                    <h6 style={{fontWeight: "bold"}}>Celular:</h6> 
+                                    <h6 style={{fontWeight: "bold"}}>Celular:</h6>
                                     <h6 style={{marginLeft: "0.5vw"}}>{User.phone}</h6>
                                 </UserInfo>
                             </Container>
