@@ -51,6 +51,11 @@ const BookConfirmation = (props) => {
         window.location.reload();
     }
 
+    function formatDate(s) {
+        let d = new Date(s);
+        return `${d.getDate()}/${1 + d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`;
+    }
+
     return(
         <Fragment>
             <CustomContainer>
@@ -88,7 +93,7 @@ const BookConfirmation = (props) => {
                         </BookInfo>
                         <BookInfo>
                             <h6 style={{fontWeight: "bold"}}>Tempo restante para conclusão do transporte:</h6> 
-                            <h6 style={{marginLeft: "0.5vw"}}>{props.deadline}</h6>
+                            <h6 style={{marginLeft: "0.5vw"}}>{formatDate(props.deadline)}</h6>
                         </BookInfo>
                         <Button 
                         className="is-success is-medium is-rounded is-fullwidth is-outlined"

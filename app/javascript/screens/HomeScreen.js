@@ -17,6 +17,11 @@ const notificationStyle = {
     padding: "1.25rem 1.5rem 1.25rem 1.5rem"
 }
 
+const TransitionNameStyle = {
+    cursor: "pointer",
+    color: "#536DFE"
+}
+
 const HomeScreen = () => {
     const [my_books, setMyBooks] = useState([]);
     const [my_borrowings, setMyBorrowings] = useState([]);
@@ -31,7 +36,7 @@ const HomeScreen = () => {
         transitions_to_deliver: {}
     });
 
-    const [newUser, setNewUser] = useState({});
+    const [currentUser, setcurrentUser] = useState({});
     const [Show, setShow] = useState(false);
     const [Loaded, setLoaded] = useState(false);
 
@@ -43,7 +48,6 @@ const HomeScreen = () => {
         setMyInterests(response.data['my_interests']);
         setMyTransitions(response.data['my_transitions']);
         setTransitionsToDeliver(response.data['transitions_to_deliver']);
-        setNewUser({});
         setLoaded(true);
     }
 
@@ -52,8 +56,13 @@ const HomeScreen = () => {
     }, []);
 
     function handleTransitionClick(user) {
-        setNewUser(user);
+        setcurrentUser(user);
         setShow(true);
+    }
+
+    function formatDate(s) {
+        let d = new Date(s);
+        return `${d.getDate()}/${1 + d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`;
     }
 
     const my_transitions_components = my_transitions.map((transition, key) =>
@@ -63,7 +72,7 @@ const HomeScreen = () => {
             author={transition.book.author}
             borrowed={transition.book.borrowed}
             available={transition.book.available}
-            inTransition={transition.book.available}
+            inTransition={true}
             image_url={transition.book.image_url}
             key={key}
             id={transition.book.id}/>
@@ -76,12 +85,13 @@ const HomeScreen = () => {
             author={transition.book.author}
             borrowed={transition.book.borrowed}
             available={transition.book.available}
-            inTransition={transition.book.inTransition}
+            inTransition={true}
             image_url={transition.book.image_url}
             key={key}
             id={transition.book.id}/>
-            <p className="has-text-centered">Entregar para <strong style={{cursor: "pointer"}} onClick={(e) => handleTransitionClick(transition.newUser)}>{transition.newUser.name}</strong>
-            </p>
+            <p className="has-text-centered">Entregar para <strong style={TransitionNameStyle} onClick={() => handleTransitionClick(transition.newUser)}>{transition.newUser.name}</strong>
+            </p><br/>
+            <p className="has-text-centered">Prazo: {formatDate(transition.deadline)}</p>
         </Columns.Column>
     );
 
@@ -263,7 +273,7 @@ const HomeScreen = () => {
             		</Columns>
                 </div>
             }
-            {Loaded &&  <UserModel id={newUser.id} show={Show} setShow={setShow} />}
+            {Loaded && <UserModel id={currentUser.id} show={Show} setShow={setShow} />}
         </Fragment>
     );
 }

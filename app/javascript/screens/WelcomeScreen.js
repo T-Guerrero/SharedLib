@@ -52,8 +52,8 @@ const WelcomeScreen = () => {
                         <Container  style={{textAlign: "center"}}>
                             <Heading className="subtitle is-5">
                                 A SharedLib é uma biblioteca virtual que não possui nenhum livro! Feito para os estudantes da
-                                Universidade de São Paulo do campus da capital, ela usa os livros dos próprios usuários e cria
-                                uma rede onde os usuários podem emprestar livros entre si!
+                                Universidade de São Paulo do campus da capital, ela usa os livros físicos dos próprios usuários
+                                 e cria uma rede onde os usuários podem emprestar livros entre si!
                             </Heading>
                         </Container>
                     </Columns.Column>

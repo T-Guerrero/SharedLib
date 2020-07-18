@@ -122,6 +122,11 @@ const Book = (props) => {
         window.location.reload();
     }
 
+    function formatDate(s) {
+        let d = new Date(s);
+        return `${d.getDate()}/${1 + d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`;
+    }
+
     //Botões
     if (props.isMyBook){
         let statusButton
@@ -199,7 +204,7 @@ const Book = (props) => {
         BookStatus = <p>Indisponível</p>
     }
     else if (props.book.borrowed){
-        BookStatus = <p>Emprestado para {props.book.borrowing.userName} (Prazo: {props.book.borrowing.deadline})</p>
+        BookStatus = <p>Emprestado para {props.book.borrowing.userName} (Prazo: {formatDate(props.book.borrowing.deadline)})</p>
     }
     else if(props.book.inTransition){
         BookStatus = <p>Em transição</p>

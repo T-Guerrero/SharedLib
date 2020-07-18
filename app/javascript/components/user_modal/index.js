@@ -67,12 +67,7 @@ const UserModal = (props) => {
 
     useEffect(() => {
         fetchUser();
-    }, []);
-
-    if (User.id != props.id) {
-        fetchUser();
-    }
-
+    }, [props.id]);
 
     return (
         <Fragment>

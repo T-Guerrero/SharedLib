@@ -41,6 +41,7 @@ json.my_transitions @my_transitions.each do |transition|
         json.borrowed transition.book.borrowed
         json.category_name transition.book.category.name
         json.available transition.book.available
+        json.deadline transition.deadline
         json.borrowed transition.book.borrowed
         !transition.nil?
         json.image_url url_for(transition.book.image)
@@ -63,8 +64,8 @@ json.transitions_to_deliver @transitions_to_deliver.each do |transition|
         json.borrowed transition.book.borrowed
         json.category_name transition.book.category.name
         json.available transition.book.available
+        json.deadline transition.deadline
         json.borrowed transition.book.borrowed
-        json.inTrasition !transition.nil?
         json.image_url url_for(transition.book.image)
     end
     json.newUser do
